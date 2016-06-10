@@ -1,4 +1,4 @@
-angular.module('giphastrator', ['ui.router', 'firebase'])
+angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
 .constant('fb', {
   url: 'http://www.google.com'
 })
@@ -11,7 +11,7 @@ angular.module('giphastrator', ['ui.router', 'firebase'])
 })
 
 
-// 
+//
 // $scope.$watch('write', function(write) {
 //   if (write) {
 //   var words = write.split('');

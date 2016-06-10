@@ -2,9 +2,6 @@ angular.module('giphastrator')
 .service('writeService', function($http) {
 var baseUrl = "http://api.giphy.com/v1/gifs/translate?s=";
 
-var searchTerm = "superman";
-var userRating = "g";
-
 this.getGif = function(searchTerm, userRating) {
   return $http({
     method: 'GET',
@@ -13,6 +10,24 @@ this.getGif = function(searchTerm, userRating) {
 }
 
 
+
+//***********************************************************************************************************************
+
+
+// this.searchWritingForGif = function(userInput, userSymbol) {
+//   var userSymbol = "/";
+//     if (userInput) {
+//     var words = userInput.split(' ');
+//     for (var i = 0; i < words.length; i++) {
+//       if (words[i][0] === userSymbol && words[i][words[i].length - 1] === "/") {
+//         //Finds the word in userInput word from the array and cuts off the symbols from both sides
+//         userInput = words[i].slice(1, -1);
+//         console.log(userInput);
+//         return userInput;
+//       }
+//     }
+//   }
+// };
 
 
 // this.find = function() {
