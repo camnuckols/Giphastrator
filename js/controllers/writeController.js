@@ -1,7 +1,7 @@
 angular.module('giphastrator')
 .controller('writeController', function($scope, writeService) {
 
-var wordsLength = 1;
+var wordsLength = 2;
 $scope.$watch('userInput', function(userInput, userSymbol) {
     var userSymbol = "/";
       if (userInput) {
@@ -14,14 +14,16 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
         //  We are going to loop through the words array to find the GIF's. We are only grabbing odd values (with this feature
         //  the user will have to have input between GIF's because it will only grab every other GIF)
         if (words.length > wordsLength) {
-            console.log('swim');
+          alert('hi');
+          console.log(words.length);
+          var input = words[words.length - 2];
+          console.log(input);
 
-            
-            console.log($scope.userInput);
-            writeService.getGif(userInput, 'g').then(function(response) {
-              console.log(userInput);
+            writeService.getGif(input, 'g').then(function(response) {
+              console.log(input);
               $scope.gif = response.data.data.images.downsized.url;
-              $scope.words = words.join(' ');
+              $scope.words += words.join(' ') + '<img class = "gif" src = "' + response.data.data.images.downsized.url + '">';
+              words = words.slice(2, 4);
             });
           wordsLength += 2;
         }

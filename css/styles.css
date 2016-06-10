@@ -32,7 +32,10 @@ footer > img {
   height: 30px;
 }
 .gif {
-  height: 150px;
+  height: 125px;
+  position: relative;
+  top: -20px;
+  right: 70px;
 }
 .user-input {
   height: 400px !important;
