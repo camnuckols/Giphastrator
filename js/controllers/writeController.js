@@ -6,24 +6,23 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
     var userSymbol = "/";
       if (userInput) {
 
-        console.log(userInput.split(userSymbol));
         var words = userInput.split(userSymbol);
 
-        console.log(words[1]);
 
         //  We are going to loop through the words array to find the GIF's. We are only grabbing odd values (with this feature
         //  the user will have to have input between GIF's because it will only grab every other GIF)
         if (words.length > wordsLength) {
-          alert('hi');
-          console.log(words.length);
           var input = words[words.length - 2];
-          console.log(input);
+
 
             writeService.getGif(input, 'g').then(function(response) {
-              console.log(input);
               $scope.gif = response.data.data.images.downsized.url;
+              console.log(words);
+
+              words = words.slice(words.length -3, words.length -1);
+
+              console.log(words);
               $scope.words += words.join(' ') + '<img class = "gif" src = "' + response.data.data.images.downsized.url + '">';
-              words = words.slice(2, 4);
             });
           wordsLength += 2;
         }
