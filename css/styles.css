@@ -55,3 +55,6 @@ textarea:focus {
 .right {
   margin-right: 6%;
 }
+.chip {
+  margin: 2px;
+}

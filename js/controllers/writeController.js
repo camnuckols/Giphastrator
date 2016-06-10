@@ -2,6 +2,7 @@ angular.module('giphastrator')
 .controller('writeController', function($scope, writeService) {
 
 var wordsLength = 2;
+$scope.tag = [];
 $scope.$watch('userInput', function(userInput, userSymbol) {
     var userSymbol = "/";
       if (userInput) {
@@ -13,7 +14,7 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
         //  the user will have to have input between GIF's because it will only grab every other GIF)
         if (words.length > wordsLength) {
           var input = words[words.length - 2];
-
+          $scope.tag.push(input);
 
             writeService.getGif(input, 'g').then(function(response) {
               $scope.gif = response.data.data.images.downsized.url;
