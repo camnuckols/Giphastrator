@@ -14,6 +14,7 @@ this.getGif = function(searchTerm, userRating) {
 
 
 
+
 // this.find = function() {
 //   var first;
 //   var second;

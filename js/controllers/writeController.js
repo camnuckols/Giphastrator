@@ -10,7 +10,7 @@ $scope.getGif = function(write, userRating) {
 
 $scope.$watch('write', function(write) {
   if (write) {
-  var words = write.split(' ');
+  var words = write.split('');
     for (var i = 0; i < words.length; i++) {
       if (words[i] === "<") {
 
