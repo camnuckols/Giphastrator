@@ -58,3 +58,9 @@ textarea:focus {
 .chip {
   margin: 2px;
 }
+.space-row {
+  height: 50px;
+}
+#find-out-more-button {
+  margin-top: 2%;
+}
