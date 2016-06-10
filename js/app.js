@@ -3,9 +3,10 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
   url: 'http://www.google.com'
 })
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/register');
-  $stateProvider.state('/', {
-    url: '/'
+  $urlRouterProvider.otherwise('/home');
+  $stateProvider.state('/home', {
+    url: '/home',
+    templateUrl: './views/home.html'
   })
   .state('register', {
     url: '/register',
