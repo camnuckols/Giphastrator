@@ -1,7 +1,7 @@
 #main-logo {
   width: 200px;
   margin-top: .5%;
-  margin-left: 6%;
+  margin-left: 8%;
 }
 .navbar {
   display: flex;
@@ -21,8 +21,8 @@ footer {
   width: 100%;
   color: white;
   height: 5%;
-  padding-left: 6%;
-  padding-right: 6%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 footer > img {
   height: auto;
@@ -53,7 +53,7 @@ textarea:focus {
   box-shadow:0 0 10px #00ccd2;
 }
 .right {
-  margin-right: 6%;
+  margin-right: 8%;
 }
 .chip {
   margin: 2px;

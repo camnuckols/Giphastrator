@@ -1,6 +1,5 @@
 <div class = "container">
   <div class = "row">
-    <h5>Write below:</h5>
       <div class="chip black white-text" ng-repeat = "tags in tag">
         {{tags}}
         <i class="material-icons">close</i>
@@ -10,13 +9,27 @@
 
 
 
-<div class = "box-holder row">
+<!-- <div class = "box-holder row">
   <textarea type="text" ng-model = "userInput" class = "col s10 offset-s1 input z-depth-1"></textarea>
-</div>
+</div> -->
 <!-- <input type="text" ng-model = "userRating"> -->
 
 <!-- {{words}}
 <img class = "gif" ng-src = "{{gif}}"/> -->
+
+
+<div class="row">
+<form class="col s11 offset-s1">
+  <div class="row">
+    <div class="input-field col s11">
+      <i class="material-icons prefix">mode_edit</i>
+      <textarea id="icon_prefix2" class="materialize-textarea" ng-model = "userInput"></textarea>
+      <label for="icon_prefix2">Write Here:</label>
+    </div>
+  </div>
+</form>
+</div>
+
 
 <div class = "row">
   <div class = "words col s10 offset-s1" ng-bind-html="words"></div>
