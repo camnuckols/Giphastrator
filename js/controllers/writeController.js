@@ -35,16 +35,6 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
           $('#textOnMainPage').css("font-size", textSize + "px");
         }
 
-//TO FIX - IT'S A FEATURE THAT ALLOWS USERS TO CHANGE THE SIZE OF THEIR GIF'S
-        // This sets the GIF size that the user will see. The default is 125px if the user doesn't change it.
-        // var gifSize;
-        // if ($scope.gifSize) {
-        //   gifSize = $scope.gifSize;
-        //   $('.gif').css("height", gifSize + "px");
-        // } else {
-        //   $('.gif').css("height", 125 + "px");
-        // }
-
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
 
@@ -55,6 +45,8 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
         if (words.length > wordsLength) {
           var input = words[words.length - 2];
+
+          //I create the tag here that goes out on the screen for the user to delete the GIF's if they please.
           $scope.tag.push(input);
 
             writeService.getGif(input, rating).then(function(response) {
@@ -91,6 +83,16 @@ $scope.deleteGif = function(gifName) {
   }
 }
 });
+
+//TO FIX - IT'S A FEATURE THAT ALLOWS USERS TO CHANGE THE SIZE OF THEIR GIF'S
+        // This sets the GIF size that the user will see. The default is 125px if the user doesn't change it.
+        // var gifSize;
+        // if ($scope.gifSize) {
+        //   gifSize = $scope.gifSize;
+        //   $('.gif').css("height", gifSize + "px");
+        // } else {
+        //   $('.gif').css("height", 125 + "px");
+        // }
 //***********************************************************************************************************************
 
 

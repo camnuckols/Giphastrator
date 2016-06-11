@@ -38,6 +38,7 @@ footer > img {
   top: 45px;
   margin-left: 1%;
   margin-right: 1%;
+  max-width: 100%;
 }
 .input {
   width: 40%;
@@ -46,6 +47,8 @@ footer > img {
 }
 .words {
   font-size: 24px;
+  margin-bottom: 150px;
+  display: inline-block;
 }
 textarea:focus {
   border: none;
@@ -61,6 +64,9 @@ textarea:focus {
 .space-row {
   height: 50px;
 }
-#find-out-more-button {
+#learn-more-button {
   margin-top: 2%;
+}
+body {
+  overflow: auto;
 }
