@@ -3,15 +3,26 @@ angular.module('giphastrator')
 
 var wordsLength = 2;
 $scope.tag = [];
+
 $scope.$watch('userInput', function(userInput, userSymbol) {
-    var userSymbol = "/";
       if (userInput) {
+
+        //Here I am setting the user symbol that they can use to create GIF's. By default it will be a dash /.
+
+        if ($scope.id) {
+          userSymbol = $scope.id;
+        } else {
+          userSymbol = '/';
+        }
+
+        //I am splitting apart the words that the user types by whatever the user symbol is.
+        //This will separate them into an array.
 
         var words = userInput.split(userSymbol);
 
-
         //  We are going to loop through the words array to find the GIF's. We are only grabbing odd values (with this feature
-        //  the user will have to have input between GIF's because it will only grab every other GIF)
+        //  the user will have to have input between GIF's because it will only grab every other GIF).
+
         if (words.length > wordsLength) {
           var input = words[words.length - 2];
           $scope.tag.push(input);
