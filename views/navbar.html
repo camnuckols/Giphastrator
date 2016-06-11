@@ -1,9 +1,10 @@
 <nav>
     <div class = "header-color-bar"></div>
     <div class="nav-wrapper white">
-      <a href="#" class="brand-logo"><a ui-sref= "/home"><img id = "main-logo" class = "col s4 " src = "./img/giphastrator-logo.png" /></a></a>
+      <a href="#" class="brand-logo"><a ui-sref= "home"><img id = "main-logo" class = "col s4 " src = "./img/giphastrator-logo.png" /></a></a>
       <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
-        <li><a class = "black-text" ui-sref="login">Login</a></li>
+        <li><a id = "logout" class = "red-text ng-hide" ng-click = "logOut()" ui-sref= "home">Log Out</a></li>
+        <li><a id = "login" class = "black-text" ui-sref="login">Login</a></li>
         <li><a class = "black-text" ui-sref="register">Register</a></li>
         <!-- <li><a class = "black-text" ui-sref="collapsible.html">Practice</a></li> -->
       </ul>

@@ -4,7 +4,7 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
 })
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
-  $stateProvider.state('/home', {
+  $stateProvider.state('home', {
     url: '/home',
     templateUrl: './views/home.html'
   })
