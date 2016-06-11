@@ -1,10 +1,21 @@
 <!-- This is the dropdown menu that the user can use to choose the symbol
 that they want to use to create custom GIF's in their writing. -->
 
+<div class="space-row"></div>
+
 <div class="container">
     <div class="row">
+        <div class="col s4">
+            <h5>How It Works:</h5>
+            <p>
+                Write your story. As you type, you can insert a custom GIF into your work by typing a symbol (a slash / by default) after and before the word or words. It's like magic! <i class="tiny material-icons">flash_on</i>
+            </p>
+        </div>
 
-        <div class="col s2">
+        <div class="space-row"></div>
+
+
+        <div class="col s2 offset-s1">
             <label>GIF symbol</label>
             <select class="browser-default" ng-model="id">
 
@@ -47,7 +58,7 @@ that they want to use to create custom GIF's in their writing. -->
             </select>
         </div>
 
-<!-- This is the rating system dropdown menu for user's to
+        <!-- This is the rating system dropdown menu for user's to
 choose which rating of GIF's they want to use-->
 
         <div class="col s2">
@@ -64,8 +75,8 @@ choose which rating of GIF's they want to use-->
         </div>
 
 
-<!--TO FIX IN THE FUTURE. ALLOWS USERS TO CHANGE SIZE OF GIF-->
-<!--This is where the user can change the size of the text that will
+        <!--TO FIX IN THE FUTURE. ALLOWS USERS TO CHANGE SIZE OF GIF-->
+        <!--This is where the user can change the size of the text that will
   be displayed when they type.-->
 
         <!-- <div class="col s2">
@@ -90,7 +101,7 @@ choose which rating of GIF's they want to use-->
             </select>
         </div> -->
 
-<!--This is where the user can change the size of the text that will
+        <!--This is where the user can change the size of the text that will
  be displayed when they type.-->
 
         <div class="col s2">
@@ -135,9 +146,10 @@ choose which rating of GIF's they want to use-->
             </select>
         </div>
 
-<!--TO DO: I want to make it so that you can change your font as you want-->
-<!-- This is the dropdown option for changing the font family. -->
-<!--
+
+        <!--TO DO: I want to make it so that you can change your font as you want-->
+        <!-- This is the dropdown option for changing the font family. -->
+        <!--
     <div class="col s2">
         <label>Font Family</label>
         <select class="browser-default" ng-model="rating">
@@ -150,7 +162,7 @@ choose which rating of GIF's they want to use-->
             <option value="r">R</option>
         </select>
     </div>-->
-  </div>
+    </div>
 </div>
 
 <!-- This creates the chips for each GIF that is added
@@ -158,9 +170,8 @@ to the page when the user is writing. -->
 
 <div class="container">
     <div class="row">
-        <h5>Custom GIF's</h5>
-        <div class="chip" ng-repeat="tags in tag"
-        ng-class= "{
+        <!-- <h5>Custom GIF's</h5> -->
+        <div class="chip" ng-repeat="tags in tag" ng-class="{
           'purple lighten-3 white-text': $index === 0,
           'blue darken-1 white-text': $index === 1,
           'amber lighten-1 white-text': $index === 2,
@@ -200,5 +211,5 @@ to the page when the user is writing. -->
 <!-- Where I bind what the user writes to the page-->
 
 <div class="row">
-    <div class="words col s10 offset-s1" id = "textOnMainPage" ng-bind-html="words"></div>
+    <div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="words"></div>
 </div>

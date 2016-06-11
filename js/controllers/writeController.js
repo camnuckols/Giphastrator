@@ -78,7 +78,7 @@ $scope.deleteGif = function(gifName) {
  } catch (err) {
    if (Error.name === "TypeError" || Error.name === "ReferenceError" || Error.name === "Error") {
      // Materialize.toast(message, displayLength, className, completeCallback);
-     Materialize.toast("You can't delete a GIF unless you have more than one GIF", 3000); // 4000 is the duration of the toast
+     Materialize.toast("You can't delete a GIF unless you have more than one GIF", 3000); //3000 is the duration of the toast
    }
  }
   }
