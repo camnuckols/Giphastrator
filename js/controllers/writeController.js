@@ -24,6 +24,17 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
           rating = 'pg';
         }
 
+        // This sets the text size of the text that the user will see. The default is 24px if the user doesn't change it.
+
+        var textSize;
+        if ($scope.textSize) {
+          textSize = $scope.textSize;
+          $('#textOnMainPage').css("font-size", textSize + "px");
+        } else {
+          textSize = 24;
+          $('#textOnMainPage').css("font-size", textSize + "px");
+        }
+
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
 
@@ -38,19 +49,38 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
             writeService.getGif(input, rating).then(function(response) {
               $scope.gif = response.data.data.images.downsized.url;
-              console.log(words);
 
               words = words.slice(words.length -3, words.length -1);
 
-              console.log(words);
               $scope.words += words.join(' ') + '<img class = "gif" src = "' + response.data.data.images.downsized.url + '">';
+
+              //This check solves the problem that I was having with the undefined value.
+              //It clears it from the front of the array. I'm not 100% sure what is causing
+              //it to be undefined in the first place.
+
+              if ($scope.words[0] === 'u' && $scope.words[1] === 'n') {
+              $scope.words = $scope.words.split('undefined').slice(1);
+              }
             });
           wordsLength += 2;
         }
      }
   })
-});
 
+
+$scope.deleteGif = function(gifName) {
+  console.log(gifName);
+  var gif;
+  console.log($scope.words.split('<').splice());
+   gif = $scope.words.split('<');
+   console.log(gif);
+  for (var i = 0; i < $scope.words.length; i++) {
+    if ($scope.words[i] === gifName) {
+      console.log($scope.words);
+    }
+  }
+}
+});
 //***********************************************************************************************************************
 
 

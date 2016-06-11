@@ -5,7 +5,7 @@ that they want to use to create custom GIF's in their writing. -->
     <div class="row">
 
         <div class="col s2">
-            <label>Select GIF symbol</label>
+            <label>GIF symbol</label>
             <select class="browser-default" ng-model="id">
 
                 <option value="" disabled selected style="display: none;">/</option>
@@ -51,7 +51,7 @@ that they want to use to create custom GIF's in their writing. -->
 choose which rating of GIF's they want to use-->
 
         <div class="col s2">
-            <label>Choose GIF Rating</label>
+            <label>GIF Rating</label>
             <select class="browser-default" ng-model="rating">
 
                 <option value="" disabled selected style="display: none;">PG</option>
@@ -60,6 +60,51 @@ choose which rating of GIF's they want to use-->
                 <option value="pg">PG</option>
                 <option value="pg-13">PG-13</option>
                 <option value="r">R</option>
+            </select>
+        </div>
+
+<!--This is where the user can change the size of the text that will
+ be displayed when they type.-->
+
+        <div class="col s2">
+            <label>Text Size</label>
+            <select class="browser-default" ng-model="textSize">
+
+                <option value="" disabled selected style="display: none;">24</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="22">22</option>
+                <option value="24">24</option>
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="42">42</option>
+                <option value="44">44</option>
+                <option value="48">48</option>
+                <option value="50">50</option>
+                <option value="54">54</option>
+                <option value="58">58</option>
+                <option value="60">60</option>
+                <option value="62">62</option>
+                <option value="66">66</option>
+                <option value="68">68</option>
+                <option value="82">82</option>
+                <option value="94">94</option>
+                <option value="106">106</option>
+                <option value="128">128</option>
+                <option value="150">150</option>
+                <option value="206">206</option>
             </select>
         </div>
     </div>
@@ -73,7 +118,7 @@ to the page when the user is writing. -->
         <h5>Custom GIF's</h5>
         <div class="chip black white-text" ng-repeat="tags in tag">
             {{tags}}
-            <i class="material-icons">close</i>
+            <i class="material-icons" ng-click="deleteGif(tags)">close</i>
         </div>
     </div>
 </div>
@@ -95,5 +140,5 @@ to the page when the user is writing. -->
 <!-- Where I bind what the user writes to the page-->
 
 <div class="row">
-    <div class="words col s10 offset-s1" ng-bind-html="words"></div>
+    <div class="words col s10 offset-s1" id = "textOnMainPage" ng-bind-html="words"></div>
 </div>
