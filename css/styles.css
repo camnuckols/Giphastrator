@@ -64,9 +64,21 @@ textarea:focus {
 .space-row {
   height: 50px;
 }
+.small-space-row {
+  height: 25px;
+}
 #learn-more-button {
   margin-top: 2%;
 }
 body {
   overflow: auto;
+}
+#textOnMainPage {
+  margin-top: -5%;
+}
+.card {
+  margin: 3%;
+  margin-right: 8%;
+  width: 100%;
+  display: inline-block;
 }
