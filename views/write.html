@@ -1,3 +1,6 @@
+<!-- This is the dropdown menu that the user can use to choose the symbol
+that they want to use to create custom GIF's in their writing. -->
+
 <div class="container">
     <div class="row">
 
@@ -44,6 +47,9 @@
             </select>
         </div>
 
+<!-- This is the rating system dropdown menu for user's to
+choose which rating of GIF's they want to use-->
+
         <div class="col s2">
             <label>Choose GIF Rating</label>
             <select class="browser-default" ng-model="rating">
@@ -59,6 +65,9 @@
     </div>
 </div>
 
+<!-- This creates the chips for each GIF that is added
+to the page when the user is writing. -->
+
 <div class="container">
     <div class="row">
         <h5>Custom GIF's</h5>
@@ -69,16 +78,7 @@
     </div>
 </div>
 
-
-
-<!-- <div class = "box-holder row">
-  <textarea type="text" ng-model = "userInput" class = "col s10 offset-s1 input z-depth-1"></textarea>
-</div> -->
-<!-- <input type="text" ng-model = "userRating"> -->
-
-<!-- {{words}}
-<img class = "gif" ng-src = "{{gif}}"/> -->
-
+<!-- This is the area where users write and their creations come to be. (aka textbox)-->
 
 <div class="row">
     <form class="col s11 offset-s1">
@@ -92,14 +92,8 @@
     </form>
 </div>
 
+<!-- Where I bind what the user writes to the page-->
 
 <div class="row">
     <div class="words col s10 offset-s1" ng-bind-html="words"></div>
 </div>
-
-<!-- <div ng-repeat = "word in sentence">
-  {{word}}
-</div> -->
-<!-- {{sentence}} -->
-<!-- {{write}} -->
-<!-- {{gifWrite}} -->
