@@ -15,6 +15,15 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
           userSymbol = '/';
         }
 
+        // This sets the rating of the GIF depending on what the user selects. The default is PG.
+
+        var rating;
+        if ($scope.rating) {
+          rating = $scope.rating;
+        } else {
+          rating = 'pg';
+        }
+
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
 
@@ -27,7 +36,7 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
           var input = words[words.length - 2];
           $scope.tag.push(input);
 
-            writeService.getGif(input, 'g').then(function(response) {
+            writeService.getGif(input, rating).then(function(response) {
               $scope.gif = response.data.data.images.downsized.url;
               console.log(words);
 

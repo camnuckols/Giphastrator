@@ -1,57 +1,72 @@
-<div class = "container">
-<div class = "row">
+<div class="container">
+    <div class="row">
 
-<div class = "col s2">
-  <label>Select GIF symbol</label>
-    <select class="browser-default" ng-model = "id">
-       <option value="" disabled selected style="display: none;">/ (Default)</option>
-        <option value="/">/</option>
-        <option value="$">$</option>
-        <option value="+">+</option>
-        <option value="*">*</option>
-        <option value="&">&</option>
-        <option value="#">#</option>
-        <option value="!">!</option>
-        <option value="@">@</option>
-        <option value="%">%</option>
-        <option value="=">=</option>
-        <option value=".">.</option>
-        <option value="^">^</option>
-        <option value="-">-</option>
-        <option value="|">|</option>
-        <option value="[">[</option>
-        <option value="]">]</option>
-        <option value="{">{</option>
-        <option value="}">}</option>
-        <option value=":">:</option>
-        <option value=",">,</option>
-        <option value="`">`</option>
-        <option value="<"><</option>
-        <option value=">">></option>
-        <option value="\">\</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="z">z</option>
-      </select>
+        <div class="col s2">
+            <label>Select GIF symbol</label>
+            <select class="browser-default" ng-model="id">
+
+                <option value="" disabled selected style="display: none;">/</option>
+                <option value="/">/</option>
+                <option value="$">$</option>
+                <option value="+">+</option>
+                <option value="*">*</option>
+                <option value="&">&</option>
+                <option value="#">#</option>
+                <option value="!">!</option>
+                <option value="@">@</option>
+                <option value="%">%</option>
+                <option value="=">=</option>
+                <option value=".">.</option>
+                <option value="^">^</option>
+                <option value="-">-</option>
+                <option value="|">|</option>
+                <option value="[">[</option>
+                <option value="]">]</option>
+                <option value="{">{</option>
+                <option value="}">}</option>
+                <option value=":">:</option>
+                <option value=",">,</option>
+                <option value="`">`</option>
+                <option value="<">
+                    <</option>
+                        <option value=">">></option>
+                        <option value="\">\</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="z">z</option>
+            </select>
+        </div>
+
+        <div class="col s2">
+            <label>Choose GIF Rating</label>
+            <select class="browser-default" ng-model="rating">
+
+                <option value="" disabled selected style="display: none;">PG</option>
+                <option value="y">Y</option>
+                <option value="g">G</option>
+                <option value="pg">PG</option>
+                <option value="pg-13">PG-13</option>
+                <option value="r">R</option>
+            </select>
+        </div>
     </div>
-  </div>
 </div>
 
-<div class = "container">
-  <div class = "row">
-    <h5>Custom GIF's</h5>
-      <div class="chip black white-text" ng-repeat = "tags in tag">
-        {{tags}}
-        <i class="material-icons">close</i>
-      </div>
-  </div>
+<div class="container">
+    <div class="row">
+        <h5>Custom GIF's</h5>
+        <div class="chip black white-text" ng-repeat="tags in tag">
+            {{tags}}
+            <i class="material-icons">close</i>
+        </div>
+    </div>
 </div>
 
 
@@ -66,20 +81,20 @@
 
 
 <div class="row">
-<form class="col s11 offset-s1">
-  <div class="row">
-    <div class="input-field col s11">
-      <i class="material-icons prefix">mode_edit</i>
-      <textarea id="icon_prefix2" class="materialize-textarea" ng-model = "userInput"></textarea>
-      <label for="icon_prefix2">Write Here:</label>
-    </div>
-  </div>
-</form>
+    <form class="col s11 offset-s1">
+        <div class="row">
+            <div class="input-field col s11">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" class="materialize-textarea" ng-model="userInput"></textarea>
+                <label for="icon_prefix2">Write Here:</label>
+            </div>
+        </div>
+    </form>
 </div>
 
 
-<div class = "row">
-  <div class = "words col s10 offset-s1" ng-bind-html="words"></div>
+<div class="row">
+    <div class="words col s10 offset-s1" ng-bind-html="words"></div>
 </div>
 
 <!-- <div ng-repeat = "word in sentence">
