@@ -71,17 +71,17 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
 
 $scope.deleteGif = function(gifName) {
+  try {
   console.log(gifName);
   var gif;
-  console.log($scope.words.split('<').splice());
    gif = $scope.words.split('<');
-   console.log(gif);
-  for (var i = 0; i < $scope.words.length; i++) {
-    if ($scope.words[i] === gifName) {
-      console.log($scope.words);
-    }
+ } catch (err) {
+   if (Error.name === "TypeError" || Error.name === "ReferenceError" || Error.name === "Error") {
+     // Materialize.toast(message, displayLength, className, completeCallback);
+     Materialize.toast("You can't delete a GIF unless you have more than one GIF", 3000); // 4000 is the duration of the toast
+   }
+ }
   }
-}
 });
 
 //TO FIX - IT'S A FEATURE THAT ALLOWS USERS TO CHANGE THE SIZE OF THEIR GIF'S
@@ -94,76 +94,3 @@ $scope.deleteGif = function(gifName) {
         //   $('.gif').css("height", 125 + "px");
         // }
 //***********************************************************************************************************************
-
-
-   // $scope.getGif = function(userInput, userRating) {
-   //   writeService.getGif(userInput, userRating).then(function(response) {
-   //     console.log(response.data.data.images);
-   //     $scope.gif = response.data.data.images.downsized_medium.url;
-   //   });
-   // }
-   //$scope.power = [];
-
-         // for (var i = 0; i < words.length; i++) {
-         //   if (words[i][0] === userSymbol && words[i][words[i].length - 1] === "/") {
-         //     console.log(words[i].indexOf(userInput));
-         //     //Finds the word in userInput word from the array and cuts off the symbols from both sides
-         //     userInput = words[i].slice(1, -1);
-         //
-         //     //Takes the dashes out of the user's view of whatever it is they are typing.
-         //     words[i] = words[i].slice(1, -1);
-         //     console.log(words);
-         //     $scope.sentence = words.join(' ');
-         //     console.log(userInput);
-
-             // $scope.input = writeService.searchWritingForGif(userInput, userSymbol);
-             // console.log($scope.input);
-
-   // words[i].slice(1, -1) +
-             // if (words[i].indexOf(userInput) === -1) {
-
-
-
-             //   $scope.power.push('<img src = "' + response.data.data.images.downsized.url + '"> ');
-//***********************************************************************************************************************
-
-  // if (userInput) {
-  // var words = write.split(' ');
-  // console.log(words);
-  // for (var i = 0; i < words.length; i++) {
-  //   console.log(words[i][i] === userSymbol);
-  //   if (words[i][i] === userSymbol) {
-  //
-  //   }
-// });
-
-
-    // for (var i = 0; i < words.length; i++) {
-    //   if (words[i] === "<") {
-    //
-    //     for (var j = 0; j < words.length; j++) {
-    //     if (words[j] === ">") {
-    //       var ourWord = words.splice(i + 1, j - i - 1).join('');
-    //       console.log(ourWord);
-//           writeService.getGif(ourWord, "g").then(function(response) {
-//
-//             $scope.gif = response.data.data.images.downsized_medium.url;
-//           });
-//           //This deletes the word that we just used to find a gif.
-//           $scope.write = $scope.write.slice(0, $scope.write.length - ourWord.length - 2);
-//
-//           $scope.gifWrite = $scope.write;
-//
-//         } // When I coded this part, I was listening to 'The Longest Time' by Billy Joel. It must have inspired me.
-//       }
-//     }
-//   }
-// }
-// });
-
-
-  //
-  // $scope.$watch('write', function(write) {
-  //   writeService.find(write);
-  //
-  // });

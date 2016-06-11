@@ -134,7 +134,23 @@ choose which rating of GIF's they want to use-->
                 <option value="206">206</option>
             </select>
         </div>
-    </div>
+
+<!--TO DO: I want to make it so that you can change your font as you want-->
+<!-- This is the dropdown option for changing the font family. -->
+<!--
+    <div class="col s2">
+        <label>Font Family</label>
+        <select class="browser-default" ng-model="rating">
+
+            <option value="" disabled selected style="display: none;">PG</option>
+            <option value="y">Y</option>
+            <option value="g">G</option>
+            <option value="pg">PG</option>
+            <option value="pg-13">PG-13</option>
+            <option value="r">R</option>
+        </select>
+    </div>-->
+  </div>
 </div>
 
 <!-- This creates the chips for each GIF that is added
@@ -146,26 +162,20 @@ to the page when the user is writing. -->
         <div class="chip" ng-repeat="tags in tag"
         ng-class= "{
           'purple lighten-3 white-text': $index === 0,
-          'light-blue darken-1 white-text': $index === 1,
+          'blue darken-1 white-text': $index === 1,
           'amber lighten-1 white-text': $index === 2,
           'teal accent-4 white-text': $index === 3,
-          'pink lighten-3': $index === 4
-          'purple lighten-3 white-text': $index === 5,
-          'light-blue darken-1 white-text': $index === 6,
-          'amber lighten-1 white-text': $index === 7,
-          'teal accent-4 white-text': $index === 8,
-          'pink lighten-3': $index === 9,
-          'purple lighten-3 white-text': $index === 10,
-          'light-blue darken-1 white-text': $index === 11,
-          'amber lighten-1 white-text': $index === 12,
-          'teal accent-4 white-text': $index === 13,
-          'pink lighten-3': $index === 14,
-          'purple lighten-3 white-text': $index === 15,
-          'light-blue darken-1 white-text': $index === 16,
-          'amber lighten-1 white-text': $index === 17,
-          'teal accent-4 white-text': $index === 18,
-          'pink lighten-3': $index === 19,
-          'purple lighten-3 white-text': $index === 20,
+          'pink lighten-3 white-text': $index === 4,
+          'light-blue darken-1 white-text': $index === 5,
+          'teal accent-3 white-text': $index === 6,
+          'amber white-text': $index === 7,
+          'purple lighten-2 white-text': $index === 8,
+          'teal accent-3 white-text': $index === 9,
+          'light-blue white-text': $index === 10,
+          'teal accent-5 white-text': $index === 11,
+          'pink lighten-2 white-text': $index === 12,
+          'red lighten-1 white-text': $index === 13
+
         }">
             {{tags}}
             <i class="material-icons" ng-click="deleteGif(tags)">close</i>
