@@ -1,0 +1,39 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col s12 center-align">
+      <h5>Dashboard</h5>
+    </div>
+  </div>
+
+  <div class = "row">
+    <img ng-src = "{{userData[0].password.profileImageURL}}" />
+
+
+<h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br>
+
+
+<h5>Change Profile Info <i class="material-icons">people outline</i></h5>
+
+<h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create a story </a></h4>
+
+
+<h4><a class="blue waves-effect waves-light btn-large">Change Profile<i class="material-icons right">create</i> </a></h4>
+
+<h4><a class="red waves-effect waves-light btn-large">Delete Account<i class="material-icons right">create</i> </a></h4> -->
+
+    <h5 class = "teal-text">Change Your Profile and Email</h5>
+    <div class="input-field col s3">
+      <input id="email" type="email" class="validate" ng-model="email">
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-field col s3">
+      <input id="password" type="password" class="validate" ng-model="password">
+      <label for="password">Password</label>
+    </div>
+
+    <button>Change Email</button>
+  </div>
+
+
+</div>

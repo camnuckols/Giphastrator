@@ -7,5 +7,8 @@ $scope.registerUser = function(email, password, firstName, lastName, username) {
 $scope.signIn = function(email, password) {
   registerService.signIn(email, password);
 }
+$scope.changeEmail = function(newEmail, password) {
+  registerService.changeEmail(newEmail, password);
+}
 
 });

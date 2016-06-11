@@ -23,7 +23,11 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
     templateUrl: './views/login.html',
     controller: 'registerController'
   })
-
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: './views/dashboard.html',
+    controller: 'dashboardController'
+  })
 })
 
 
