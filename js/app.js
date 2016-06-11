@@ -3,7 +3,7 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
   url: 'http://www.google.com'
 })
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/write');
+  $urlRouterProvider.otherwise('/home');
   $stateProvider.state('/home', {
     url: '/home',
     templateUrl: './views/home.html'
@@ -17,6 +17,11 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
     url: '/write',
     templateUrl: './views/write.html',
     controller: 'writeController'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: './views/login.html',
+    controller: 'registerController'
   })
 
 })

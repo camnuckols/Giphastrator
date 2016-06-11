@@ -4,5 +4,8 @@ angular.module('giphastrator')
 $scope.registerUser = function(email, password, firstName, lastName, username) {
   registerService.registerUser(email, password, firstName, lastName, username);
 }
+$scope.signIn = function(email, password) {
+  registerService.signIn(email, password);
+}
 
 });
