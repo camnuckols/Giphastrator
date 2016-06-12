@@ -67,8 +67,7 @@ angular.module('giphastrator')
                     $timeout(function() {
                         Materialize.toast('Welcome back!', 3000);
                     }, 500);
-                    currentUser = userData;
-                    console.log(currentUser, 'loooool')
+
                     $state.go('dashboard');
 
                     // This changes the log in and log out buttons appropriately
@@ -143,8 +142,79 @@ this.googleLoginPopup = function() {
   } else {
     console.log("Authenticated successfully with payload:", authData);
     $timeout(function() {
-        Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
+        Materialize.toast('Welcome to Giphastrator, ' + authData.google.cachedUserProfile.given_name + '!', 3000);
     }, 500);
+    $state.go('dashboard');
+
+    // This changes the log in and log out buttons appropriately
+    $('#login').hide();
+    $('#logout').removeClass('ng-hide');
+
+
+var isNewUser = true;
+
+ref.onAuth(function(authData) {
+  if (authData && isNewUser) {
+
+    // save the user's profile into the database 
+
+    ref.child("users").child(authData.uid).push({
+      provider: authData.provider,
+      name: getName(authData),
+      firstName: getFirstName(authData),
+      id: getId(authData),
+      picture: getPicture(authData)
+    });
+  }
+});
+
+function getName(authData) {
+  switch(authData.provider) {
+     case 'password':
+       return authData.password.email.replace(/@.*/, '');
+     case 'twitter':
+       return authData.twitter.displayName;
+     case 'facebook':
+       return authData.facebook.displayName;
+     case 'google':
+       return authData.google.displayName;
+  }
+}
+
+function getId(authData) {
+  switch(authData.provider) {
+    case 'password':
+      return authData.uid;
+    case 'google':
+      return authData.google.id;
+      case 'facebook':
+        return authData.facebook.id;
+  }
+}
+
+function getPicture(authData) {
+  switch(authData.provider) {
+    case 'password':
+      return authData.password.profileImageURL;
+    case 'google':
+      return authData.google.cachedUserProfile.picture;
+      case 'facebook':
+        return authData.facebook.picture;
+  }
+}
+
+function getFirstName(authData) {
+  switch(authData.provider) {
+    case 'password':
+      return authData.password.email.replace(/@.*/, '');
+    case 'google':
+      return authData.google.cachedUserProfile.given_name;
+    case 'facebook':
+      return authData.facebook.something;
+  }
+}
+
+
   }
 });
 }
