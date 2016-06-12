@@ -44,9 +44,28 @@ angular.module('giphastrator')
                         Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
                     }, 500);
                     $state.go('dashboard');
-                    console.log(userData);
                     saveUser(email, password, firstName, lastName, username, userData);
-                    console.log("Successfully created user account with uid:", userData.uid);
+
+
+                    // This changes the log in and log out buttons appropriately
+                    $('#login').hide();
+                    $('#logout').removeClass('ng-hide');
+                    var isNewUser = true;
+
+                    ref.onAuth(function(userData) {
+                        if (userData && isNewUser) {
+
+                            // save the user's profile into the database
+
+                            ref.child("users").child(userData.uid).push({
+                                provider: userData.provider,
+                                name: getName(userData),
+                                firstName: getFirstName(userData),
+                                id: getId(userData),
+                                picture: getPicture(userData)
+                            });
+                        }
+                    });
                 }
             });
         }
@@ -109,8 +128,8 @@ angular.module('giphastrator')
             });
         }
 
-//   FACEBOOK SIGN UPS
-//****************************************************************************************************************************************
+        //   FACEBOOK SIGN UPS
+        //****************************************************************************************************************************************
 
         this.loginPopup = function() {
             ref.authWithOAuthPopup("facebook", function(error, authData) {
@@ -129,95 +148,94 @@ angular.module('giphastrator')
         }
 
 
-    //   GOOGLE SIGN UPS
-    //****************************************************************************************************************************************
+        //   GOOGLE SIGN UPS
+        //****************************************************************************************************************************************
 
-this.googleLoginPopup = function() {
-  ref.authWithOAuthPopup("google", function(error, authData) {
-  if (error) {
-    console.log("Login Failed!", error);
-    $timeout(function() {
-        Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
-    }, 500);
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-    $timeout(function() {
-        Materialize.toast('Welcome to Giphastrator, ' + authData.google.cachedUserProfile.given_name + '!', 3000);
-    }, 500);
-    $state.go('dashboard');
+        this.googleLoginPopup = function() {
+            ref.authWithOAuthPopup("google", function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                    $timeout(function() {
+                        Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
+                    }, 500);
+                } else {
+                    $timeout(function() {
+                        Materialize.toast('Welcome to Giphastrator, ' + authData.google.cachedUserProfile.given_name + '!', 3000);
+                    }, 500);
+                    $state.go('dashboard');
 
-    // This changes the log in and log out buttons appropriately
-    $('#login').hide();
-    $('#logout').removeClass('ng-hide');
-
-
-var isNewUser = true;
-
-ref.onAuth(function(authData) {
-  if (authData && isNewUser) {
-
-    // save the user's profile into the database 
-
-    ref.child("users").child(authData.uid).push({
-      provider: authData.provider,
-      name: getName(authData),
-      firstName: getFirstName(authData),
-      id: getId(authData),
-      picture: getPicture(authData)
-    });
-  }
-});
-
-function getName(authData) {
-  switch(authData.provider) {
-     case 'password':
-       return authData.password.email.replace(/@.*/, '');
-     case 'twitter':
-       return authData.twitter.displayName;
-     case 'facebook':
-       return authData.facebook.displayName;
-     case 'google':
-       return authData.google.displayName;
-  }
-}
-
-function getId(authData) {
-  switch(authData.provider) {
-    case 'password':
-      return authData.uid;
-    case 'google':
-      return authData.google.id;
-      case 'facebook':
-        return authData.facebook.id;
-  }
-}
-
-function getPicture(authData) {
-  switch(authData.provider) {
-    case 'password':
-      return authData.password.profileImageURL;
-    case 'google':
-      return authData.google.cachedUserProfile.picture;
-      case 'facebook':
-        return authData.facebook.picture;
-  }
-}
-
-function getFirstName(authData) {
-  switch(authData.provider) {
-    case 'password':
-      return authData.password.email.replace(/@.*/, '');
-    case 'google':
-      return authData.google.cachedUserProfile.given_name;
-    case 'facebook':
-      return authData.facebook.something;
-  }
-}
+                    // This changes the log in and log out buttons appropriately
+                    $('#login').hide();
+                    $('#logout').removeClass('ng-hide');
 
 
-  }
-});
-}
+                    var isNewUser = true;
+
+                    ref.onAuth(function(authData) {
+                        if (authData && isNewUser) {
+
+                            // save the user's profile into the database
+
+                            ref.child("users").child(authData.uid).push({
+                                provider: authData.provider,
+                                name: getName(authData),
+                                firstName: getFirstName(authData),
+                                id: getId(authData),
+                                picture: getPicture(authData)
+                            });
+                        }
+                    });
+
+                    function getName(authData) {
+                        switch (authData.provider) {
+                            case 'password':
+                                return authData.password.email.replace(/@.*/, '');
+                            case 'twitter':
+                                return authData.twitter.displayName;
+                            case 'facebook':
+                                return authData.facebook.displayName;
+                            case 'google':
+                                return authData.google.displayName;
+                        }
+                    }
+
+                    function getId(authData) {
+                        switch (authData.provider) {
+                            case 'password':
+                                return authData.uid;
+                            case 'google':
+                                return authData.google.id;
+                            case 'facebook':
+                                return authData.facebook.id;
+                        }
+                    }
+
+                    function getPicture(authData) {
+                        switch (authData.provider) {
+                            case 'password':
+                                return authData.password.profileImageURL;
+                            case 'google':
+                                return authData.google.cachedUserProfile.picture;
+                            case 'facebook':
+                                return authData.facebook.picture;
+                        }
+                    }
+
+                    function getFirstName(authData) {
+                        switch (authData.provider) {
+                            case 'password':
+                                return authData.password.email.replace(/@.*/, '');
+                            case 'google':
+                                return authData.google.cachedUserProfile.given_name;
+                            case 'facebook':
+                                return authData.facebook.something;
+                        }
+                    }
+
+
+                }
+            });
+        }
 
 
     });
