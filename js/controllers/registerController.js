@@ -16,5 +16,8 @@ $scope.loginPopup = function() {
 $scope.googleLoginPopup = function() {
   registerService.googleLoginPopup();
 }
+$scope.twitterLoginPopup = function() {
+  registerService.twitterLoginPopup();
+}
 
 });

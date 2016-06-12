@@ -173,56 +173,103 @@ angular.module('giphastrator')
 
 
 
-                            function getName(authData) {
-                                switch (authData.provider) {
-                                    case 'password':
-                                        return authData.password.email.replace(/@.*/, '');
-                                    case 'twitter':
-                                        return authData.twitter.displayName;
-                                    case 'facebook':
-                                        return authData.facebook.displayName;
-                                    case 'google':
-                                        return authData.google.displayName;
-                                }
-                            }
+        function getName(authData) {
+            switch (authData.provider) {
+                case 'password':
+                    return authData.password.email.replace(/@.*/, '');
+                case 'twitter':
+                    return authData.twitter.displayName;
+                case 'facebook':
+                    return authData.facebook.displayName;
+                case 'google':
+                    return authData.google.displayName;
+            }
+        }
 
-                            function getId(authData) {
-                                switch (authData.provider) {
-                                    case 'password':
-                                        return authData.uid;
-                                    case 'google':
-                                        return authData.google.id;
-                                    case 'facebook':
-                                        return authData.facebook.id;
-                                }
-                            }
+        function getId(authData) {
+            switch (authData.provider) {
+                case 'password':
+                    return authData.uid;
+                case 'google':
+                    return authData.google.id;
+                case 'facebook':
+                    return authData.facebook.id;
+                case 'twitter':
+                    return authData.twitter.id;
+            }
+        }
 
-                            function getPicture(authData) {
-                                switch (authData.provider) {
-                                    case 'password':
-                                        return authData.password.profileImageURL;
-                                    case 'google':
-                                        return authData.google.cachedUserProfile.picture;
-                                    case 'facebook':
-                                        return authData.facebook.profileImageURL;
-                                }
-                            }
+        function getPicture(authData) {
+            switch (authData.provider) {
+                case 'password':
+                    return authData.password.profileImageURL;
+                case 'google':
+                    return authData.google.cachedUserProfile.picture;
+                case 'facebook':
+                    return authData.facebook.profileImageURL;
+                case 'twitter':
+                    return authData.twitter.profileImageURL;
+            }
+        }
 
-                            function getFirstName(authData) {
-                                switch (authData.provider) {
-                                    case 'password':
-                                        return authData.password.email.replace(/@.*/, '');
-                                    case 'google':
-                                        return authData.google.cachedUserProfile.given_name;
-                                    case 'facebook':
-                                        return authData.facebook.cachedUserProfile.first_name;
-                                }
-                            }
+        function getFirstName(authData) {
+            switch (authData.provider) {
+                case 'password':
+                    return authData.password.email.replace(/@.*/, '');
+                case 'google':
+                    return authData.google.cachedUserProfile.given_name;
+                case 'facebook':
+                    return authData.facebook.cachedUserProfile.first_name;
+                case 'twitter':
+                    return authData.twitter.displayName;
+            }
+        }
         //   GOOGLE SIGN UPS
         //****************************************************************************************************************************************
 
         this.googleLoginPopup = function() {
-            ref.authWithOAuthPopup("google", function(error, authData) {
+                ref.authWithOAuthPopup("google", function(error, authData) {
+                    if (error) {
+                        console.log("Login Failed!", error);
+                        $timeout(function() {
+                            Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
+                        }, 500);
+                    } else {
+                        $timeout(function() {
+                            Materialize.toast('Welcome to Giphastrator, ' + authData.google.cachedUserProfile.given_name + '!', 3000);
+                        }, 500);
+                        $state.go('dashboard');
+
+                        // This changes the log in and log out buttons appropriately
+                        $('#login').hide();
+                        $('#logout').removeClass('ng-hide');
+
+
+                        var isNewUser = true;
+
+                        ref.onAuth(function(authData) {
+                            if (authData && isNewUser) {
+
+                                // save the user's profile into the database
+
+                                ref.child("users").child(authData.uid).push({
+                                    provider: authData.provider,
+                                    name: getName(authData),
+                                    firstName: getFirstName(authData),
+                                    id: getId(authData),
+                                    picture: getPicture(authData)
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+            //TWITTER SIGN-UP
+            //****************************************************************************************************************************************
+
+        this.twitterLoginPopup = function() {
+
+            ref.authWithOAuthPopup("twitter", function(error, authData) {
                 if (error) {
                     console.log("Login Failed!", error);
                     $timeout(function() {
@@ -230,7 +277,7 @@ angular.module('giphastrator')
                     }, 500);
                 } else {
                     $timeout(function() {
-                        Materialize.toast('Welcome to Giphastrator, ' + authData.google.cachedUserProfile.given_name + '!', 3000);
+                        Materialize.toast('Welcome to Giphastrator, ' + authData.twitter.displayName + '!', 3000);
                     }, 500);
                     $state.go('dashboard');
 
@@ -255,12 +302,8 @@ angular.module('giphastrator')
                             });
                         }
                     });
-
-
-
                 }
             });
         }
-
 
     });
