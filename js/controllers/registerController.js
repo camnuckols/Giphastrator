@@ -10,5 +10,11 @@ $scope.signIn = function(email, password) {
 $scope.changeEmail = function(newEmail, password) {
   registerService.changeEmail(newEmail, password);
 }
+$scope.loginPopup = function() {
+  registerService.loginPopup();
+}
+$scope.googleLoginPopup = function() {
+  registerService.googleLoginPopup();
+}
 
 });

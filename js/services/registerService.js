@@ -67,6 +67,8 @@ angular.module('giphastrator')
                     $timeout(function() {
                         Materialize.toast('Welcome back!', 3000);
                     }, 500);
+                    currentUser = userData;
+                    console.log(currentUser, 'loooool')
                     $state.go('dashboard');
 
                     // This changes the log in and log out buttons appropriately
@@ -100,13 +102,52 @@ angular.module('giphastrator')
                 if (error === null) {
                     console.log("Email changed successfully");
                     Materialize.toast('Email changed successfully', 3000);
-                
-              } else {
+
+                } else {
                     console.log("Error changing email:", error);
                     Materialize.toast("Error changing email:", error, 3000);
                 }
             });
         }
+
+//   FACEBOOK SIGN UPS
+//****************************************************************************************************************************************
+
+        this.loginPopup = function() {
+            ref.authWithOAuthPopup("facebook", function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                    $timeout(function() {
+                        Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
+                    }, 500);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+                    $timeout(function() {
+                        Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
+                    }, 500);
+                }
+            });
+        }
+
+
+    //   GOOGLE SIGN UPS
+    //****************************************************************************************************************************************
+
+this.googleLoginPopup = function() {
+  ref.authWithOAuthPopup("google", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+    $timeout(function() {
+        Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
+    }, 500);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+    $timeout(function() {
+        Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
+    }, 500);
+  }
+});
+}
 
 
     });

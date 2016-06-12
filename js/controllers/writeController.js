@@ -4,6 +4,11 @@ angular.module('giphastrator')
 var wordsLength = 2;
 $scope.tag = [];
 
+$scope.sendUserDataToFB = function() {
+  writeService.sendUserDataToFB($scope.words);
+}
+
+
 $scope.$watch('userInput', function(userInput, userSymbol) {
       if (userInput) {
 
@@ -63,10 +68,16 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
               if ($scope.words[0] === 'u' && $scope.words[1] === 'n') {
               $scope.words = $scope.words.split('undefined').slice(1);
               }
+
+
+
             });
           wordsLength += 2;
         }
      }
+
+
+
   })
 
 

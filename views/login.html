@@ -11,6 +11,9 @@
         <!-- <div class="col s6 offset-s3">
             <h5>Welcome Back</h5>
         </div> -->
+        <div class = "col s6 offset-s3">
+          <img class = "waves effect" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
+        </div>
 
         <div class="input-field col s6 offset-s3">
             <input id="email" type="email" class="validate" ng-model="email">
@@ -30,6 +33,7 @@
     <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
         <i class="material-icons right">done_all</i>
     </button><br><br />
+
     <iframe src="//giphy.com/embed/biJpWkEdgitMs" width="500" height="290" frameBorder="0" class="giphy-embed" allowFullScreen>
 
     </iframe><p><a href="https://giphy.com/gifs/minions-funny-biJpWkEdgitMs"></a></p>

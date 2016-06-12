@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.service('writeService', function($http) {
+.service('writeService', function($http, registerService) {
 var baseUrl = "http://api.giphy.com/v1/gifs/translate?s=";
 
 this.getGif = function(searchTerm, userRating) {
@@ -8,8 +8,6 @@ this.getGif = function(searchTerm, userRating) {
     url: baseUrl + searchTerm + "&api_key=dc6zaTOxFJmzC&rating=" + userRating
   });
 }
-
-
 
 //***********************************************************************************************************************
 
