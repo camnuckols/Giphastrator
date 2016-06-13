@@ -1,4 +1,4 @@
-angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
+angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.socialshare'])
 .constant('fb', {
   url: 'http://www.google.com'
 })
@@ -32,6 +32,7 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
     url: '/learnMore',
     templateUrl: './views/learnMore.html'
   })
+
 });
 
 
