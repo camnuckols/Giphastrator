@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.controller('writeController', function($scope, writeService) {
+.controller('writeController', function($scope, writeService, $window) {
 
 var wordsLength = 2;
 $scope.tag = [];
@@ -8,6 +8,9 @@ $scope.sendUserDataToFB = function() {
   writeService.sendUserDataToFB($scope.words);
 }
 
+$scope.clearBoard = function() {
+  $window.location.reload();
+}
 
 $scope.$watch('userInput', function(userInput, userSymbol) {
       if (userInput) {
@@ -59,7 +62,7 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
               words = words.slice(words.length -3, words.length -1);
 
-              $scope.words += words.join(' ') + '<img class = "gif" src = "' + response.data.data.images.downsized.url + '">';
+              $scope.words += words.join(' ') + ' <img class = "gif" src = "' + response.data.data.images.downsized.url + '">';
 
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I'm not 100% sure what is causing
