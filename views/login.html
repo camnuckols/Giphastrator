@@ -1,6 +1,5 @@
 
 <div class="space-row"></div>
-<div class="space-row hide-on-small-only"></div>
 <a ui-sref="dashboard">Dash</a>
 <div class="row">
     <form class="col s12">
@@ -8,18 +7,13 @@
 
 <h4 class = "hide-on-med-and-up center">Time to Create.</h4>
 
-        <img class="facebook hide-on-small-only" id="facebook-login" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
-        <br>
-        <img class="google hide-on-small-only" id="google-login" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
-        <br>
-        <img class="twitter hide-on-small-only" id="twitter-login" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
-        <br>
         <img class="facebook hide-on-med-and-up" id="facebook-login-small" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
         <br>
         <img class="google hide-on-med-and-up" id="google-login-small" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
         <br>
         <img class="twitter hide-on-med-and-up" id="twitter-login-small" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
         <br>
+
 
         <div class="space-row hide-on-med-and-up"></div>
 
@@ -53,8 +47,20 @@
     <button class="login-button btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
 
     </button>
-    <br>
-    <br />
+
+    <div class="space-row hide-on-small-only"></div>
+
+    <div class="space-row hide-on-small-only"></div>
+
+    <div class = "center">
+
+            <img class="facebook hide-on-small-only" id="facebook-login" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
+            <br>
+            <img class="google hide-on-small-only" id="google-login" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
+            <br>
+            <img class="twitter hide-on-small-only" id="twitter-login" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
+            <br>
+          </div>
 
     <!--
     <iframe src="//giphy.com/embed/biJpWkEdgitMs" width="500" height="290" frameBorder="0" class="giphy-embed" allowFullScreen>

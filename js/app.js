@@ -28,7 +28,12 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize'])
     templateUrl: './views/dashboard.html',
     controller: 'dashboardController'
   })
-})
+  .state('learnMore', {
+    url: '/learnMore',
+    templateUrl: './views/learnMore.html'
+  })
+});
+
 
 
 //
