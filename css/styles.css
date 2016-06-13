@@ -162,3 +162,14 @@ body {
 .google-register {
   margin-top: 10%;
 }
+.dance {
+  /*background-image: url('https://media.giphy.com/media/3oEjHJm0vgZnuHhvfW/giphy.gif');*/
+  background-image: url('https://media.giphy.com/media/l41YskOy5J1QgcEXS/giphy.gif');
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: -5;
+  opacity: .1;
+}
