@@ -1,0 +1,130 @@
+/*@media (min-width:320px) 20em { /* smartphones, iPhone, portrait 480x320 phones */
+/*@media (min-width:481px) 30.0625em{ /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/*@media (min-width:641px) 40.0625{ /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+/*@media (min-width:961px) 60.0625{ /* tablet, landscape iPad, lo-res laptops ands desktops */
+/*@media (min-width:1025px)64.0625 { /* big landscape tablets, laptops, and desktops */
+/*@media (min-width:1281px) 80.0625{ /* hi-res laptops and desktops */ /*/*/
+
+@media only screen and (max-width: 481px) {
+/* smartphones, iPhone, portrait 480x320 phones */
+
+/* REGISTER PAGE *******************************************************************************************************************/
+
+.google {
+  width: 40%;
+  height: 5%;
+  margin-bottom: .5%;
+  margin-top: 20%;
+  position: absolute;
+  top: 23.8em;
+  left: 25%;
+  right: 25%;
+}
+.facebook {
+  width: 40%;
+  height: 5%;
+  margin-bottom: .5%;
+  position: absolute;
+  left: 25%;
+  top: 23.8em;
+}
+.twitter {
+  width: 40%;
+  height: 5%;
+  position: absolute;
+  left: 25%;
+  top: 26.5em;
+
+}
+#party-hat {
+  margin-top: -275em;
+}
+#party {
+  margin-bottom: 3.5em;
+  width: 200%;
+  position: relative;
+  left: -40%;
+  font-size: 3em;
+}
+.confetti {
+background-image: url(/img/confetti.gif);
+height: 61.5em;
+}
+#first_name {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#last_name {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#username {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#password {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#email {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#register-button {
+  margin-bottom: 25%;
+}
+/* LOGIN PAGE *******************************************************************************************************************/
+#facebook-login-small {
+  position: absolute;
+  top: 33%;
+  margin-bottom: 0%;
+}
+#twitter-login-small {
+  position: absolute;
+  top:38.6%;
+  margin-bottom: 0%;
+}
+#google-login-small {
+  position: absolute;
+  top: 33%;
+}
+#email-small {
+  position: relative;
+  margin-top: -200px;
+  font-size: 36px;
+}
+#email-small-label {
+  margin-top: -15px;
+}
+#password-small {
+position: relative;
+top: 4%;
+margin-top:0px;
+font-size: 36px;
+}
+.login-button {
+  width: 60%;
+  height: 30%;
+  font-size: 30px;
+  text-align: center;
+}
+/* WRITE PAGE *******************************************************************************************************************/
+
+
+
+}

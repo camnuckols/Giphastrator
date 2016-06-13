@@ -84,8 +84,14 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 $scope.deleteGif = function(gifName) {
   try {
   console.log(gifName);
+  console.log($scope.words);
   var gif;
-   gif = $scope.words.split('<');
+gif = $scope.words.split(/(gifName)/);
+
+  //  gif = $scope.words.replace(/<img[^>]*>/,"");
+  //  gif = $scope.words.split('<');
+   console.log(gif);
+   $scope.words = gif;
  } catch (err) {
    if (Error.name === "TypeError" || Error.name === "ReferenceError" || Error.name === "Error") {
      // Materialize.toast(message, displayLength, className, completeCallback);

@@ -1,32 +1,46 @@
-<a ui-sref = "dashboard">Dash</a>
-<div class="space-row"></div>
-<div class="space-row"></div>
 
-<div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
-</div>
-
+<div class="space-row"></div>
+<div class="space-row hide-on-small-only"></div>
+<a ui-sref="dashboard">Dash</a>
 <div class="row">
     <form class="col s12">
 
-        <!-- <div class="col s6 offset-s3">
-            <h5>Welcome Back</h5>
-         </div> -->
-        <!-- <div class = "col s3 offset-s3">
-          <img class = "google" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
-        </div>
-        <div class = "col s3">
-          <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" />
-        </div> -->
+
+<h4 class = "hide-on-med-and-up center">Time to Create.</h4>
+
+        <img class="facebook hide-on-small-only" id="facebook-login" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
+        <br>
+        <img class="google hide-on-small-only" id="google-login" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
+        <br>
+        <img class="twitter hide-on-small-only" id="twitter-login" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
+        <br>
+        <img class="facebook hide-on-med-and-up" id="facebook-login-small" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
+        <br>
+        <img class="google hide-on-med-and-up" id="google-login-small" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
+        <br>
+        <img class="twitter hide-on-med-and-up" id="twitter-login-small" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
+        <br>
+
+        <div class="space-row hide-on-med-and-up"></div>
 
 
-
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s4 offset-s4 hide-on-small-only">
             <input id="email" type="email" class="validate" ng-model="email">
             <label for="email">Email</label>
         </div>
 
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s4 offset-s4 hide-on-small-only">
             <input id="password" type="password" class="validate" ng-model="password">
+            <label for="password">Password</label>
+        </div>
+
+        <div class="input-field hide-on-med-and-up">
+            <input id="email-small" type="email" class="validate" ng-model="email">
+            <label id= "email-small-label" for="email">Email</label>
+        </div>
+
+        <div class="input-field hide-on-med-and-up">
+            <input id="password-small" type="password" class="validate" ng-model="password">
             <label for="password">Password</label>
         </div>
 
@@ -36,14 +50,13 @@
 
 <div class="center">
 
-    <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
-        <i class="material-icons right">done_all</i>
-    </button><br><br />
+    <button class="login-button btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
 
-                  <img class = "google" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
+    </button>
+    <br>
+    <br />
 
-                  <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" />
-<!--
+    <!--
     <iframe src="//giphy.com/embed/biJpWkEdgitMs" width="500" height="290" frameBorder="0" class="giphy-embed" allowFullScreen>
 
     </iframe><p><a href="https://giphy.com/gifs/minions-funny-biJpWkEdgitMs"></a></p> -->

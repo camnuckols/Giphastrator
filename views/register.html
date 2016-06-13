@@ -1,43 +1,40 @@
-<div class = "space-row"></div>
-<div class = "space-row"></div>
-
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-
+<div class = "confetti"></div>
 <div class="row">
     <form class="col s12">
 
       <div class = "col s6 offset-s3">
-        <h5>Join a Community Where You Belong</h5>
+      <img id = "party-hat" ng-src = "./img/party-hat.png" />
+        <h5 id = "party">Join the Party. It's Where You Belong.</h5>
       </div>
-<button ng-click= "twitterLoginPopup()">Twitter</button>
-      <img class = "google" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
+
 
         <div class="input-field col s6 offset-s3">
           <input id="first_name" type="text" class="validate" ng-model="firstName">
           <label for="first_name">First Name</label>
         </div>
 
-      <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" />
+
 
         <div class="input-field col s6 offset-s3">
           <input id="last_name" type="text" class="validate" ng-model="lastName">
           <label for="last_name">Last Name</label>
         </div>
 
+                <img class = "google google-register" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
+
         <div class="input-field col s6 offset-s3">
           <input id="username" type="text" class="validate" ng-model="username">
           <label for="username">Username</label>
         </div>
 
+        <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" />
+
         <div class="input-field col s6 offset-s3">
           <input id="password" type="password" class="validate" ng-model="password">
           <label for="password">Password</label>
         </div>
+
+        <img class = "twitter" ng-click= "twitterLoginPopup()"ng-src = "./img/twitter-sign-in.jpg" />
 
         <div class="input-field col s6 offset-s3">
           <input id="email" type="email" class="validate" ng-model="email">
@@ -49,7 +46,7 @@
 
 <div class = "center">
 
-  <button class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="registerUser(email, password, firstName, lastName, username)">Register
+  <button id = "register-button" class="btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="registerUser(email, password, firstName, lastName, username)">Register
     <i class="material-icons right">done_all</i>
   </button>
 

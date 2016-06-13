@@ -1,6 +1,6 @@
 angular.module('giphastrator')
     .service('registerService', function($state, $timeout) {
-
+        //
         var users = [];
         var userDataArray = [];
         var ref = new Firebase("https://giphastrators.firebaseio.com");
@@ -44,12 +44,14 @@ angular.module('giphastrator')
                         Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
                     }, 500);
                     $state.go('dashboard');
-                    saveUser(email, password, firstName, lastName, username, userData);
+                    // saveUser(email, password, firstName, lastName, username, userData);
 
 
                     // This changes the log in and log out buttons appropriately
                     $('#login').hide();
+                    $('#register').hide();
                     $('#logout').removeClass('ng-hide');
+                    $('#dashboard').removeClass('ng-hide');
                     var isNewUser = true;
 
                     ref.onAuth(function(userData) {
@@ -91,7 +93,9 @@ angular.module('giphastrator')
 
                     // This changes the log in and log out buttons appropriately
                     $('#login').hide();
+                    $('#register').hide();
                     $('#logout').removeClass('ng-hide');
+                    $('#dashboard').removeClass('ng-hide');
 
                     saveUserToArray(userData);
                 }
@@ -107,6 +111,8 @@ angular.module('giphastrator')
 
             //Changes back the log in and log out buttons
             $('#logout').addClass('ng-hide');
+            $('#register').show();
+            $('#dashboard').addClass('ng-hide');
             $('#login').show();
 
         }
@@ -147,6 +153,8 @@ angular.module('giphastrator')
 
                     // This changes the log in and log out buttons appropriately
                     $('#login').hide();
+                    $('#register').hide();
+                    $('#dashboard').removeClass('ng-hide');
                     $('#logout').removeClass('ng-hide');
 
                     var isNewUser = true;
@@ -242,7 +250,9 @@ angular.module('giphastrator')
 
                         // This changes the log in and log out buttons appropriately
                         $('#login').hide();
+                        $('#register').hide();
                         $('#logout').removeClass('ng-hide');
+                        $('#dashboard').removeClass('ng-hide');
 
 
                         var isNewUser = true;
@@ -283,7 +293,9 @@ angular.module('giphastrator')
 
                     // This changes the log in and log out buttons appropriately
                     $('#login').hide();
+                    $('#register').hide();
                     $('#logout').removeClass('ng-hide');
+                    $('#dashboard').removeClass('ng-hide');
 
 
                     var isNewUser = true;
