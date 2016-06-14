@@ -1,9 +1,9 @@
 angular.module('giphastrator')
     .service('registerService', function($state, $timeout) {
         //
-        var users = [];
-        var userDataArray = [];
-        var ref = new Firebase("https://giphastrators.firebaseio.com");
+        let users = [];
+        let userDataArray = [];
+        const ref = new Firebase("https://giphastrators.firebaseio.com");
 
         function saveUserToArray(userData) {
             userDataArray.push(userData);
@@ -52,7 +52,7 @@ angular.module('giphastrator')
                     $('#register').hide();
                     $('#logout').removeClass('ng-hide');
                     $('#dashboard').removeClass('ng-hide');
-                    var isNewUser = true;
+                    let isNewUser = true;
 
                     ref.onAuth(function(userData) {
                         if (userData && isNewUser) {
@@ -137,7 +137,7 @@ angular.module('giphastrator')
         //   FACEBOOK SIGN UPS
         //****************************************************************************************************************************************
 
-        this.loginPopup = function() {
+        this.loginPopup = () => {
             ref.authWithOAuthPopup("facebook", function(error, authData) {
                 if (error) {
                     console.log("Login Failed!", error);
@@ -157,7 +157,7 @@ angular.module('giphastrator')
                     $('#dashboard').removeClass('ng-hide');
                     $('#logout').removeClass('ng-hide');
 
-                    var isNewUser = true;
+                    let isNewUser = true;
 
                     ref.onAuth(function(authData) {
                         if (authData && isNewUser) {
@@ -235,7 +235,7 @@ angular.module('giphastrator')
         //   GOOGLE SIGN UPS
         //****************************************************************************************************************************************
 
-        this.googleLoginPopup = function() {
+        this.googleLoginPopup = () => {
                 ref.authWithOAuthPopup("google", function(error, authData) {
                     if (error) {
                         console.log("Login Failed!", error);
@@ -255,7 +255,7 @@ angular.module('giphastrator')
                         $('#dashboard').removeClass('ng-hide');
 
 
-                        var isNewUser = true;
+                        let isNewUser = true;
 
                         ref.onAuth(function(authData) {
                             if (authData && isNewUser) {
@@ -277,7 +277,7 @@ angular.module('giphastrator')
             //TWITTER SIGN-UP
             //****************************************************************************************************************************************
 
-        this.twitterLoginPopup = function() {
+        this.twitterLoginPopup = () => {
 
             ref.authWithOAuthPopup("twitter", function(error, authData) {
                 if (error) {
@@ -298,7 +298,7 @@ angular.module('giphastrator')
                     $('#dashboard').removeClass('ng-hide');
 
 
-                    var isNewUser = true;
+                    let isNewUser = true;
 
                     ref.onAuth(function(authData) {
                         if (authData && isNewUser) {
