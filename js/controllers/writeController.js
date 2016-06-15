@@ -10,16 +10,21 @@ $scope.sendUserDataToFB = () => {
 }
 
 // This refreshes the page
-$scope.clearBoard = () => {
-  $window.location.reload();
-}
+// $scope.clearBoard = () => {
+//   $window.location.reload();
+// }
+
+
 
 
 $scope.$watch('userInput', (userInput, userSymbol) => {
-
       if (userInput) {
 
-            console.log(`something`);
+$scope.clearBoard = () => {
+  $scope.words = ``;
+  $scope.userInput = ``;
+  $scope.tag = [];
+}
         //Here I am setting the user symbol that they can use to create GIF's. By default it will be a dash /.
 
         if ($scope.id) {
@@ -28,13 +33,13 @@ $scope.$watch('userInput', (userInput, userSymbol) => {
           userSymbol = '/';
         }
 
-        // This sets the rating of the GIF depending on what the user selects. The default is PG.
+        // This sets the rating of the GIF depending on what the user selects. The default is G.
 
         let rating;
         if ($scope.rating) {
           rating = $scope.rating;
         } else {
-          rating = 'pg';
+          rating = 'g';
         }
 
         // This sets the text size of the text that the user will see. The default is 24px if the user doesn't change it.
@@ -47,7 +52,6 @@ $scope.$watch('userInput', (userInput, userSymbol) => {
           textSize = 24;
           $('#textOnMainPage').css("font-size", textSize + "px");
         }
-
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
 
