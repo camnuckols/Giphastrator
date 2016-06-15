@@ -14,9 +14,6 @@ $scope.sendUserDataToFB = () => {
 //   $window.location.reload();
 // }
 
-
-
-
 $scope.$watch('userInput', (userInput, userSymbol) => {
       if (userInput) {
 
@@ -24,6 +21,7 @@ $scope.clearBoard = () => {
   $scope.words = ``;
   $scope.userInput = ``;
   $scope.tag = [];
+  wordsLength = 2;
 }
         //Here I am setting the user symbol that they can use to create GIF's. By default it will be a dash /.
 
