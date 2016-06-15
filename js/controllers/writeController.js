@@ -1,6 +1,7 @@
 angular.module(`giphastrator`)
 .controller(`writeController`, function($scope, writeService, $interval) {
 
+new Clipboard('.clipboard-button');
 let wordsLength = 2;
 $scope.tag = [];
 
