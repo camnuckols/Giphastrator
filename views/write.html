@@ -365,8 +365,17 @@ to the page when the user is writing. -->
 
 <!-- Where I bind what the user writes to the page-->
 <!-- <a ui-sref = "write({userId:2})" ng-click="sendUserDataToFB(words)"><h1>See the live version</h1></a> -->
+
+
+<!-- Trigger -->
+<button class="clipboard-button" data-clipboard-target="#textOnMainPage">
+    <img src="./img/clipboard.svg" id = "clipboard" alt="Copy to clipboard">
+</button>
 <div class="row hide-on-small-only">
     <div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="words"></div>
+
+
+
 </div>
 <!--FOR SMALL SCREENS-->
 <div class="row hide-on-med-and-up">

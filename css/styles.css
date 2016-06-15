@@ -182,3 +182,7 @@ body {
 #clear {
   margin-top: -2%;
 }
+#clipboard {
+  width: 1.5em;
+  height: 1.5em;
+}
