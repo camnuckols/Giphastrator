@@ -301,7 +301,7 @@ to the page when the user is writing. -->
 <div class="container">
     <div class="row">
         <!-- <h5>Custom GIF's</h5> -->
-        <div class="chip" ng-repeat="tags in tag" ng-class="{
+        <div class="chip" ng-repeat="tags in tag track by $index" ng-class="{
           'purple lighten-3 white-text': $index === 0,
           'blue darken-1 white-text': $index === 1,
           'amber lighten-1 white-text': $index === 2,
@@ -316,7 +316,6 @@ to the page when the user is writing. -->
           'teal accent-5 white-text': $index === 11,
           'pink lighten-2 white-text': $index === 12,
           'red lighten-1 white-text': $index === 13
-
         }">
             {{tags}}
             <i class="material-icons" ng-click="deleteGif(tags)">close</i>
@@ -363,7 +362,6 @@ to the page when the user is writing. -->
         </div>
     </form>
 </div>
-
 
 <!-- Where I bind what the user writes to the page-->
 <!-- <a ui-sref = "write({userId:2})" ng-click="sendUserDataToFB(words)"><h1>See the live version</h1></a> -->
