@@ -25,7 +25,7 @@ that they want to use to create custom GIF's in their writing. -->
         <div class="space-row"></div>
 
 <!--FOR BIGGER SCREENS-->
-        <div class="col s2 offset-s1 hide-on-small-only">
+        <div class="col s2 hide-on-small-only">
             <label>GIF symbol</label>
             <select class="browser-default" ng-model="id">
 
@@ -127,7 +127,7 @@ choose which rating of GIF's they want to use-->
         </div>
         <!-- FOR SMALL SCREENS-->
 
-        <div class="col s3 offset-s1 hide-on-med-and-up">
+        <div class="col s3 hide-on-med-and-up">
             <label>GIF Rating</label>
             <select class="browser-default" ng-model="rating">
 
@@ -142,30 +142,53 @@ choose which rating of GIF's they want to use-->
 
 
         <!--TO FIX IN THE FUTURE. ALLOWS USERS TO CHANGE SIZE OF GIF-->
-        <!--This is where the user can change the size of the text that will
+        <!--This is where the user can change the size of the GIF that will
   be displayed when they type.-->
 
-        <!-- <div class="col s2">
+        <div class="col s2 hide-on-small-only">
             <label>GIF Size</label>
             <select class="browser-default" ng-model="gifSize">
 
                 <option value="" disabled selected style="display: none;">125px</option>
-                <option value="25">25px</option>
-                <option value="50">50px</option>
-                <option value="75">75px</option>
-                <option value="100">100px</option>
-                <option value="125">125px</option>
-                <option value="150">150px</option>
-                <option value="200">200px</option>
-                <option value="250">250px</option>
-                <option value="300">300px</option>
-                <option value="350">350px</option>
-                <option value="400">400px</option>
-                <option value="450">450px</option>
-                <option value="500">500px</option>
-                <option value="550">550px</option>
+                <option value=25>25px</option>
+                <option value=50>50px</option>
+                <option value=75>75px</option>
+                <option value=100>100px</option>
+                <option value=125>125px</option>
+                <option value=150>150px</option>
+                <option value=200>200px</option>
+                <option value=250>250px</option>
+                <option value=300>300px</option>
+                <option value=350>350px</option>
+                <option value=400>400px</option>
+                <option value=450>450px</option>
+                <option value=500>500px</option>
+                <option value=550>550px</option>
             </select>
-        </div> -->
+        </div>
+
+        <!--GIF SIZE- SMALLER SCREENS-->
+        <div class="col s3 hide-on-med-and-up">
+            <label>GIF Size</label>
+            <select class="browser-default" ng-model="gifSize">
+
+                <option value="" disabled selected style="display: none;">125</option>
+                <option value=25>25px</option>
+                <option value=50>50px</option>
+                <option value=75>75px</option>
+                <option value=100>100px</option>
+                <option value=125>125px</option>
+                <option value=150>150px</option>
+                <option value=200>200px</option>
+                <option value=250>250px</option>
+                <option value=300>300px</option>
+                <option value=350>350px</option>
+                <option value=400>400px</option>
+                <option value=450>450px</option>
+                <option value=500>500px</option>
+                <option value=550>550px</option>
+            </select>
+        </div>
 
         <!--This is where the user can change the size of the text that will
  be displayed when they type.-->
@@ -213,7 +236,7 @@ choose which rating of GIF's they want to use-->
         </div>
 
 <!--FOR SMALLER SCREENS-->
-        <div class="col s3 offset-s1 hide-on-med-and-up">
+        <div class="col s3 hide-on-med-and-up">
             <label>Text Size</label>
             <select class="browser-default" ng-model="textSize">
 
@@ -316,13 +339,10 @@ to the page when the user is writing. -->
                 ng-model="userInput" placeholder="                       And watch as your story comes to life."></textarea>
                 <!--The spaces above are there on purpose. If they aren't there the text conflicts.-->
                 <label for="icon_prefix2">Write Here:</label>
+                <a id = "clear" class="waves-effect waves-light btn-small red-text right" ng-click="clearBoard()">Clear Board<i class="material-icons prefix left">clear</i></a>
             </div>
-
         </div>
-
-
     </form>
-    <a id = "clear" class="waves-effect waves-light btn-small right" ng-click="clearBoard()">Clear Board<i class="material-icons prefix left">clear</i></a>
 </div>
 
 <!--FOR SMALL SCREENS -->
@@ -337,6 +357,8 @@ to the page when the user is writing. -->
                 ng-model="userInput"></textarea>
                 <!--The spaces above are there on purpose. If they aren't there the text conflicts.-->
                 <label for="icon_prefix2">Write Here:</label>
+                <a id = "clear" class="waves-effect waves-light btn-small red-text right" ng-click="clearBoard()">Clear Board<i class="material-icons prefix left">clear</i></a>
+
             </div>
         </div>
     </form>

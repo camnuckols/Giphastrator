@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.controller('writeController', function($scope, writeService, $window, $interval) {
+.controller('writeController', function($scope, writeService, $interval) {
 
 let wordsLength = 2;
 $scope.tag = [];
@@ -8,11 +8,6 @@ $scope.tag = [];
 $scope.sendUserDataToFB = () => {
   writeService.sendUserDataToFB($scope.words);
 }
-
-// This refreshes the page
-// $scope.clearBoard = () => {
-//   $window.location.reload();
-// }
 
 $scope.$watch('userInput', (userInput, userSymbol) => {
       if (userInput) {
@@ -49,6 +44,16 @@ $scope.clearBoard = () => {
         } else {
           textSize = 24;
           $('#textOnMainPage').css("font-size", textSize + "px");
+        }
+
+        //This sets the GIF size that the user will see. The default is 125px if the user doesn't change it.
+        let gifSize;
+        if ($scope.gifSize) {
+          gifSize = $scope.gifSize;
+          $('.gif').css("height", gifSize + "px");
+        } else {
+          gifSize = 125;
+          $('.gif').css("height", gifSize + "px");
         }
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
@@ -106,12 +111,5 @@ $scope.deleteGif = (gifName) => {
 });
 
 //TO FIX - IT'S A FEATURE THAT ALLOWS USERS TO CHANGE THE SIZE OF THEIR GIF'S
-        // This sets the GIF size that the user will see. The default is 125px if the user doesn't change it.
-        // var gifSize;
-        // if ($scope.gifSize) {
-        //   gifSize = $scope.gifSize;
-        //   $('.gif').css("height", gifSize + "px");
-        // } else {
-        //   $('.gif').css("height", 125 + "px");
-        // }
+
 //***********************************************************************************************************************
