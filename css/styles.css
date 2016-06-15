@@ -75,7 +75,7 @@ body {
   overflow: auto;
 }
 #textOnMainPage {
-  margin-top: -5%;
+  margin-top: -3%;
 }
 .card {
   margin: 3%;
@@ -171,7 +171,7 @@ body {
   height: 100vh;
   width: 100%;
   z-index: -5;
-  opacity: .1;
+  opacity: .3;
 }
 .dashboard-background {
   background-color: #f7f7f7;
