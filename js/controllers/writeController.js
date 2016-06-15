@@ -1,20 +1,25 @@
 angular.module('giphastrator')
-.controller('writeController', function($scope, writeService, $window) {
+.controller('writeController', function($scope, writeService, $window, $interval) {
 
-var wordsLength = 2;
+let wordsLength = 2;
 $scope.tag = [];
 
-$scope.sendUserDataToFB = function() {
+//Send the data to FireBase
+$scope.sendUserDataToFB = () => {
   writeService.sendUserDataToFB($scope.words);
 }
 
-$scope.clearBoard = function() {
+// This refreshes the page
+$scope.clearBoard = () => {
   $window.location.reload();
 }
 
-$scope.$watch('userInput', function(userInput, userSymbol) {
+
+$scope.$watch('userInput', (userInput, userSymbol) => {
+
       if (userInput) {
 
+            console.log(`something`);
         //Here I am setting the user symbol that they can use to create GIF's. By default it will be a dash /.
 
         if ($scope.id) {
@@ -25,7 +30,7 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
         // This sets the rating of the GIF depending on what the user selects. The default is PG.
 
-        var rating;
+        let rating;
         if ($scope.rating) {
           rating = $scope.rating;
         } else {
@@ -34,7 +39,7 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
 
         // This sets the text size of the text that the user will see. The default is 24px if the user doesn't change it.
 
-        var textSize;
+        let textSize;
         if ($scope.textSize) {
           textSize = $scope.textSize;
           $('#textOnMainPage').css("font-size", textSize + "px");
@@ -46,18 +51,20 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
         //I am splitting apart the words that the user types by whatever the user symbol is.
         //This will separate them into an array.
 
-        var words = userInput.split(userSymbol);
+        let words = userInput.split(userSymbol);
 
         //  We are going to loop through the words array to find the GIF's. We are only grabbing odd values (with this feature
         //  the user will have to have input between GIF's because it will only grab every other GIF).
 
         if (words.length > wordsLength) {
-          var input = words[words.length - 2];
+          let input = words[words.length - 2];
 
           //I create the tag here that goes out on the screen for the user to delete the GIF's if they please.
           $scope.tag.push(input);
 
-            writeService.getGif(input, rating).then(function(response) {
+            writeService.getGif(input, rating).then((response) => {
+
+              //This grabs the Gif from the Giffy API
               $scope.gif = response.data.data.images.downsized.url;
 
               words = words.slice(words.length -3, words.length -1);
@@ -72,21 +79,16 @@ $scope.$watch('userInput', function(userInput, userSymbol) {
               $scope.words = $scope.words.split('undefined').slice(1);
               }
 
-
-
             });
           wordsLength += 2;
         }
      }
-
-
-
   })
 
 
-$scope.deleteGif = function(gifName) {
+$scope.deleteGif = (gifName) => {
   try {
-  var gif;
+  let gif;
 //gif = $scope.words.split(/(gifName)/);
 
     gif = $scope.words.replace(/<img[^>]*>/,"");
