@@ -186,3 +186,10 @@ body {
   width: 1.5em;
   height: 1.5em;
 }
+/* The next two items change the color of the text that is being highlighted */
+::-moz-selection {
+background-color: rgba(0, 0, 0, 0);
+}
+::selection {
+background-color: rgba(0, 0, 0, 0);
+}
