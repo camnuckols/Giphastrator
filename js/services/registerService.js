@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-    .service('registerService', function($state, $timeout) {
+    .service('registerService', function ($state, $timeout) {
         //
         let users = [];
         let userDataArray = [];
@@ -12,6 +12,8 @@ angular.module('giphastrator')
         this.getUserDataArray = function() {
             return userDataArray;
         }
+
+
 
         function saveUser(email, password, firstName, lastName, username, userData) {
             users.push({

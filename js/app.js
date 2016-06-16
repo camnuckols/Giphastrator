@@ -14,7 +14,12 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.so
     controller: 'registerController'
   })
   .state('write', {
-    url: '/write/:userId',
+    url: '/write',
+    templateUrl: './views/write.html',
+    controller: 'writeController'
+  })
+  .state('customwrite', {
+    url: '/write/:userId/story/:num',
     templateUrl: './views/write.html',
     controller: 'writeController'
   })

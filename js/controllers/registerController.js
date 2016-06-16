@@ -1,6 +1,8 @@
 angular.module('giphastrator')
 .controller('registerController', function($scope, registerService) {
 
+    const ref = new Firebase("https://giphastrators.firebaseio.com");
+
 $scope.registerUser = function(email, password, firstName, lastName, username) {
   registerService.registerUser(email, password, firstName, lastName, username);
 }
@@ -19,5 +21,4 @@ $scope.googleLoginPopup = function() {
 $scope.twitterLoginPopup = function() {
   registerService.twitterLoginPopup();
 }
-
 });

@@ -4,7 +4,7 @@ angular.module('giphastrator')
     restrict: 'E',
     templateUrl: './views/navbar.html',
     link: function(scope, elem, attr) {
-      scope.logOut = function() {
+      scope.logOut = () => {
         registerService.logOut();
       }
     }
