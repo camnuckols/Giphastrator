@@ -1,88 +1,86 @@
-<div class = "dashboard-background">
-<div class = "container">
-  <div class = "row">
-    <div class = "col s12 center-align">
-      <h5><strong>Dashboard</strong></h5>
-    </div>
-  </div>
+<div class="dashboard-background">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h5><strong>Dashboard</strong></h5>
+            </div>
+        </div>
 
-  <div class = "row">
-    <div class = "col s6">
-    <img ng-src = "{{userData[0].password.profileImageURL}}" />
+        <div class="row">
+            <div class="col s6">
+                <img ng-src="{{userData[0].password.profileImageURL}}" />
+
+                <!-- <h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br> -->
+                <!-- <h3>Title</h3><input type= "text" class="col s3" ng-model="titleOfStory"/><br><br> -->
+                <h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create story </a></h4>
+                <hr />
+
+            </div>
+
+            <div class="row">
+                <div class="col s6 offset-s3 social-box">
+                    <img class="social-banner" ng-src="/img/social-media-share-banner/Large-Banner-Top.png" />
+                </div>
+
+                <div class="row">
+
+                    <div class="col s8 offset-s2 social-box">
+
+                        <!--PINTEREST SHARE ICON-->
+                        <a ui-sref="#" socialshare socialshare-provider="pinterest" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+                            <span ng-switch on="pinterest" ng-mouseleave="changePinterestColor()">
+   <img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Pinterest-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Pinterest-Button-for-Banner-Black.png'>
+</span></a>
+
+                        <!--REDDIT SHARE ICON-->
+                        <a ui-sref="#" socialshare socialshare-provider="reddit" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+                            <span ng-switch on="reddit" ng-mouseleave="changeRedditColor()">
+   <img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Reddit-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Reddit-Button-for-Banner-Black.png'>
+</span></a>
+
+                        <!--DIGG SHARE ICON-->
+                        <a ui-sref="#" socialshare socialshare-provider="digg" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+                            <span ng-switch on="digg" ng-mouseleave="changeDiggColor()">
+   <img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Digg-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Digg-Button-for-Banner-Black.png'>
+</span></a>
+
+                        <!--TUMBLR SHARE ICON-->
+                        <a ui-sref="#" socialshare socialshare-provider="tumblr" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+                            <span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
+   <img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Tumblr-Button-for-Banner-Black.png'>
+</span></a>
+
+                        <!--TWITTER SHARE ICON-->
+                        <a ui-sref="#" socialshare socialshare-provider="twitter" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+                            <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+   <img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Twitter-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Twitter-Button-for-Banner-Black.png'>
+</span></a>
+
+<!--TWITTER SHARE ICON-->
+<a ui-sref="#" socialshare socialshare-provider="facebook" socialshare-text="Giphastrator is my absolute favorite!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+
+    <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+<img ng-switch-when="ON" class = "social" src='/img/social-media-share-banner/Facebook-Button-for-Banner.png'>
+<img ng-switch-when="OFF" class="social" src='/img/social-media-share-banner/Facebook-Button-for-Banner-Black.png'>
+</span></a>
+                    </div>
 
 
-<!-- <h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br> -->
-<!-- <h3>Title</h3><input type= "text" class="col s3" ng-model="titleOfStory"/><br><br> -->
-<h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create story </a></h4>
-<hr />
-<h6><a class="waves-effect waves-light blue btn" ui-sref="#"
-socialshare
-socialshare-provider="twitter"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Twitter
-</a>
-</a></h6>
-
-<h6><a class="waves-effect waves-light blue darken-4 btn" ui-sref="#"
-socialshare
-socialshare-provider="facebook"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Facebook
-</a>
-</a></h5>
-
-<h6><a class="waves-effect waves-light blue lighten-4 black-text btn" ui-sref="#"
-socialshare
-socialshare-provider="reddit"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Reddit
-</a>
-</a></h6>
-
-<h6><a class="waves-effect waves-light black text-white btn" ui-sref="#"
-socialshare
-socialshare-provider="digg"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Digg
-</a>
-</a></h6>
-
-<h6><a class="waves-effect waves-light red darken-4 btn" ui-sref="#"
-socialshare
-socialshare-provider="pinterest"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Pinterest
-</a>
-</a></h6>
-
-<h6><a class="waves-effect waves-light deep-purple lighten-2 btn" ui-sref="#"
-socialshare
-socialshare-provider="tumblr"
-socialshare-text="Giphastrator is my absolute favorite!"
-socialshare-hashtags="giphastrator, ilovegifs"
-socialshare-url="http://www.giphastrator.com">
-Share on Tumblr
-</a>
-</a></h6>
+                </div>
+                <!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
 
 
-
-<hr />
-<!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
-
-</div>
-
-  <!-- <div class = "col s6 offset-s6">
+                <!-- <div class = "col s6 offset-s6">
 <h5>Change Profile Info <i class="material-icons">people outline</i></h5>
     <div class="input-field">
       <input id="email" type="email" class="validate" ng-model="email">
@@ -99,4 +97,4 @@ Share on Tumblr
 </div>
   </div>
 </div> -->
-</div>
+            </div>

@@ -160,6 +160,7 @@ body {
   border: none;
   border-radius: 2px;
 }
+
 .facebook {
   width: 190px;
   margin-left: 2%;
@@ -240,4 +241,19 @@ background-color: rgba(0, 0, 0, 0);
 }
 ::selection {
 background-color: rgba(0, 0, 0, 0);
+}
+.social {
+  height: 5em;
+  width: 5em;
+  cursor: pointer;
+}
+.social-box {
+  display: flex;
+  justify-content: space-around;
+}
+.social-banner {
+  width: 40em;
+  height: 1em;
+  position: relative;
+  bottom: -10px;
 }
