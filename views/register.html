@@ -20,21 +20,21 @@
           <label for="last_name">Last Name</label>
         </div>
 
-                <img class = "google google-register" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" />
+                <!-- <img class = "google google-register" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" /> -->
 
         <div class="input-field col s6 offset-s3">
           <input id="username" type="text" class="validate" ng-model="username">
           <label for="username">Username</label>
         </div>
-
-        <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" />
+<!--
+        <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" /> -->
 
         <div class="input-field col s6 offset-s3">
           <input id="password" type="password" class="validate" ng-model="password">
           <label for="password">Password</label>
         </div>
 
-        <img class = "twitter" ng-click= "twitterLoginPopup()"ng-src = "./img/twitter-sign-in.jpg" />
+        <!-- <img class = "twitter" ng-click= "twitterLoginPopup()"ng-src = "./img/twitter-sign-in.jpg" /> -->
 
         <div class="input-field col s6 offset-s3">
           <input id="email" type="email" class="validate" ng-model="email">
@@ -43,6 +43,10 @@
 
     </form>
   </div>
+
+  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png"/>
+  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png"/>
+  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png"/>
 
 <div class = "center">
 

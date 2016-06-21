@@ -1,6 +1,6 @@
 angular.module('giphastrator')
     .service('registerService', function ($state, $timeout) {
-        //
+
         let users = [];
         let userDataArray = [];
         const ref = new Firebase("https://giphastrators.firebaseio.com");
@@ -12,8 +12,6 @@ angular.module('giphastrator')
         this.getUserDataArray = function() {
             return userDataArray;
         }
-
-
 
         function saveUser(email, password, firstName, lastName, username, userData) {
             users.push({
@@ -319,5 +317,4 @@ angular.module('giphastrator')
                 }
             });
         }
-
-    });
+});
