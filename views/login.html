@@ -5,20 +5,37 @@
 
 
     <h4 class="hide-on-med-and-down center">We're glad you're back.</h4>
-    <h4 class="hide-on-med-and-up center">Time to Create.</h4>
 
-    <img class="facebook hide-on-med-and-up" id="facebook-login-small" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
-    <br>
-    <img class="google hide-on-med-and-up" id="google-login-small" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
-    <br>
-    <img class="twitter hide-on-med-and-up" id="twitter-login-small" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
-    <br>
+  </div>
+
+
+      <div class="row">
+          <div class="col s12 center">
+
+              <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+  <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
+  <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook-black.png'>
+  </span>
+  </div>
+          <div class="col s12 center">
+              <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
+  <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
+  <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
+  </span>
+              </div>
+
+          <div class="col s12 center">
+              <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
+    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
+    </span>
+          </div>
+  </div>
 
 
     <div class="row">
         <form class="col s12">
 
-            <div class="space-row hide-on-med-and-up"></div>
 
 
             <div class="input-field col s4 offset-s4 hide-on-small-only">
@@ -73,31 +90,7 @@
     <iframe src="//giphy.com/embed/biJpWkEdgitMs" width="500" height="290" frameBorder="0" class="giphy-embed" allowFullScreen>
 
     </iframe><p><a href="https://giphy.com/gifs/minions-funny-biJpWkEdgitMs"></a></p> -->
-    </div>
 
-
-        <div class="row">
-            <div class="col s12 center">
-
-                <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
-    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
-    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook-black.png'>
-    </span>
-    </div>
-            <div class="col s12 center">
-                <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
-    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
-    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
-    </span>
-                </div>
-
-            <div class="col s12 center">
-                <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
-      <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
-      <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
-      </span>
-            </div>
-    </div>
 
 
 

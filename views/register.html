@@ -8,17 +8,39 @@
 
       <div class = "col s6 offset-s3">
       <img id = "party-hat" ng-src = "./img/party-hat.png" />
-        <h5 id = "party">Join the Party. It's Where You Belong.</h5>
+        <h5 id = "party">Join the Party.<span class = "hide-on-small-only"> It's Where You Belong.</span> </h5>
       </div>
 
 
+                  <div class="center hide-on-med-and-up">
+
+                      <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+              <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
+              <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook-black.png'>
+              </span>
+              </div>
+
+
+                      <div class="center hide-on-med-and-up">
+                          <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
+                    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
+                    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
+                    </span>
+                          </div>
+
+      <div class="center hide-on-med-and-up">
+          <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+      <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
+      <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
+      </span>
+      </div>
 
         <div class="input-field col s6 offset-s3">
           <input id="first_name" type="text" class="validate" ng-model="firstName">
           <label for="first_name">First Name</label>
         </div>
 
-            <div class="col s2 offset-s1">
+            <div class="col s2 offset-s1 hide-on-small-only">
 
                 <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
         <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
@@ -33,7 +55,7 @@
           <label for="last_name">Last Name</label>
         </div>
 
-        <div class="col s2 offset-s1">
+        <div class="col s2 offset-s1 hide-on-small-only">
             <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
       <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
       <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
@@ -48,7 +70,7 @@
         </div>
 <!--
         <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" /> -->
-        <div class="col s2 offset-s1">
+        <div class="col s2 offset-s1 hide-on-small-only">
             <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
     <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
     <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
@@ -69,10 +91,6 @@
 
     </form>
   </div>
-
-  <!-- <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png"/>
-  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png"/>
-  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png"/> -->
 
 <div class = "center">
 

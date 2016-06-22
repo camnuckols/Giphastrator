@@ -34,13 +34,9 @@
   position: absolute;
   left: 25%;
   top: 26.5em;
-
-}
-#party-hat {
-  margin-top: -275em;
 }
 #party {
-  margin-bottom: 3.5em;
+  margin-bottom: .5em;
   width: 200%;
   position: relative;
   left: -40%;
@@ -48,7 +44,9 @@
 }
 .confetti {
 background-image: url(/img/confetti.gif);
-height: 61.5em;
+height: 65em;
+background-repeat: no-repeat;
+background-size: cover;
 }
 #first_name {
   width: 170%;
@@ -89,20 +87,7 @@ height: 61.5em;
   margin-bottom: 25%;
 }
 /* LOGIN PAGE *******************************************************************************************************************/
-#facebook-login-small {
-  position: absolute;
-  top: 33%;
-  margin-bottom: 0%;
-}
-#twitter-login-small {
-  position: absolute;
-  top:38.6%;
-  margin-bottom: 0%;
-}
-#google-login-small {
-  position: absolute;
-  top: 33%;
-}
+
 #email-small {
   position: relative;
   margin-top: -200px;
@@ -122,6 +107,22 @@ font-size: 36px;
   height: 30%;
   font-size: 30px;
   text-align: center;
+}
+.sign-in {
+  width: 25em;
+  margin: -3em;
+}
+
+#main-logo {
+width: 13em;
+}
+#get-started-button {
+  background-color: black !important;
+  animation: none;
+}
+.dance {
+  background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');
+  opacity: .7;
 }
 /* WRITE PAGE *******************************************************************************************************************/
 

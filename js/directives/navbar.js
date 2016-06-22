@@ -7,6 +7,7 @@ angular.module('giphastrator')
       scope.logOut = () => {
         registerService.logOut();
       }
-    }
+    },
+    controller: 'navbarCtrl'
   }
 });
