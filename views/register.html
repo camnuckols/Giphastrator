@@ -1,6 +1,10 @@
+
 <div class = "confetti"></div>
-<div class="row">
+
+<div class="row register-form">
     <form class="col s12">
+
+
 
       <div class = "col s6 offset-s3">
       <img id = "party-hat" ng-src = "./img/party-hat.png" />
@@ -8,9 +12,18 @@
       </div>
 
 
+
         <div class="input-field col s6 offset-s3">
           <input id="first_name" type="text" class="validate" ng-model="firstName">
           <label for="first_name">First Name</label>
+        </div>
+
+            <div class="col s2 offset-s1">
+
+                <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+        <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
+        <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook-black.png'>
+        </span>
         </div>
 
 
@@ -20,6 +33,13 @@
           <label for="last_name">Last Name</label>
         </div>
 
+        <div class="col s2 offset-s1">
+            <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
+      <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
+      <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
+      </span>
+            </div>
+
                 <!-- <img class = "google google-register" ng-click= "googleLoginPopup()"ng-src = "./img/google-sign-in.png" /> -->
 
         <div class="input-field col s6 offset-s3">
@@ -28,6 +48,12 @@
         </div>
 <!--
         <img class = "facebook" ng-click= "loginPopup()"ng-src = "./img/facebook-sign-in.png" /> -->
+        <div class="col s2 offset-s1">
+            <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
+    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
+    </span>
+        </div>
 
         <div class="input-field col s6 offset-s3">
           <input id="password" type="password" class="validate" ng-model="password">
@@ -44,9 +70,9 @@
     </form>
   </div>
 
-  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png"/>
+  <!-- <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png"/>
   <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png"/>
-  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png"/>
+  <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png"/> -->
 
 <div class = "center">
 
