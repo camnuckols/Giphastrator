@@ -26,10 +26,15 @@
             <div class = "space-row hide-on-small-only"></div>
 
 
-<h5 class = "col s8 offset-s2">All your friends want to be invited to the party too.</h5>
+<h5 class = "col s8 offset-s2 hide-on-small-only">All your friends want to be invited to the party too.</h5>
+<h5 class = "col 11 hide-med-and-up">Invite your friends to the party.</h5>
+
             <div class="row">
                 <div class="col s8 offset-s2 social-box">
-                    <img class="social-banner" ng-src="/img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+                    <img class="social-banner hide-on-small-only" ng-src="/img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+                </div>
+                <div class="col s12 social-box">
+                    <img class="social-banner hide-on-med-and-up" ng-src="/img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
                 </div>
 
                 <div class="row">
@@ -63,8 +68,8 @@
                         <a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
                             <span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
-   <img ng-switch-when="ON" class = "social" src='/img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
-   <img ng-switch-when="OFF" class="social" src='/img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner-Black.png'>
+   <img ng-switch-when="ON" class = "social hide-on-small-only" src='/img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
+   <img ng-switch-when="OFF" class="social hide-on-small-only" src='/img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner-Black.png'>
 </span></a>
 
                         <!--TWITTER SHARE ICON-->

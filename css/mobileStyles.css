@@ -124,6 +124,9 @@ width: 13em;
   background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');
   opacity: .7;
 }
+.social-banner {
+  bottom: -9px;
+}
 /* WRITE PAGE *******************************************************************************************************************/
 
 
