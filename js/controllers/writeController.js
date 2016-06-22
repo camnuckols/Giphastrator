@@ -11,6 +11,9 @@ angular.module(`giphastrator`)
             }
 
             $scope.$watch(`userInput`, (userInput, userSymbol) => {
+
+
+
                         if (userInput) {
 
                             $scope.clearBoard = () => {
@@ -77,8 +80,11 @@ angular.module(`giphastrator`)
 
                                             words = words.slice(words.length - 3, words.length - 1);
 
+
                                             $scope.words += ` ${words.join(` `)} <img class = "gif" src = "${response.data.data.images.downsized.url}">`;
 
+console.log($scope.words);
+console.log(userInput);
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing
               //it to be undefined in the first place.

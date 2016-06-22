@@ -22,4 +22,32 @@ $scope.twitterLoginPopup = function() {
   registerService.twitterLoginPopup();
 }
 
+$scope.facebook = 'OFF';
+$scope.twitter = 'OFF';
+$scope.google = 'OFF';
+
+$scope.changeFacebookColor = () => {
+  if ($scope.facebook === 'OFF') {
+    $scope.facebook = 'ON';
+  } else {
+    $scope.facebook = 'OFF';
+  }
+}
+
+$scope.changeTwitterColor = () => {
+  if ($scope.twitter === 'OFF') {
+    $scope.twitter = 'ON';
+  } else {
+    $scope.twitter = 'OFF';
+  }
+}
+
+$scope.changeGoogleColor = () => {
+  if ($scope.google === 'OFF') {
+    $scope.google = 'ON';
+  } else {
+    $scope.google = 'OFF';
+  }
+}
+
 });

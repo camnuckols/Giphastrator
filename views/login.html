@@ -1,63 +1,65 @@
-<div class = "dashboard-background">
-<div class = "login-dance"></div>
-<!-- <a ui-sref="dashboard">Dash</a> -->
-<div class="row">
-    <form class="col s12">
+<div class="dashboard-background">
+    <div class="login-dance"></div>
+    <!-- <a ui-sref="dashboard">Dash</a> -->
 
 
-      <h4 class = "hide-on-med-and-down center">We're glad you're back.</h4>
-<h4 class = "hide-on-med-and-up center">Time to Create.</h4>
 
-        <img class="facebook hide-on-med-and-up" id="facebook-login-small" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
-        <br>
-        <img class="google hide-on-med-and-up" id="google-login-small" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
-        <br>
-        <img class="twitter hide-on-med-and-up" id="twitter-login-small" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
-        <br>
+    <h4 class="hide-on-med-and-down center">We're glad you're back.</h4>
+    <h4 class="hide-on-med-and-up center">Time to Create.</h4>
 
-
-        <div class="space-row hide-on-med-and-up"></div>
+    <img class="facebook hide-on-med-and-up" id="facebook-login-small" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
+    <br>
+    <img class="google hide-on-med-and-up" id="google-login-small" ng-click="googleLoginPopup()" ng-src="./img/google-sign-in.png" />
+    <br>
+    <img class="twitter hide-on-med-and-up" id="twitter-login-small" ng-click="twitterLoginPopup()" ng-src="./img/twitter-sign-in.jpg" />
+    <br>
 
 
-        <div class="input-field col s4 offset-s4 hide-on-small-only">
-            <input id="email" type="email" class="validate" ng-model="email">
-            <label for="email">Email</label>
-        </div>
+    <div class="row">
+        <form class="col s12">
 
-        <div class="input-field col s4 offset-s4 hide-on-small-only">
-            <input id="password" type="password" class="validate" ng-model="password">
-            <label for="password">Password</label>
-        </div>
-
-        <div class="input-field hide-on-med-and-up">
-            <input id="email-small" type="email" class="validate" ng-model="email">
-            <label id= "email-small-label" for="email">Email</label>
-        </div>
-
-        <div class="input-field hide-on-med-and-up">
-            <input id="password-small" type="password" class="validate" ng-model="password">
-            <label for="password">Password</label>
-        </div>
-
-    </form>
-</div>
+            <div class="space-row hide-on-med-and-up"></div>
 
 
-<div class="center">
+            <div class="input-field col s4 offset-s4 hide-on-small-only">
+                <input id="email" type="email" class="validate" ng-model="email">
+                <label for="email">Email</label>
+            </div>
 
-    <button class="login-button btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
+            <div class="input-field col s4 offset-s4 hide-on-small-only">
+                <input id="password" type="password" class="validate" ng-model="password">
+                <label for="password">Password</label>
+            </div>
 
-    </button>
+            <div class="input-field hide-on-med-and-up">
+                <input id="email-small" type="email" class="validate" ng-model="email">
+                <label id="email-small-label" for="email">Email</label>
+            </div>
 
-    <div class="space-row hide-on-small-only"></div>
+            <div class="input-field hide-on-med-and-up">
+                <input id="password-small" type="password" class="validate" ng-model="password">
+                <label for="password">Password</label>
+            </div>
 
-    <div class="space-row hide-on-med-and-down"></div>
+        </form>
+    </div>
 
-    <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png"/>
-    <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png"/>
-    <img class = "sign-in" ng-click="loginPopup()" ng-src="./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png"/>
 
-    <!-- <div class = "center">
+    <div class="center">
+
+        <button class="login-button btn waves-effect waves-light light-blue darken-1" type="submit" name="action" ng-click="signIn(email, password)">Log In
+
+        </button>
+
+        <div class="space-row hide-on-small-only"></div>
+
+        <!-- <div class="space-row hide-on-med-and-down"></div> -->
+
+
+
+
+
+        <!-- <div class = "center">
 
             <img class="facebook hide-on-small-only" id="facebook-login" ng-click="loginPopup()" ng-src="./img/facebook-sign-in.png" />
             <br>
@@ -67,9 +69,36 @@
             <br>
           </div> -->
 
-    <!--
+        <!--
     <iframe src="//giphy.com/embed/biJpWkEdgitMs" width="500" height="290" frameBorder="0" class="giphy-embed" allowFullScreen>
 
     </iframe><p><a href="https://giphy.com/gifs/minions-funny-biJpWkEdgitMs"></a></p> -->
-</div>
+    </div>
+
+
+        <div class="row">
+            <div class="col s12 offset-s5">
+
+                <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook.png'>
+    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-facebook-black.png'>
+    </span>
+    </div>
+            <div class="col s12 offset-s5">
+                <span ng-switch on="google" ng-mouseleave="changeGoogleColor()">
+    <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google.png'>
+    <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-google-black.png'>
+    </span>
+                </div>
+
+            <div class="col s12 offset-s5">
+                <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+      <img ng-switch-when="ON" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter.png'>
+      <img ng-switch-when="OFF" class = "sign-in" ng-click="loginPopup()" ng-src='./img/custom-img/giphastratorsigninbuttons/sign-in-with-twitter-black.png'>
+      </span>
+            </div>
+    </div>
+
+
+
 </div>

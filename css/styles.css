@@ -261,6 +261,6 @@ background-color: rgba(0, 0, 0, 0);
   bottom: -10px;
 }
 .sign-in {
-  height: 200px;
-  width: 20em;
+  width: 18em;
+  margin: -2.5em;
 }
