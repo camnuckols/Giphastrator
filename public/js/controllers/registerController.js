@@ -4,8 +4,13 @@ angular.module('giphastrator')
     const ref = new Firebase("https://giphastrators.firebaseio.com");
 
 $scope.registerUser = function(email, password, firstName, lastName, username) {
-  registerService.registerUser(email, password, firstName, lastName, username);
+  registerService.registerUser(email, password, firstName, lastName, username)
+  .then(response => {
+    console.log(response);
+    return response;
+  });
 }
+
 $scope.signIn = function(email, password) {
   registerService.signIn(email, password);
 }

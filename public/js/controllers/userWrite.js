@@ -4,7 +4,6 @@ angular.module('giphastrator')
   $scope.addStory = ( words ) => {
     writeService.addStory( words )
     .then( response => {
-      console.log(response);
       $scope.stories = response;
   });
   }
@@ -12,7 +11,6 @@ angular.module('giphastrator')
   $scope.getStory = () => {
     writeService.getStory()
     .then( response => {
-      console.log(response);
       $scope.stories = response;
     });
   }

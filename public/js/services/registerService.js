@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-    .service('registerService', function ($state, $timeout) {
+    .service('registerService', function ($state, $timeout, $http) {
 
         let users = [];
         let userDataArray = [];
@@ -29,21 +29,38 @@ angular.module('giphastrator')
         }
 
         this.registerUser = function(email, password, firstName, lastName, username) {
-            ref.createUser({
-                email: email,
-                password: password
-            }, function(error, userData) {
-                if (error) {
-                    $timeout(function() {
-                        Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
-                    }, 500);
+          return $http({
+            method: `POST`,
+            url: `/api/user`,
+            data: {
+              fname: firstName,
+              lname: lastName,
+              username: username,
+              password: password,
+              email: email,
+              stories: []
+            }
+          }).then(response => {
+            console.log(response);
+            return response;
+          });
+}
 
-                    console.log("Error creating user:", error);
-                } else {
-                    $timeout(function() {
-                        Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
-                    }, 500);
-                    $state.go('dashboard');
+            // ref.createUser({
+            //     email: email,
+            //     password: password
+            // }, function(error, userData) {
+            //     if (error) {
+            //         $timeout(function() {
+            //             Materialize.toast('Whoops, something went wrong. Please try again!', 3000);
+            //         }, 500);
+            //
+            //         console.log("Error creating user:", error);
+            //     } else {
+            //         $timeout(function() {
+            //             Materialize.toast('Welcome to Giphastrator, ' + firstName + '!', 3000);
+            //         }, 500);
+            //         $state.go('dashboard');
                     // saveUser(email, password, firstName, lastName, username, userData);
 
 
@@ -52,25 +69,25 @@ angular.module('giphastrator')
                     $('#register').hide();
                     $('#logout').removeClass('ng-hide');
                     $('#dashboard').removeClass('ng-hide');
-                    let isNewUser = true;
-
-                    ref.onAuth(function(userData) {
-                        if (userData && isNewUser) {
-
-                            // save the user's profile into the database
-
-                            ref.child("users").child(userData.uid).push({
-                                provider: userData.provider,
-                                name: getName(userData),
-                                firstName: getFirstName(userData),
-                                id: getId(userData),
-                                picture: getPicture(userData)
-                            });
-                        }
-                    });
-                }
-            });
-        }
+        //             let isNewUser = true;
+        //
+        //             ref.onAuth(function(userData) {
+        //                 if (userData && isNewUser) {
+        //
+        //                     // save the user's profile into the database
+        //
+        //                     ref.child("users").child(userData.uid).push({
+        //                         provider: userData.provider,
+        //                         name: getName(userData),
+        //                         firstName: getFirstName(userData),
+        //                         id: getId(userData),
+        //                         picture: getPicture(userData)
+        //                     });
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
 
         this.signIn = function(email, password) {
             ref.authWithPassword({
