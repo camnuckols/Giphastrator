@@ -6,36 +6,36 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.so
   $urlRouterProvider.otherwise('/home');
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: './public/views/home.html'
+    templateUrl: './views/home.html'
   })
   .state('register', {
     url: '/register',
-    templateUrl: './public/views/register.html',
+    templateUrl: './views/register.html',
     controller: 'registerController'
   })
   .state('write', {
     url: '/write',
-    templateUrl: './public/views/write.html',
+    templateUrl: './views/write.html',
     controller: 'writeController'
   })
   .state('customwrite', {
     url: '/write/:userId/story/:num',
-    templateUrl: './public/views/userStory.html',
+    templateUrl: './views/userStory.html',
     controller: 'writeController'
   })
   .state('login', {
     url: '/login',
-    templateUrl: './public/views/login.html',
+    templateUrl: './views/login.html',
     controller: 'registerController'
   })
   .state('dashboard', {
     url: '/dashboard',
-    templateUrl: './public/views/dashboard.html',
+    templateUrl: './views/dashboard.html',
     controller: 'dashboardController'
   })
   .state('learnMore', {
     url: '/learnMore',
-    templateUrl: './public/views/learnMore.html'
+    templateUrl: './views/learnMore.html'
   })
 
 });

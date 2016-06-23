@@ -117,12 +117,21 @@ font-size: 36px;
 width: 13em;
 }
 #get-started-button {
-  background-color: black !important;
-  animation: none;
+  /*background-color: black !important;*/
+  /*animation: none;*/
 }
 .dance {
-  background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');
-  opacity: .7;
+  /*background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');*/
+  /*opacity: .7;*/
+  right: 0em;
+  position: absolute;
+
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: -5;
+  opacity: .3;
+
 }
 .social-banner {
   bottom: -9px;

@@ -6,7 +6,7 @@ angular.module('giphastrator')
       scope: {
       },
       controller: function($scope) {
-        $scope.image = "/img/cameron-nuckols-logo.png";
+        $scope.image = "./img/cameron-nuckols-logo.png";
         $scope.title = "Giphastrator";
         $scope.desc = "It all started with Flavio.";
       }
