@@ -8,4 +8,24 @@ this.getGif = function(searchTerm, userRating) {
     url: baseUrl + searchTerm + "&api_key=dc6zaTOxFJmzC&rating=" + userRating
   });
 }
+
+this.addStory = function( words ) {
+  return $http({
+    method: `POST`,
+    url: `/api/story`,
+    data: { words }
+  }).then( response => {
+    return response.config.data.words;
+  });
+}
+
+this.getStory = function() {
+  return $http({
+    method: `GET`,
+    url: `/api/story`
+  }).then( response => {
+    return response.data;
+  });
+}
+
 });

@@ -1,5 +1,5 @@
 angular.module(`giphastrator`)
-    .controller(`writeController`, function($scope, writeService, $interval, registerService) {
+    .controller(`writeController`, function($scope, writeService, $interval, registerService, $http) {
 
             new Clipboard('.clipboard-button');
             let wordsLength = 2;
