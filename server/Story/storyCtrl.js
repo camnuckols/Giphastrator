@@ -21,14 +21,12 @@ module.exports = {
   },
 
   getOneStory( req, res ) {
-    Story.findById( req.params.id )
-         .populate( `User` )
-         .exec(( err, populatedStory) => {
-           if (err) {
+    Story.findById( req.params.id, ( err, story ) => {
+           if ( err ) {
              return res.status( 500 ).json( err );
            }
-           return res.status( 200 ).json( populatedStory );
-         })
+           return res.status( 200 ).json( story );
+         });
 
 }
 }
