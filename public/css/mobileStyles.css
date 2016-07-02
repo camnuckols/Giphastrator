@@ -1,0 +1,143 @@
+/*@media (min-width:320px) 20em { /* smartphones, iPhone, portrait 480x320 phones */
+/*@media (min-width:481px) 30.0625em{ /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/*@media (min-width:641px) 40.0625{ /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+/*@media (min-width:961px) 60.0625{ /* tablet, landscape iPad, lo-res laptops ands desktops */
+/*@media (min-width:1025px)64.0625 { /* big landscape tablets, laptops, and desktops */
+/*@media (min-width:1281px) 80.0625{ /* hi-res laptops and desktops */ /*/*/
+
+@media only screen and (max-width: 481px) {
+/* smartphones, iPhone, portrait 480x320 phones */
+
+/* REGISTER PAGE *******************************************************************************************************************/
+
+.google {
+  width: 40%;
+  height: 5%;
+  margin-bottom: .5%;
+  margin-top: 20%;
+  position: absolute;
+  top: 23.8em;
+  left: 25%;
+  right: 25%;
+}
+.facebook {
+  width: 40%;
+  height: 5%;
+  margin-bottom: .5%;
+  position: absolute;
+  left: 25%;
+  top: 23.8em;
+}
+.twitter {
+  width: 40%;
+  height: 5%;
+  position: absolute;
+  left: 25%;
+  top: 26.5em;
+}
+#party {
+  margin-bottom: .5em;
+  width: 200%;
+  position: relative;
+  left: -40%;
+  font-size: 3em;
+}
+.confetti {
+background-image: url(/img/confetti.gif);
+height: 65em;
+background-repeat: no-repeat;
+background-size: cover;
+}
+#first_name {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#last_name {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#username {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#password {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#email {
+  width: 170%;
+  left: -30%;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+#register-button {
+  margin-bottom: 25%;
+}
+/* LOGIN PAGE *******************************************************************************************************************/
+
+#email-small {
+  position: relative;
+  margin-top: -200px;
+  font-size: 36px;
+}
+#email-small-label {
+  margin-top: -15px;
+}
+#password-small {
+position: relative;
+top: 4%;
+margin-top:0px;
+font-size: 36px;
+}
+.login-button {
+  width: 60%;
+  height: 30%;
+  font-size: 30px;
+  text-align: center;
+}
+.sign-in {
+  width: 25em;
+  margin: -3em;
+}
+
+#main-logo {
+width: 13em;
+}
+#get-started-button {
+  /*background-color: black !important;*/
+  /*animation: none;*/
+}
+.dance {
+  /*background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');*/
+  /*opacity: .7;*/
+  right: 0em;
+  position: absolute;
+
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: -5;
+  opacity: .3;
+
+}
+.social-banner {
+  bottom: -9px;
+}
+/* WRITE PAGE *******************************************************************************************************************/
+
+
+
+}

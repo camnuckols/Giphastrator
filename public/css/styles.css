@@ -1,0 +1,266 @@
+#main-logo {
+  width: 200px;
+  margin-top: .5%;
+  margin-left: 8%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+.header-color-bar {
+  background-color: #00ccd2;
+  height: 3px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  color: white;
+  height: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
+  z-index: 51;
+}
+footer > img {
+  height: 40%;
+}
+#nucks-logo {
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.gif {
+  height: 125px;
+  position: relative;
+  top: 45px;
+  margin-left: 1%;
+  margin-right: 1%;
+  max-width: 100%;
+}
+.input {
+  width: 40%;
+  height: 200px;
+  border-radius: 5px;
+}
+.words {
+  font-size: 24px;
+  margin-bottom: 150px;
+  display: inline-block;
+}
+textarea:focus {
+  border: none;
+  outline: none !important;
+  box-shadow:0 0 10px #00ccd2;
+}
+.right {
+  margin-right: 8%;
+}
+.chip {
+  margin: 2px;
+}
+.space-row {
+  height: 50px;
+}
+.small-space-row {
+  height: 25px;
+}
+#get-started-button {
+  margin-top: 2%;
+  /*background-color: #000 !important;*/
+    background-color: 9b59b6;
+    animation: bg-color 10s infinite;
+    -webkit-animation: bg-color 10s infinite;
+}
+
+
+@-webkit-keyframes bg-color {
+  0% { background-color: #1abc9c; }
+  20% { background-color: #3498db; }
+  40% { background-color: #9b59b6; }
+  60% { background-color: #e74c3c; }
+  80% { background-color: #e74c3c; }
+  100% { background-color: #f1c40f; }
+
+
+}
+
+@keyframes bg-color {
+  0% { background-color: #1abc9c; }
+  20% { background-color: #3498db; }
+  40% { background-color: #9b59b6; }
+  60% { background-color: #e74c3c; }
+  80% { background-color: #e74c3c; }
+  100% { background-color: #f1c40f; }
+
+}
+
+/*
+  animation: colorchange 10s; /* animation-name followed by duration in seconds*/
+     /* you could also use milliseconds (ms) or something like 2.5s
+  -webkit-animation: colorchange 10s; /* Chrome and Safari
+@keyframes colorchange
+{
+  0%   {background: #00ccd2;}
+  25%  {background: #4285F4;}
+  50%  {background: yellow;}
+  75%  {background: purple;}
+  100% {background: red;}
+}
+
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate
+{
+  0%   {background: #00ccd2;}
+  25%  {background: yellow;}
+  50%  {background: #4285F4;}
+  75%  {background: purple;}
+  100% {background: red;}
+}*/
+
+body {
+  overflow: auto;
+}
+#textOnMainPage {
+  margin-top: -3%;
+}
+.card {
+  margin: 3%;
+  margin-right: 8%;
+  width: 100%;
+  display: inline-block;
+}
+.google {
+  width: 190px;
+  height: 45px;
+  background-color: #4285F4;
+  cursor: pointer;
+  border: none;
+  margin-left: 2%;
+  border-radius: 2px;
+}
+#google-login {
+  height: 36px;
+  width: 150px;
+}
+#facebook-login {
+  height: 36px;
+  width: 150px;
+}
+#twitter-login {
+  height: 36px;
+  width: 150px;
+}
+.google:hover {
+  transition: all .3s ease-out;
+  will-change: opacity, transform;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16),0 8px 10px 0 rgba(0,0,0,0.12);
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  border-radius: 2px;
+}
+
+.facebook {
+  width: 190px;
+  margin-left: 2%;
+  height: 45px;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: button;
+}
+.facebook:hover {
+  transition: all .3s ease-out;
+  will-change: opacity, transform;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16),0 8px 10px 0 rgba(0,0,0,0.12);
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  border-radius: 2px;
+}
+.twitter {
+  width: 190px;
+  height: 45px;
+  margin-left: 2%;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: button;
+}
+.twitter:hover {
+  transition: all .3s ease-out;
+  will-change: opacity, transform;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16),0 8px 10px 0 rgba(0,0,0,0.12);
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  border-radius: 2px;
+}
+.confetti {
+  background-image: url('/img/confetti.gif');
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  opacity: .1;
+}
+#party-hat {
+  margin-left: 19%;
+  margin-top: 2%;
+  margin-bottom: -2%;
+  width: auto;
+  height: 45px;
+}
+.google-register {
+  margin-top: 10%;
+}
+.dance {
+  /*background-image: url('https://media.giphy.com/media/3oEjHJm0vgZnuHhvfW/giphy.gif');*/
+  background-image: url('https://media.giphy.com/media/l41YskOy5J1QgcEXS/giphy.gif');
+  /*background-image: url('https://media.giphy.com/media/5xtDarLicm6G3DwhMVq/giphy.gif');*/
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: -5;
+  opacity: .3;
+}/*
+.dashboard-background {
+  background-color: #f7f7f7;
+  height: 100vh;
+  width: 85%;
+  margin: 0 auto;
+}*/
+#clear {
+  margin-top: -2%;
+}
+#clipboard {
+  width: 1.5em;
+  height: 1.5em;
+}
+/* The next two items change the color of the text that is being highlighted */
+::-moz-selection {
+background-color: rgba(0, 0, 0, 0);
+}
+::selection {
+background-color: rgba(0, 0, 0, 0);
+}
+.social {
+  height: 5em;
+  width: 5em;
+  cursor: pointer;
+}
+.social-box {
+  display: flex;
+  justify-content: space-around;
+}
+.social-banner {
+  width: 110%;
+  height: 1em;
+  position: relative;
+  bottom: -10px;
+}
+.sign-in {
+  width: 18em;
+  margin: -2.5em;
+  padding: 0px;
+}
