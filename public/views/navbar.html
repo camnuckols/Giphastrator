@@ -8,10 +8,10 @@
 
 
 
-        <li><a id = "dashboard" class = "black-text ng-hide hide-on-small-only" ui-sref= "dashboard">Dashboard</a></li>
-        <li><a id = "logout" class = "red-text ng-hide hide-on-small-only" ng-click = "logOut()" ui-sref= "home">Log Out</a></li>
-        <li><a id = "login" class = "hide-on-small-only black-text" ui-sref="login">Login</a></li>
-        <li><a id = "register" class = "hide-on-small-only black-text" ui-sref="register">Register</a></li>
+        <li><a id = "dashboard" class = "black-text ng-hide hide-on-small-only" ng-if="userDetails" ui-sref= "dashboard">Dashboard</a></li>
+        <li><a id = "logout" class = "red-text ng-hide hide-on-small-only" ng-if="userDetails" ng-click = "logOut()" ui-sref= "home">Log Out</a></li>
+        <li><a id = "login" class = "hide-on-small-only black-text" ng-if="!userDetails" ng-click="login()">Login/Register</a></li>
+        <!-- <li><a id = "register" class = "hide-on-small-only black-text" ui-sref="register">Register</a></li> -->
         <!-- <li><a class = "black-text" ui-sref="collapsible.html">Practice</a></li> -->
 
 

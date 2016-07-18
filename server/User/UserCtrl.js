@@ -29,6 +29,16 @@ createUser ( req, res ) {
     }
     return res.status( 201 ).json( user );
   });
+},
+
+getUserByEmail ( req, res ) {
+  User.find( { email: req.params.email })
+  .populate( 'stories' )
+  .exec(( err, user ) => {
+    if ( err ) {
+        return res.status( 500 ).json( err );
+    } return res.status( 200 ).json( user );
+  });
 }
 
 

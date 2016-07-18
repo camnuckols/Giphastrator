@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.directive('navbar', function(registerService) {
+.directive('navbar', function( registerService ) {
   return {
     restrict: 'E',
     templateUrl: './views/navbar.html',

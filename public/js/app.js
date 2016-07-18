@@ -1,17 +1,17 @@
-angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.socialshare'])
+angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.socialshare', 'auth0', 'angular-storage', 'angular-jwt'])
 .constant('fb', {
   url: 'http://www.google.com'
 })
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
   $stateProvider.state('home', {
-    url: '/home',
+    url: '/',
     templateUrl: './views/home.html'
   })
   .state('register', {
     url: '/register',
     templateUrl: './views/register.html',
-    controller: 'registerController'
+    controller: 'registerCtrl'
   })
   .state('write', {
     url: '/write',
@@ -26,19 +26,78 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.so
   .state('login', {
     url: '/login',
     templateUrl: './views/login.html',
-    controller: 'registerController'
+    controller: 'registerCtrl'
   })
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: './views/dashboard.html',
-    controller: 'dashboardController'
+    controller: 'dashboardController',
+    data: { requiresLogin: true }
   })
   .state('learnMore', {
     url: '/learnMore',
     templateUrl: './views/learnMore.html'
   })
 
+})
+.config( function myAppConfig (authProvider) {
+  //authProvider init configuration
+  authProvider.init({
+    domain: 'camnuckols.auth0.com',
+    clientID: '8g1IF7bcCaNDcfPwwm6jbY1DhSpfvqG9',
+    loginState: 'home'
 });
+
+authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', function( $location, profilePromise, idToken, store ) {
+  // Successfully log in
+  // Access to user profile and token
+  profilePromise.then( function( profile ) {
+    store.set( 'profile', profile );
+    store.set( 'token', idToken );
+  });
+  $location.url('/dashboard');
+}]);
+
+//Called when login fails
+authProvider.on('loginFailure', function() {
+  // If anything goes wrong
+});
+
+authProvider.on('authenticated', function() {
+  // if user is authenticated.
+  // Useful in re-authentication
+});
+
+
+
+
+})
+.run( ['$rootScope', 'auth', 'store', 'jwtHelper', '$location', function( $rootScope, auth, store, jwtHelper, $location ) {
+  // Listen to a location change event
+  $rootScope.$on( '$locationChangeStart', function() {
+    // Grab the user's token
+    var token = store.get('token');
+    // Check if token was actually stored
+    if ( token ) {
+      // Check if token is yet to expire
+      if ( !jwtHelper.isTokenExpired( token )) {
+        // Check if the user is not authenticated
+        if ( !auth.isAuthenticated ) {
+          // Re-authenticate with the user's profile
+          // Calls authProvider.on('authenticated')
+          auth.authenticate( store.get( 'profile' ), token );
+        }
+      } else {
+        // Either show the login page
+        // $location.path('/');
+        // .. or
+        // or use the refresh token to get a new idToken
+        auth.refreshIdToken( token );
+      }
+    }
+
+  })
+}])
 
 
 

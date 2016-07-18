@@ -11,7 +11,7 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.so
   .state('register', {
     url: '/register',
     templateUrl: './public/views/register.html',
-    controller: 'registerController'
+    controller: 'registerCtrl'
   })
   .state('write', {
     url: '/write',
@@ -26,7 +26,7 @@ angular.module('giphastrator', ['ui.router', 'firebase', 'ngSanitize', '720kb.so
   .state('login', {
     url: '/login',
     templateUrl: './public/views/login.html',
-    controller: 'registerController'
+    controller: 'registerCtrl'
   })
   .state('dashboard', {
     url: '/dashboard',
