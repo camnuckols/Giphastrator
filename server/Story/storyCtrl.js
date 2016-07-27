@@ -3,7 +3,13 @@ const Story = require('./Story');
 module.exports = {
 
   postStory( req, res ) {
-    new Story( req.body ).save( ( err, story ) => {
+		console.log( req.body, 'this is req.body ');
+		const story = {
+			title: req.body.title,
+			story: req.body.words[ 0 ],
+			author: req.body.id
+		};
+    new Story( story ).save( ( err, story ) => {
       if (err) {
         return res.status( 500 ).json( err );
       }
@@ -27,6 +33,5 @@ module.exports = {
            }
            return res.status( 200 ).json( story );
          });
-
-}
+			 }
 }

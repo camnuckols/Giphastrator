@@ -2,7 +2,6 @@ angular.module('giphastrator')
 .controller('dashboardController', function($scope, dashboardService, registerService) {
 $scope.userData = registerService.getUserDataArray();
 
-
 $scope.facebook = 'OFF';
 $scope.twitter = 'OFF';
 $scope.tumblr = 'OFF';

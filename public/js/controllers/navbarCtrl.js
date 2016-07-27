@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-    .controller('navbarCtrl', function($scope, auth, store, registerService) {
+    .controller('navbarCtrl', function( $scope, auth, store, registerService, $timeout ) {
 
         $scope.mobileMenu = () => {
             setTimeout(function() {
@@ -57,9 +57,9 @@ angular.module('giphastrator')
                     }
                 });
 
-                $scope.userIsLoggedIn = true;
-
-
+								$timeout( function() {
+	                $scope.userIsLoggedIn = true;
+								} );
 
             }, function(err) {
                 Materialize.toast(err, 2000);

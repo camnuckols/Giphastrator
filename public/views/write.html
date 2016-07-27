@@ -324,6 +324,7 @@ to the page when the user is writing. -->
     </div>
 </div>
 
+<div><h3>Title: </h3><input type="text" ng-model="title"></div>
 <!-- This is the area where users write and their creations come to be. (aka textbox)-->
 
 <div class="row hide-on-small-only">
@@ -367,8 +368,7 @@ to the page when the user is writing. -->
 
 <!-- Where I bind what the user writes to the page-->
 
-
-<a ng-click= "addStory(words)" ui-sref = "customwrite({userId: id, num: 3})"><h5>See the live version</h5></a>
+<a ng-click= "addStory( words, title )"><h5>See the live version</h5></a>
 
 <div class="row hide-on-small-only">
     <div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="words"></div>

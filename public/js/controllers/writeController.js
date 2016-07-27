@@ -1,18 +1,28 @@
 angular.module(`giphastrator`)
-    .controller(`writeController`, function($scope, writeService, $interval, registerService, $http) {
+    .controller(`writeController`, function( $scope, writeService, $interval, registerService, $http ) {
 
             new Clipboard('.clipboard-button');
             let wordsLength = 2;
             $scope.tag = [];
 
             //Send the data to FireBase
-            $scope.sendUserDataToFB = () => {
-                writeService.sendUserDataToFB($scope.words);
-            }
+            $scope.getCurrentUser = () => {
+							registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
+								$scope.userDetails = response;
+							} );
+						};
+
+						$scope.addStory = ( words, title ) => {
+								registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
+									$scope.userDetails = response;
+									if ( response && title ) {
+										writeService.addStory( words, title, response._id );
+									}
+							} );
+						};
+
 
             $scope.$watch(`userInput`, (userInput, userSymbol) => {
-
-
 
                         if (userInput) {
 
@@ -83,8 +93,6 @@ angular.module(`giphastrator`)
 
                                             $scope.words += ` ${words.join(` `)} <img class = "gif" src = "${response.data.data.images.downsized.url}">`;
 
-console.log($scope.words);
-console.log(userInput);
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing
               //it to be undefined in the first place.

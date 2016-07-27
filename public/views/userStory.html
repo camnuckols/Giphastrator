@@ -1,15 +1,14 @@
 <div class="row hide-on-small-only">
-    <div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="words"></div>
 
-{{hi}}
     <!-- Trigger -->
     <button class="clipboard-button" data-clipboard-target="#textOnMainPage">
         <img src="./img/clipboard.svg" id = "clipboard" alt="Copy to clipboard">
     </button>
 
-<div ng-repeat = "story in stories">
-    <h5>{{ story.title }}</h5>
-</div>
+		<h2>{{ story.title }}</h2>
+		<div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="story.story">{{ story.story }}</div>
+
+		{{ story }}
+
 
 </div>
-<button ng-click="getStory( )"></button>
