@@ -6,14 +6,20 @@
     <!-- </button> -->
 
 <div class = "container">
-		<h3>{{ story.title }}</h3>
-		<hr>
+		<!-- <h3>{{ story.title }}</h3> -->
+		<h3 class="ui block header">{{ story.title }}</h3>
+		<!-- <hr> -->
 		<div class="words" id="userStory" ng-bind-html="story.story">{{ story.story }}</div>
 
 		{{ story }}
 		<hr>
 		<h6>{{ author }}</h6>
-
-<button>Save Story</button>
+		<div class="ui action input">
+		  <input type="text" value="http://ww.short.url/c0opq">
+		  <button class="ui teal right labeled icon button">
+		    <i class="copy icon"></i>
+		    Share
+		  </button>
+		</div>
 </div>
 </div>
