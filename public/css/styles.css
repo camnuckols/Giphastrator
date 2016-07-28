@@ -37,6 +37,7 @@ footer > img {
   height: 125px;
   position: relative;
   top: 45px;
+	margin-bottom: 2%;
   margin-left: 1%;
   margin-right: 1%;
   max-width: 100%;
@@ -124,7 +125,11 @@ body {
   overflow: auto;
 }
 #textOnMainPage {
-  margin-top: -3%;
+  margin-top: -325px;
+	margin-left: 4%;
+}
+ .verticalMenu {
+	margin-bottom: 5%;
 }
 .card {
   margin: 3%;
@@ -230,13 +235,6 @@ body {
   width: 85%;
   margin: 0 auto;
 }*/
-#clear {
-  margin-top: -2%;
-}
-#clipboard {
-  width: 1.5em;
-  height: 1.5em;
-}
 /* The next two items change the color of the text that is being highlighted */
 ::-moz-selection {
 background-color: rgba(0, 0, 0, 0);

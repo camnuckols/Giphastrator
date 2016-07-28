@@ -323,8 +323,15 @@ to the page when the user is writing. -->
         </div>
     </div>
 </div>
-
-<div><h3>Title: </h3><input type="text" ng-model="title"></div>
+<div class = "row">
+	<div class = "col s11 offset-s1">
+	<form class= "col s4 input-field">
+		<i class="material-icons prefix">subject</i>
+		<input type="text" id="title" ng-model="title">
+		<label for="title">Title:</label>
+	</form>
+	</div>
+</div>
 <!-- This is the area where users write and their creations come to be. (aka textbox)-->
 
 <div class="row hide-on-small-only">
@@ -337,13 +344,29 @@ to the page when the user is writing. -->
                 <i class="material-icons prefix">mode_edit</i>
                 <textarea id="icon_prefix2" class="materialize-textarea"
 
-                ng-model="userInput" placeholder="                       And watch as your story comes to life."></textarea>
+                ng-model="userInput"></textarea>
                 <!--The spaces above are there on purpose. If they aren't there the text conflicts.-->
                 <label for="icon_prefix2">Write Here:</label>
-                <a id = "clear" class="waves-effect waves-light btn-small red-text right" ng-click="clearBoard()">Clear Board<i class="material-icons prefix left">clear</i></a>
-            </div>
+              </div>
         </div>
     </form>
+
+		<div class = "verticalMenu">
+		<div class="ui vertical icon menu">
+		<a class="item" ng-click= "addStory( words, title )">
+			<span data-tooltip="Create full-page story" data-position="right center"><i class="material-icons">screen_share</i></span>
+		</a>
+		<a class="item clipboard-button" ng-click="copy()" data-clipboard-target="#textOnMainPage">
+			<span data-tooltip="Copy story text" data-position="right center"><i class="material-icons" alt="Copy to clipboard">assignment</i></span>
+		</a>
+		<a class="item" ng-click="clearBoard()">
+			<span data-tooltip="Clear story" data-position="right center"><i class="material-icons">clear</i></span>
+		</a>
+		<a class="item">
+			<i class="material-icons">delete</i>
+		</a>
+	</div>
+	</div>
 </div>
 
 <!--FOR SMALL SCREENS -->
@@ -358,7 +381,6 @@ to the page when the user is writing. -->
                 ng-model="userInput"></textarea>
                 <!--The spaces above are there on purpose. If they aren't there the text conflicts.-->
                 <label for="icon_prefix2">Write Here:</label>
-                <a id = "clear" class="waves-effect waves-light btn-small red-text right" ng-click="clearBoard()">Clear Board<i class="material-icons prefix left">clear</i></a>
 
             </div>
 
@@ -367,19 +389,12 @@ to the page when the user is writing. -->
 </div>
 
 <!-- Where I bind what the user writes to the page-->
-
-<a ng-click= "addStory( words, title )"><h5>See the live version</h5></a>
-
 <div class="row hide-on-small-only">
-    <div class="words col s10 offset-s1" id="textOnMainPage" ng-bind-html="words"></div>
-
-
-    <!-- Trigger -->
-    <button class="clipboard-button" data-clipboard-target="#textOnMainPage">
-        <img src="./img/clipboard.svg" id = "clipboard" alt="Copy to clipboard">
-    </button>
-
+	<div class = "col s11 offset-s1">
+    <div class="words col s11" id="textOnMainPage" ng-bind-html="words"></div>
+	</div>
 </div>
+
 <!--FOR SMALL SCREENS-->
 <div class="row hide-on-med-and-up">
     <div class="words col s12" id="textOnMainPage" ng-bind-html="words"></div>

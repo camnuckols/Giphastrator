@@ -12,13 +12,23 @@ angular.module(`giphastrator`)
 							} );
 						};
 
+						$scope.copy = () => {
+							Materialize.toast( 'Copied', 1000 );
+						}
+
 						$scope.addStory = ( words, title ) => {
+							if ( !title ) {
+								Materialize.toast( 'Please create a title for your story.', 2000 );
+							} else if ( !words ) {
+								Materialize.toast( `You must write a story before one can be created.`, 2000 );
+							} else {
 								registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
 									$scope.userDetails = response;
 									if ( response && title ) {
 										writeService.addStory( words, title, response._id );
 									}
 							} );
+							}
 						};
 
 
@@ -91,7 +101,7 @@ angular.module(`giphastrator`)
                                             words = words.slice(words.length - 3, words.length - 1);
 
 
-                                            $scope.words += ` ${words.join(` `)} <img class = "gif" src = "${response.data.data.images.downsized.url}">`;
+                                            $scope.words += ` ${words.join(` `)} <img class = "gif" src = "${ response.data.data.images.downsized.url }">`;
 
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing
