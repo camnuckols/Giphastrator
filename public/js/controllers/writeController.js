@@ -32,7 +32,7 @@ angular.module(`giphastrator`)
 						};
 
 
-            $scope.$watch(`userInput`, (userInput, userSymbol) => {
+            $scope.$watch(`userInput`, ( userInput, userSymbol ) => {
 
                         if (userInput) {
 
@@ -44,7 +44,7 @@ angular.module(`giphastrator`)
                                 }
                                 //Here I am setting the user symbol that they can use to create GIF`s. By default it will be a dash /.
 
-                            if ($scope.id) {
+                            if ( $scope.id ) {
                                 userSymbol = $scope.id;
                             } else {
                                 userSymbol = `/`;
@@ -53,7 +53,7 @@ angular.module(`giphastrator`)
                             // This sets the rating of the GIF depending on what the user selects. The default is G.
 
                             let rating;
-                            if ($scope.rating) {
+                            if ( $scope.rating ) {
                                 rating = $scope.rating;
                             } else {
                                 rating = `g`;
@@ -62,7 +62,7 @@ angular.module(`giphastrator`)
                             // This sets the text size of the text that the user will see. The default is 24px if the user doesn`t change it.
 
                             let textSize;
-                            if ($scope.textSize) {
+                            if ( $scope.textSize ) {
                                 textSize = $scope.textSize;
                                 $(`#textOnMainPage`).css(`font-size`, textSize + `px`);
                             } else {
@@ -107,9 +107,17 @@ angular.module(`giphastrator`)
               //It clears it from the front of the array. I`m not 100% sure what is causing
               //it to be undefined in the first place.
 
-              if ($scope.words[0] === `u` && $scope.words[1] === `n`) {
-              $scope.words = $scope.words.split(`undefined`).slice(1);
+              if ( $scope.words[0] === 'u' && $scope.words[1] === 'n' ) {
+
+              $scope.words = $scope.words.split( 'undefined' ).slice( 1);
+
               }
+
+							/* This is what makes it possible to show the user's story on a different page. To bind the HTML to the
+							words, the data all needs to be an array and so that is what I do here: put the story into an array. */
+							let newWords = [];
+							newWords.push( $scope.words );
+							$scope.words = newWords;
 
             });
           wordsLength += 2;
@@ -118,7 +126,7 @@ angular.module(`giphastrator`)
   })
 
 
-$scope.deleteGif = (gifName) => {
+$scope.deleteGif = ( gifName ) => {
   try {
   let gif;
 //gif = $scope.words.split(/(gifName)/);
