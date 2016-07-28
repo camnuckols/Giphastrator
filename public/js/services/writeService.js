@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.service('writeService', function( $http, registerService, $state ) {
+.service('writeService', function( $http, registerService, $state, $stateParams ) {
 const baseUrl = "http://api.giphy.com/v1/gifs/translate?s=";
 const stories = [];
 
@@ -15,8 +15,11 @@ this.getStory = function() {
 	let id = stories[ stories.length - 1 ];
 	if ( !id ) {
 		return $http({
-		method: 'GET'// MY NEXT PLANS ARE TO DO A GET REQUEST TO GET THE USER SO THAT YOU CAN JUST GO TO THE LINK SO THAT IT WILL OPEN UP
-	})
+		method: 'GET',
+		url: `/api/story/${ $stateParams.num }`
+	} ).then( response => {
+		return response.data;
+	} );
 	}
 	  return $http({
 	    method: `GET`,
@@ -43,9 +46,18 @@ this.addStory = function( words, title, id ) {
 		}
   }).then( response => {
 		stories.push( response.data._id );
-		$state.go( 'customwrite', { userId: id, num: 3 } );
+		$state.go( 'customwrite', { userId: id, num: response.data._id } );
     // return response.config.data.words;
   });
 };
+
+this.getAuthor = function( id ) {
+	return $http( {
+		method: 'GET',
+		url: `/api/user/${ id }`
+	} ).then( response => {
+		return response.data;
+	} );
+}
 
 });
