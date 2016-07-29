@@ -37,8 +37,8 @@ angular.module( 'giphastrator' )
           method: 'POST',
           url: '/api/user',
           data: {
-            fname: fname,
-            lname: lname,
+            given_name: fname,
+            family_name: lname,
             email: email,
             picture: picture,
             id: authId

@@ -9,6 +9,11 @@
   display: flex;
   justify-content: space-around;
 }
+nav {
+	position: fixed !important;
+	top: 0px !important;
+	z-index: 1000;
+}
 .header-color-bar {
   background-color: #00ccd2;
   height: 3px;
@@ -17,6 +22,9 @@
 	margin-top: 7%;
 	font-family: 'Vidaloka', serif;
 	margin-bottom: 5%;
+}
+.userStory-space-row {
+	margin-top: 64px;
 }
 footer {
   display: flex;
@@ -39,6 +47,8 @@ footer > img {
   height: 30px;
   margin-left: 5px;
   margin-right: 5px;
+	position: relative;
+	top: 10px;
 }
 .gif {
   height: 125px;
@@ -269,7 +279,7 @@ background-color: rgba(0, 0, 0, 0);
 	bottom: 25%;
 }
 #userStory-background-photo {
-	margin-top: 70px;
+	margin-top: 64px;
 	position: fixed;
 	top: 0px;
 	height: 100vh;

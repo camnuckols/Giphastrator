@@ -1,20 +1,29 @@
 <div class="row hide-on-small-only">
 
-    <!-- <button class="clipboard-button" data-clipboard-target="#userStory"> -->
-        <!-- <img src="./img/clipboard.svg" id = "clipboard" alt="Copy to clipboard"> -->
-    <!-- </button> -->
+		<div class="userStory-space-row"></div>
+			<div class="col s6 offset-s6">
+		<h4 id="userStory-story-title">{{ story.title | uppercase }}
+			<div style="font-size: 14px" ng-if="author.given_name">by {{ author.given_name }} {{ author.family_name }}</div>
+			<div style="font-size: 14px" ng-if="!author.given_name">by {{ author.email }}</div>
+		</h4>
 
-<!-- <div class = "container"> -->
-		<!-- <h3>{{ story.title }}</h3> <-->
-		<div class="col s6 offset-s6">
-		<!-- <div class = "center"> -->
-		<h4 id="userStory-story-title">{{ story.title | uppercase }}</h4>
-		<!-- </div> -->
-		<!-- <hr> -->
+
 		<div class="words" id="userStory" ng-bind-html="story.story">{{ story.story }}</div>
 		</div>
 
-<img id="userStory-background-photo" ng-if="background" src="{{ background }}"/>
+<img id="userStory-background-photo" ng-if="background" src="{{ background }}" ng-click="getGif()"/>
+
+
+
+		<div class="ui action input col s4 offset-s6">
+		   <input type="text" value="link">
+		  <button class="ui teal right labeled icon button">
+		    <i class="material-icons">share</i>
+		    Share
+		  </button>
+		</div>
+
+
 
 <div class= "userStory-share-icons">
 <div>
@@ -73,15 +82,4 @@
 </div>
 
 
-
-		<hr>
-		<h6>{{ author }}</h6>
-		<!-- <div class="ui action input"> -->
-		  <!-- <input type="text" value="http://ww.short.url/c0opq">
-		  <button class="ui teal right labeled icon button">
-		    <i class="copy icon"></i> -->
-		    Share
-		  </button>
-		</div>
 </div>
-<!-- </div> -->

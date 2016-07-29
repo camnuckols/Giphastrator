@@ -56,6 +56,22 @@ angular.module( 'giphastrator' )
 	  }
 	}
 
+	$scope.getGif = () => {
+		let backGif = $scope.story.title;
+
+		writeService.getGif( backGif, 'g' ).then((response) => {
+								$timeout( () => {
+									
+									if ( $scope.background !== response.data.data.images.downsized_large.url ) {
+										$scope.background = response.data.data.images.downsized_large.url;
+									} else {
+										$scope.getGif();
+									}
+								} );
+						});
+	}
+
+
 	getStory = () => {
 
 		writeService.getStory().then( response => {
