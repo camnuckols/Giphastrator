@@ -1,5 +1,6 @@
 angular.module('giphastrator')
-    .controller('navbarCtrl', function( $scope, auth, store, registerService, $timeout ) {
+    .controller('navbarCtrl', function( $scope, auth, store, registerService, $timeout, $state ) {
+
 
         $scope.mobileMenu = () => {
             setTimeout(function() {

@@ -3,7 +3,8 @@ angular.module('giphastrator')
 const baseUrl = "http://api.giphy.com/v1/gifs/translate?s=";
 const stories = [];
 
-this.getGif = function(searchTerm, userRating) {
+this.getGif = function( searchTerm, userRating ) {
+	searchTerm = searchTerm.split( ' ' ).join( '+' );
   return $http({
     method: 'GET',
     url: baseUrl + searchTerm + "&api_key=dc6zaTOxFJmzC&rating=" + userRating

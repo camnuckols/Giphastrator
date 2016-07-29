@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Vidaloka);
+
 #main-logo {
   width: 200px;
   margin-top: .5%;
@@ -10,6 +12,11 @@
 .header-color-bar {
   background-color: #00ccd2;
   height: 3px;
+}
+#userStory-story-title {
+	margin-top: 7%;
+	font-family: 'Vidaloka', serif;
+	margin-bottom: 5%;
 }
 footer {
   display: flex;
@@ -246,6 +253,31 @@ background-color: rgba(0, 0, 0, 0);
   height: 5em;
   width: 5em;
   cursor: pointer;
+}
+.socialside {
+	height: 3.5em;
+	width: 3.5em;
+	cursor: pointer;
+}
+#userStory {
+	line-height: 35px;
+}
+.userStory-share-icons {
+	position: fixed;
+	top: 25%;
+	left: 0;
+	bottom: 25%;
+}
+#userStory-background-photo {
+	margin-top: 70px;
+	position: fixed;
+	top: 0px;
+	height: 100vh;
+	bottom: 0px;
+	width: 48%;
+	opacity: .5;
+	object-fit: cover;
+	left: 0;
 }
 .social-box {
   display: flex;
