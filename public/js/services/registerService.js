@@ -1,14 +1,11 @@
 angular.module( 'giphastrator' )
 .factory( 'registerService', function( $http ) {
-  registerService = {};
+	registerService = {};
 
   registerService.logOut = () => {
 
   }
 
-  registerService.getUserDataArray = () => {
-
-  }
 
       // -------------------------------------------------- //
       // -----------------CREATE EMAIL USER---------------- //

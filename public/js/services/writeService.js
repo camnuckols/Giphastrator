@@ -46,9 +46,40 @@ this.addStory = function( words, title, id ) {
 			id
 		}
   }).then( response => {
+
+		if ( response.data.shortUrl ) {
+			console.log( 'interesting things are happening');
+			$state.go( 'customwrite', { userId: id, num: response.data._id } );
+		}
+		if ( response ) {
+			let storyId = response.data._id;
+
+		return $http({
+			method: 'POST',
+			url: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBdPqa214IrabT8qxB18PXEHYGbXuSoBBk',
+			data: {
+				'longUrl': `http://localhost:8080/#/write/${ id }/story/${ storyId }`
+			}
+		}).then( response => {
+			let shortUrl = response.data.id;
+			return $http({
+				method: 'PUT',
+				url: `/api/story/${ storyId }`,
+				data: {
+					shortUrl
+				}
+			}).then( response => {
+
 		stories.push( response.data._id );
 		$state.go( 'customwrite', { userId: id, num: response.data._id } );
     // return response.config.data.words;
+
+	} );
+	} );
+
+	} else {
+		Materialize.toast( 'Something went wrong. Please try again.', 2000 );
+	}
   });
 };
 

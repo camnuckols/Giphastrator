@@ -1,6 +1,12 @@
 angular.module( 'giphastrator' )
 .controller( 'storyCtrl', function( $scope, writeService, $timeout ) {
 
+	new Clipboard( '.shortUrlBtn' );
+
+	$scope.copied = () => {
+		Materialize.toast( 'Copied!', 500, 'rounded' );
+	}
+
 	$scope.facebook = 'OFF';
 	$scope.twitter = 'OFF';
 	$scope.tumblr = 'OFF';
@@ -61,7 +67,7 @@ angular.module( 'giphastrator' )
 
 		writeService.getGif( backGif, 'g' ).then((response) => {
 								$timeout( () => {
-									
+
 									if ( $scope.background !== response.data.data.images.downsized_large.url ) {
 										$scope.background = response.data.data.images.downsized_large.url;
 									} else {

@@ -1,100 +1,114 @@
+<div class="userStory-space-row"></div>
 <div class="dashboard-background">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center-align">
-                <h5><strong>Dashboard</strong></h5>
-            </div>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 center-align">
+				<h5><strong>Dashboard</strong></h5>
+			</div>
+		</div>
 
-        <div class="row">
-            <div class="col s6">
-                <img ng-src="{{userData[0].password.profileImageURL}}" />
+		<div class="row">
+			<div class="col s6">
+				<img ng-src="{{userData[0].password.profileImageURL}}" />
 
-                <!-- <h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br> -->
-                <!-- <h3>Title</h3><input type= "text" class="col s3" ng-model="titleOfStory"/><br><br> -->
-                <h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create story </a></h4>
-								<h3>My Stories</h3>
+				<!-- <h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br> -->
+				<!-- <h3>Title</h3><input type= "text" class="col s3" ng-model="titleOfStory"/><br><br> -->
+				<h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create story </a></h4>
+				<h3>My Stories</h3>
 
-            </div>
+				<div class="ui six doubling cards">
+	  <div class="card">
+	    <div class="image">
+	      <img src="/images/avatar/large/elliot.jpg">
+	    </div>
+			<div class="extra">
+      Rating:
+      <div class="ui star rating" data-rating="4"></div>
+    </div>
+	  </div>
 
-            <div class = "space-row"></div>
-            <div class = "space-row"></div>
-            <div class = "space-row"></div>
-            <div class = "space-row"></div>
-            <div class = "space-row"></div>
-            <div class = "space-row hide-on-small-only"></div>
-            <div class = "space-row hide-on-small-only"></div>
+	</div>
+{{ userDetails }}
+			</div>
+
+			<div class="space-row"></div>
+			<div class="space-row"></div>
+			<div class="space-row"></div>
+			<div class="space-row"></div>
+			<div class="space-row"></div>
+			<div class="space-row hide-on-small-only"></div>
+			<div class="space-row hide-on-small-only"></div>
 
 
-<h5 class = "col s8 offset-s2 hide-on-small-only">All your friends want to be invited to the party too.</h5>
-<h5 class = "col 11 hide-on-med-and-up">Invite your friends to the party.</h5>
+			<h5 class="col s8 offset-s2 hide-on-small-only">All your friends want to be invited to the party too.</h5>
+			<h5 class="col 11 hide-on-med-and-up">Invite your friends to the party.</h5>
 
-            <div class="row">
-                <div class="col s8 offset-s2 social-box">
-                    <img class="social-banner hide-on-small-only" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
-                </div>
-                <div class="col s12 social-box">
-                    <img class="social-banner hide-on-med-and-up" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
-                </div>
+			<div class="row">
+				<div class="col s8 offset-s2 social-box">
+					<img class="social-banner hide-on-small-only" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+				</div>
+				<div class="col s12 social-box">
+					<img class="social-banner hide-on-med-and-up" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+				</div>
 
-                <div class="row">
-                    <div class="col s8 offset-s2 social-box">
+				<div class="row">
+					<div class="col s8 offset-s2 social-box">
 
-                        <!--PINTEREST SHARE ICON-->
-                        <a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--PINTEREST SHARE ICON-->
+						<a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-                            <span ng-switch on="pinterest" ng-mouseleave="changePinterestColor()">
+							<span ng-switch on="pinterest" ng-mouseleave="changePinterestColor()">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Pinterest-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Pinterest-Button-for-Banner-Black.png'>
 </span></a>
 
-                        <!--REDDIT SHARE ICON-->
-                        <a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--REDDIT SHARE ICON-->
+						<a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-                            <span ng-switch on="reddit" ng-mouseleave="changeRedditColor()">
+							<span ng-switch on="reddit" ng-mouseleave="changeRedditColor()">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Reddit-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Reddit-Button-for-Banner-Black.png'>
 </span></a>
 
-                        <!--DIGG SHARE ICON-->
-                        <a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--DIGG SHARE ICON-->
+						<a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-                            <span ng-switch on="digg" ng-mouseleave="changeDiggColor()">
+							<span ng-switch on="digg" ng-mouseleave="changeDiggColor()">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Digg-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Digg-Button-for-Banner-Black.png'>
 </span></a>
 
-                        <!--TUMBLR SHARE ICON-->
-                        <a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--TUMBLR SHARE ICON-->
+						<a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-                            <span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
+							<span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
    <img ng-switch-when="ON" class = "social hide-on-small-only" src='./img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social hide-on-small-only" src='./img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner-Black.png'>
 </span></a>
 
-                        <!--TWITTER SHARE ICON-->
-                        <a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--TWITTER SHARE ICON-->
+						<a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-                            <span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+							<span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Twitter-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Twitter-Button-for-Banner-Black.png'>
 </span></a>
 
-<!--FACEBOOK SHARE ICON-->
-<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check it out!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+						<!--FACEBOOK SHARE ICON-->
+						<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check it out!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-    <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+							<span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
 <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Facebook-Button-for-Banner.png'>
 <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Facebook-Button-for-Banner-Black.png'>
 </span></a>
-                    </div>
+					</div>
 
 
-                </div>
-                <!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
+				</div>
+				<!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
 
 
-                <!-- <div class = "col s6 offset-s6">
+				<!-- <div class = "col s6 offset-s6">
 <h5>Change Profile Info <i class="material-icons">people outline</i></h5>
     <div class="input-field">
       <input id="email" type="email" class="validate" ng-model="email">
@@ -111,4 +125,4 @@
 </div>
   </div>
 </div> -->
-            </div>
+			</div>

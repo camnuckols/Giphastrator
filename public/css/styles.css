@@ -18,6 +18,18 @@ nav {
   background-color: #00ccd2;
   height: 3px;
 }
+button.ui.teal.right.labeled.icon.button {
+	height: 40px;
+	width: 23%;
+}
+ui.input input {
+	height: 20px;
+}
+.author {
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+	margin-top: -10px;
+	color: #d9d9d9;
+}
 #userStory-story-title {
 	margin-top: 7%;
 	font-family: 'Vidaloka', serif;
@@ -25,6 +37,10 @@ nav {
 }
 .userStory-space-row {
 	margin-top: 64px;
+}
+.userStory {
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 footer {
   display: flex;

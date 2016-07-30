@@ -1,10 +1,10 @@
-<div class="row hide-on-small-only">
+<div class="row hide-on-small-only userStory">
 
 		<div class="userStory-space-row"></div>
 			<div class="col s6 offset-s6">
 		<h4 id="userStory-story-title">{{ story.title | uppercase }}
-			<div style="font-size: 14px" ng-if="author.given_name">by {{ author.given_name }} {{ author.family_name }}</div>
-			<div style="font-size: 14px" ng-if="!author.given_name">by {{ author.email }}</div>
+			<div class="author" style="font-size: 14px" ng-if="author.given_name">BY {{ author.given_name | uppercase }} {{ author.family_name | uppercase }}</div>
+			<div class="author" style="font-size: 14px" ng-if="!author.given_name">BY {{ author.email | uppercase }}</div>
 		</h4>
 
 
@@ -13,22 +13,21 @@
 
 <img id="userStory-background-photo" ng-if="background" src="{{ background }}" ng-click="getGif()"/>
 
+<div class="col s10 offset-s6" ng-if="story">
+		<div class="ui action input">
+	  <input type="text" id="shortUrl" value="{{ story.shortUrl }}">
+	  <button class="ui teal right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#shortUrl" ng-click="copied()">
+	    <i class="copy icon"></i>
+	    Copy
+	  </button>
 
-
-		<div class="ui action input col s4 offset-s6">
-		   <input type="text" value="link">
-		  <button class="ui teal right labeled icon button">
-		    <i class="material-icons">share</i>
-		    Share
-		  </button>
-		</div>
-
-
+	</div>
+</div>
 
 <div class= "userStory-share-icons">
 <div>
 <!--FACEBOOK SHARE ICON-->
-<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check it out!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check out the story that I wrote with their amazing tool!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 <span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
 <img ng-switch-when="ON" class = "socialside" src='./img/custom-img/social-media-share-banner/Facebook-Button-for-Banner.png'>
@@ -37,7 +36,7 @@
 
 <div>
 <!--TWITTER SHARE ICON-->
-<a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could! Go take a look at my story that I wrote with their new GIF-powered writing tool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 		<span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
 <img ng-switch-when="ON" class = "socialside" src='./img/custom-img/social-media-share-banner/Twitter-Button-for-Banner.png'>
@@ -46,7 +45,7 @@
 
 <div>
 <!--TUMBLR SHARE ICON-->
-<a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator! Go check out my story that I just wrote!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 		<span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
 <img ng-switch-when="ON" class = "socialside hide-on-small-only" src='./img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
@@ -55,7 +54,7 @@
 
 <div>
 <!--PINTEREST SHARE ICON-->
-<a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool. Take a look at the story that I wrote!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 		<span ng-switch on="pinterest" ng-mouseleave="changePinterestColor()">
 <img ng-switch-when="ON" class = "socialside" src='./img/custom-img/social-media-share-banner/Pinterest-Button-for-Banner.png'>
@@ -64,7 +63,7 @@
 
 <div>
 <!--DIGG SHARE ICON-->
-<a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story. Go take a look!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 		<span ng-switch on="digg" ng-mouseleave="changeDiggColor()">
 <img ng-switch-when="ON" class = "socialside" src='./img/custom-img/social-media-share-banner/Digg-Button-for-Banner.png'>
@@ -73,7 +72,7 @@
 
 <div>
 <!--REDDIT SHARE ICON-->
-<a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+<a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both. Go check out the new story I just wrote!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="{{ story.shortUrl }}">
 
 		<span ng-switch on="reddit" ng-mouseleave="changeRedditColor()">
 <img ng-switch-when="ON" class = "socialside" src='./img/custom-img/social-media-share-banner/Reddit-Button-for-Banner.png'>
