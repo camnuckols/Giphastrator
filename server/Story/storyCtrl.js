@@ -1,4 +1,5 @@
-const Story = require('./Story');
+const Story = require( './Story' );
+const User = require( '../User/User' );
 
 module.exports = {
 
@@ -13,7 +14,9 @@ module.exports = {
       if (err) {
         return res.status( 500 ).json( err );
       }
-      return res.status( 201 ).json( story );
+			User.findByIdAndUpdate( req.body.id, { $push: { stories: story } }, ( err, user ) => {
+	      return res.status( 201 ).json( story );
+			} );
     });
   },
 
@@ -27,7 +30,8 @@ module.exports = {
   },
 
   getOneStory( req, res ) {
-    Story.findById( req.params.id, ( err, story ) => {
+    Story.findById( req.params.id )
+		.populate( 'author' ).exec( ( err, story ) => {
            if ( err ) {
              return res.status( 500 ).json( err );
            }

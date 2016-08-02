@@ -1,7 +1,23 @@
 angular.module('giphastrator')
-.controller('dashboardController', function( $scope, dashboardService, registerService ) {
-	console.log( $scope.userDetails );
-	
+.controller('dashboardController', function( $scope, registerService, $timeout ) {
+
+	$( document ).ready( function() {
+		$('.menu .item').tab();
+	} );
+
+function getUser() {
+	registerService.getCurrentOrCreateUser().then( response => {
+		setUser();
+	} );
+}
+
+getUser();
+
+function setUser() {
+	$timeout(() => {
+			$scope.userDetails = JSON.parse( localStorage.getItem( 'user' ) );
+	} );
+}
 
 $scope.facebook = 'OFF';
 $scope.twitter = 'OFF';

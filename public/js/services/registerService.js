@@ -1,50 +1,46 @@
 angular.module( 'giphastrator' )
-.factory( 'registerService', function( $http ) {
+.factory( 'registerService', function( $http, $location ) {
 	registerService = {};
 
-  registerService.logOut = () => {
+			registerService.loggedIn = false;
 
-  }
-
+			registerService.amIloggedIn = () => {
+				return registerService.loggedIn;
+			}
 
       // -------------------------------------------------- //
-      // -----------------CREATE EMAIL USER---------------- //
+      // ----------GET CURRENT USER OR CREATE USER--------- //
       // -------------------------------------------------- //
 
-      registerService.createEmailUser = ( email, picture, authId ) => {
+      registerService.getCurrentOrCreateUser = () => {
         return $http({
-          method: 'POST',
+          method: 'GET',
           url: '/api/user',
-          data: {
-            email: email,
-            picture: picture,
-            id: authId
-          }
         }).then( response => {
-          return response.data;
+					let user = {
+						given_name: response.data.given_name,
+						family_name: response.data.family_name,
+						stories: response.data.stories
+					};
+					localStorage.setItem( 'user', JSON.stringify( user ) );
+					registerService.loggedIn = true;
+					return;
         });
       }
 
-      // -------------------------------------------------- //
-      // -----------------CREATE GOOGLE USER--------------- //
-      // -------------------------------------------------- //
+			// -------------------------------------------------- //
+			// ---------------------LOG OUT---------------------- //
+			// -------------------------------------------------- //
 
-      registerService.createGoogleOrFacebookUser = ( fname, lname, email, picture, authId ) => {
-        return $http({
-          method: 'POST',
-          url: '/api/user',
-          data: {
-            given_name: fname,
-            family_name: lname,
-            email: email,
-            picture: picture,
-            id: authId
-          }
-        }).then( response => {
-          return response.data;
-        });
+			registerService.logout = () => {
+        localStorage.clear();
+				return $http({
+					method: 'GET',
+					url: '/api/logout'
+				}).then( response => {
+					return $location.url( `/v2/logout?returnTo=localhost:8080/#/` );
+				});
       }
-
 
       // -------------------------------------------------- //
       // --------------------CHECK USER-------------------- //

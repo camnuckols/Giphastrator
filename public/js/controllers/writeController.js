@@ -82,26 +82,26 @@ angular.module(`giphastrator`)
                             //I am splitting apart the words that the user types by whatever the user symbol is.
                             //This will separate them into an array.
 
-                            let words = userInput.split(userSymbol);
+                            let words = userInput.split( userSymbol );
 
                             //  We are going to loop through the words array to find the GIF`s. We are only grabbing odd values (with this feature
                             //  the user will have to have input between GIF`s because it will only grab every other GIF).
 
-                            if (words.length > wordsLength) {
+                            if ( words.length > wordsLength ) {
                                 let input = words[words.length - 2];
 
                                 //I create the tag here that goes out on the screen for the user to delete the GIF`s if they please.
-                                $scope.tag.push(input);
+                                $scope.tag.push( input );
 
-                                writeService.getGif(input, rating).then((response) => {
+                                writeService.getGif( input, rating ).then( ( response ) => {
 
                                             //This grabs the Gif from the Giffy API
                                             $scope.gif = response.data.data.images.downsized.url;
 
-                                            words = words.slice(words.length - 3, words.length - 1);
+                                            words = words.slice( words.length - 3, words.length - 1 );
 
 
-                                            $scope.words += ` ${words.join(` `)} <img class = "gif" src = "${ response.data.data.images.downsized.url }">`;
+                                            $scope.words += ` ${ words.join( ` ` ) } <img class = "gif" src = "${ response.data.data.images.downsized.url }">`;
 
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing
@@ -109,7 +109,7 @@ angular.module(`giphastrator`)
 
               if ( $scope.words[0] === 'u' && $scope.words[1] === 'n' ) {
 
-              $scope.words = $scope.words.split( 'undefined' ).slice( 1);
+              $scope.words = $scope.words.split( 'undefined' ).slice( 1 );
 
               }
 

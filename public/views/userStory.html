@@ -9,20 +9,34 @@
 
 
 		<div class="words" id="userStory" ng-bind-html="story.story">{{ story.story }}</div>
+
+
+
+		<div class="storylinks" ng-if="story">
+				<div class="ui action input">
+			  <input type="text" id="shortUrl" value="{{ story.shortUrl }}">
+			  <button class="ui blue right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#shortUrl" ng-click="copied()">
+			    <i class="copy icon"></i>
+			    Share
+			  </button>
+			</div>
+		</div>
+		<div class="storylinks" id="embediframe" ng-if="story">
+				<div class="ui action input">
+			  <input type="text" id="iframe" value="<iframe width='1280' height='720' frameborder='0' src='{{ story.shortUrl }}' allowfullscreen></iframe>">
+			  <button class="ui purple right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#iframe" ng-click="copied()">
+			    <i class="copy icon"></i>
+			    Embed
+			  </button>
+			</div>
+		</div>
+
+
 		</div>
 
 <img id="userStory-background-photo" ng-if="background" src="{{ background }}" ng-click="getGif()"/>
 
-<div class="col s10 offset-s6" ng-if="story">
-		<div class="ui action input">
-	  <input type="text" id="shortUrl" value="{{ story.shortUrl }}">
-	  <button class="ui teal right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#shortUrl" ng-click="copied()">
-	    <i class="copy icon"></i>
-	    Copy
-	  </button>
 
-	</div>
-</div>
 
 <div class= "userStory-share-icons">
 <div>

@@ -5,9 +5,29 @@
   margin-top: .5%;
   margin-left: 8%;
 }
+body, html {
+	overflow: hidden;
+}
+a:hover {
+	color: black;
+}
+#createStoryBtn {
+	margin-top: 5%;
+	margin-bottom: 2%;
+}
+#friends {
+	font-family: Vidaloka, serif;
+}
 .navbar {
   display: flex;
   justify-content: space-around;
+}
+div.extra {
+	background-color: black !important;
+	color: white !important;
+}
+div.extra a {
+	color: white !important;
 }
 nav {
 	position: fixed !important;
@@ -18,9 +38,15 @@ nav {
   background-color: #00ccd2;
   height: 3px;
 }
-button.ui.teal.right.labeled.icon.button {
+button.ui.purple.right.labeled.icon.button, button.ui.blue.right.labeled.icon.button {
 	height: 40px;
-	width: 23%;
+	width: 120px;
+}
+.storylinks {
+	margin-top: -25px;
+}
+#embediframe {
+	margin-top: -150px;
 }
 ui.input input {
 	height: 20px;
@@ -308,6 +334,10 @@ background-color: rgba(0, 0, 0, 0);
 .social-box {
   display: flex;
   justify-content: space-around;
+}
+.social-share-box {
+	margin-top: 2%;
+	margin-bottom: 10%;
 }
 .social-banner {
   width: 110%;

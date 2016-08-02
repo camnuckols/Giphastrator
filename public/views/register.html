@@ -1,0 +1,17 @@
+<div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;">
+    embeded area
+</div>
+<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script>
+   let lock = new Auth0Lock('w78d4Q6fnYuWng62jd5EtF6duSNaOQ5k', 'camnuckols.auth0.com', {
+     container: 'root',
+     auth: {
+       redirectUrl: 'http://localhost:8080/#/',
+       responseType: 'code',
+       params: {
+         scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+       }
+     }
+   });
+</script>
+<button id="login-button"></button>

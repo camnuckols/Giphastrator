@@ -5,9 +5,9 @@
       <ul id="nav-mobile" class="right black-text">
 
 
-        <li><a id = "dashboard" class = "black-text hide-on-small-only" ng-if="userIsLoggedIn" ui-sref= "dashboard">Dashboard</a></li>
-        <li><a id = "logout" class = "red-text hide-on-small-only" ng-if="userIsLoggedIn" ng-click = "logOut()">Log Out</a></li>
-        <li><a id = "login" class = "hide-on-small-only black-text" ng-if="!userIsLoggedIn" ng-click="login()">Login/Register</a></li>
+        <li><a id = "dashboard" class = "black-text hide-on-small-only" ng-if="loggedIn" ui-sref= "dashboard">Dashboard</a></li>
+        <li><a id = "logout" class = "black-text hide-on-small-only" ng-if="loggedIn" ng-click="logout()">Log Out</a></li>
+        <li><a id = "login" class = "hide-on-small-only black-text" ng-if="!loggedIn" href="/callback">Login/Register</a></li>
         <!-- <li><a id = "register" class = "hide-on-small-only black-text" ui-sref="register">Register</a></li> -->
         <!-- <li><a class = "black-text" ui-sref="collapsible.html">Practice</a></li> -->
 

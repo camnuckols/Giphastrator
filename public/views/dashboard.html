@@ -1,47 +1,63 @@
 <div class="userStory-space-row"></div>
 <div class="dashboard-background">
 	<div class="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col s12 center-align">
 				<h5><strong>Dashboard</strong></h5>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row">
 			<div class="col s6">
-				<img ng-src="{{userData[0].password.profileImageURL}}" />
+				<!-- <img ng-src="{{userData[0].password.profileImageURL}}" /> -->
 
-				<!-- <h5>Your Stories <i class="material-icons left">create</i></h5><br><br><br> -->
-				<!-- <h3>Title</h3><input type= "text" class="col s3" ng-model="titleOfStory"/><br><br> -->
-				<h4><a ui-sref = "write" class="waves-effect waves-light btn-large">Create story </a></h4>
-				<h3>My Stories</h3>
 
-				<div class="ui six doubling cards">
-	  <div class="card">
-	    <div class="image">
-	      <img src="/images/avatar/large/elliot.jpg">
-	    </div>
-			<div class="extra">
-      Rating:
-      <div class="ui star rating" data-rating="4"></div>
+					</div>
+				</div>
+
+
+						<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui top attached tabular menu">
+      <a class="item active" data-tab="first">My Stories</a>
+      <a class="item" data-tab="second">Statistics</a>
+      <a class="item" data-tab="third">Account</a>
+      <a class="item" data-tab="fourth">Settings</a>
     </div>
-	  </div>
-
+  </div>
+	<div class="ui bottom attached tab segment active" data-tab="first">
+			<h4 class="ui horizontal divider header white">
+  <i class="write icon"></i>
+  My Stories
+</h4><br>
+			<div class="ui four doubling cards" ng-show="userDetails">
+	<div class="card" ng-repeat="story in userDetails.stories">
+		<div class="image">
+			<img class = "story-image" src="{{ story.story.substring( story.story.lastIndexOf( '=' ) + 3, story.story.lastIndexOf( '>' ) - 1) }}" />
+		</div>
+		<div class="extra">
+		<a href="{{ story.shortUrl }}">{{ story.title }}</a>
 	</div>
-{{ userDetails }}
+	</div>
+</div>
+<div class="center">
+	<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length > 0"><i class="write icon"></i> Create Story</button>
+</div>
+<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length < 0"><i class="write icon"></i> Create your first Story</button>
+</div>
+	<div class="ui bottom attached tab segment" data-tab="second">
+		<h3>Hello</h3>
+	</div>
+</div>
+
+
+			<!-- <div class="space-row hide-on-small-only"></div> -->
+			<div class="space-row hide-on-small-only"></div>
+
+			<div class="center">
+				<h5 class="col s8 offset-s2 hide-on-small-only" id="friends">All your friends want to be invited to the party too.</h5>
 			</div>
-
-			<div class="space-row"></div>
-			<div class="space-row"></div>
-			<div class="space-row"></div>
-			<div class="space-row"></div>
-			<div class="space-row"></div>
-			<div class="space-row hide-on-small-only"></div>
-			<div class="space-row hide-on-small-only"></div>
-
-
-			<h5 class="col s8 offset-s2 hide-on-small-only">All your friends want to be invited to the party too.</h5>
-			<h5 class="col 11 hide-on-med-and-up">Invite your friends to the party.</h5>
+			<h5 class="col 11 hide-on-med-and-up" id="friends">Invite your friends to the party.</h5>
 
 			<div class="row">
 				<div class="col s8 offset-s2 social-box">
@@ -51,7 +67,7 @@
 					<img class="social-banner hide-on-med-and-up" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
 				</div>
 
-				<div class="row">
+				<div class="row social-share-box">
 					<div class="col s8 offset-s2 social-box">
 
 						<!--PINTEREST SHARE ICON-->
