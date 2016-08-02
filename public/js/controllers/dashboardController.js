@@ -16,6 +16,13 @@ getUser();
 function setUser() {
 	$timeout(() => {
 			$scope.userDetails = JSON.parse( localStorage.getItem( 'user' ) );
+			getAnalytics();
+	} );
+}
+
+function getAnalytics() {
+	$scope.userDetails.stories.map ( story => {
+		registerService.getAnalytics( story._id, story.shortUrl );
 	} );
 }
 

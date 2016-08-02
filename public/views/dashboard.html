@@ -35,6 +35,9 @@
 		<div class="image">
 			<img class = "story-image" src="{{ story.story.substring( story.story.lastIndexOf( '=' ) + 3, story.story.lastIndexOf( '>' ) - 1) }}" />
 		</div>
+		<a class="ui left corner label black">
+			 <i class="external share icon"></i>
+		 </a>
 		<div class="extra">
 		<a href="{{ story.shortUrl }}">{{ story.title }}</a>
 	</div>
@@ -46,7 +49,37 @@
 <button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length < 0"><i class="write icon"></i> Create your first Story</button>
 </div>
 	<div class="ui bottom attached tab segment" data-tab="second">
-		<h3>Hello</h3>
+		<h4 class="ui horizontal divider header white">
+<i class="percent icon"></i>
+	Statistics
+</h4><br>
+
+<div ng-repeat="story in userDetails.stories">
+
+<h5>{{ story.title }}</h5>
+<div class="ui horizontal statistic">
+  <div class="value">
+    2,204
+  </div>
+  <div class="label">
+    Views
+  </div>
+</div>
+	</div>
+	</div>
+
+	<div class="ui bottom attached tab segment" data-tab="third">
+		<h4 class="ui horizontal divider header white">
+<i class="user icon"></i>
+	Account
+</h4><br>
+	</div>
+
+	<div class="ui bottom attached tab segment" data-tab="fourth">
+		<h4 class="ui horizontal divider header white">
+<i class="settings icon"></i>
+	Settings
+</h4><br>
 	</div>
 </div>
 

@@ -8,6 +8,31 @@ angular.module( 'giphastrator' )
 				return registerService.loggedIn;
 			}
 
+			// -------------------------------------------------- //
+      // ----------------GET STORY ANALYTICS--------------- //
+      // -------------------------------------------------- //
+
+			registerService.getAnalytics = ( storyId, shortUrl ) => {
+				return $http( {
+					method: 'GET',
+					url: `/api/userStory/${ storyId }`,
+					data: {
+						shortUrl
+					}
+				} ).then( response => {
+					return $http( {
+						method: 'PUT',
+						url: `/api/story/${ storyId }`,
+						data: {
+							statistics: response.data.analytics
+						}
+					} ).then( response => {
+						return response.data;
+					} );
+				} );
+
+			}
+
       // -------------------------------------------------- //
       // ----------GET CURRENT USER OR CREATE USER--------- //
       // -------------------------------------------------- //
@@ -20,7 +45,8 @@ angular.module( 'giphastrator' )
 					let user = {
 						given_name: response.data.given_name,
 						family_name: response.data.family_name,
-						stories: response.data.stories
+						stories: response.data.stories,
+						email: response.data.email
 					};
 					localStorage.setItem( 'user', JSON.stringify( user ) );
 					registerService.loggedIn = true;

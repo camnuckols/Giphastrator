@@ -8,6 +8,9 @@ angular.module('giphastrator')
 			$timeout(() => {
 				if ( $state.current.name === 'dashboard' ) {
 					$scope.loggedIn = true;
+					$( document ).ready( function() {
+						$( '#dashboard' ).css( 'background-color', '#00CCD2' );
+					} );
 				}
 			} );
 

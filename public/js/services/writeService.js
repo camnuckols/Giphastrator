@@ -56,7 +56,7 @@ this.addStory = function( words, title, id ) {
 
 		return $http({
 			method: 'POST',
-			url: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBdPqa214IrabT8qxB18PXEHYGbXuSoBBk',
+			url: 'https://www.googleapis.com/urlshortener/v1/url?key=', 
 			data: {
 				'longUrl': `http://localhost:8080/#/write/${ id }/story/${ storyId }`
 			}

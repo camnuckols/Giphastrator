@@ -1,4 +1,6 @@
 const User = require('./User');
+const { googleKey } = require ( '../config/config' );
+const https = require( 'https' );
 
 module.exports = {
 
@@ -82,6 +84,16 @@ logout( req, res ) {
   req.logout();
 	console.log( 'You are logged out. line 54 userCtrl');
   res.redirect( '/#/' );
+},
+
+getStats( req, res ) {
+	https.get( `https://www.googleapis.com/urlshortener/v1/url?shortUrl=${ req.body.shortUrl }&projection=FULL&key=${ googleKey }`, function( response ) {
+			response.on( 'data', function( data ) {
+				return res.status( 200 ).json( data );
+			} );
+	} ).on( 'error', function( err ) {
+		return res.status( 400 ).json( err );
+	} );
 }
 
 

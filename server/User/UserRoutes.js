@@ -12,4 +12,7 @@ app.post( `/api/user`, userCtrl.createUser );
 app.get( '/callback', passport.authenticate( 'auth0', { failureRedirect: '/' } ), userCtrl.getAuth );
 app.get('/api/logout', userCtrl.logout );
 
+// Story Statistics
+app.get( '/api/userStory/:id', userCtrl.getStats );
+
 };
