@@ -1,6 +1,7 @@
 const User = require('./User');
 const { googleKey } = require ( '../config/config' );
 const https = require( 'https' );
+const request = require( 'request' );
 
 module.exports = {
 
@@ -94,7 +95,26 @@ getStats( req, res ) {
 	} ).on( 'error', function( err ) {
 		return res.status( 400 ).json( err );
 	} );
-}
+},
 
+getShortUrl( req, res ) {
+	options = {
+		uri: `https://www.googleapis.com/urlshortener/v1/url?key=${ googleKey }`,
+		method: 'POST',
+		json: {
+			'longUrl': `http://localhost:8080/#/write/${ req.body.id }/story/${ req.body.storyId }`
+		}
+	};
+	request( options, function( error, response, body ) {
+				 if ( !error && response.statusCode == 200 ) {
+					 return res.status( 200 ).json( body );
+			 } else {
+				 return res.status( 400 ).json( error );
+			 }
+
+
+ });
+
+}
 
 }

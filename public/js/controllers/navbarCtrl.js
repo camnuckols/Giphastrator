@@ -9,9 +9,10 @@ angular.module('giphastrator')
 				if ( $state.current.name === 'dashboard' ) {
 					$scope.loggedIn = true;
 					$( document ).ready( function() {
-						$( '#dashboard' ).css( 'background-color', '#00CCD2' );
+						// $( '#dashboard' ).css( 'cssText', 'background-color: #00CCD2 !important; opacity: .4; font-weight: bold;' );
 					} );
 				}
+
 			} );
 
 

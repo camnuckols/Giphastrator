@@ -22,7 +22,7 @@ angular.module(`giphastrator`)
 								Materialize.toast( `You must write a story before one can be created.`, 2000 );
 							} else {
 								$scope.userDetails = JSON.parse( localStorage.getItem( 'user' ) );
-								console.log( $scope.userDetails );
+								
 								registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
 									$scope.userDetails = response;
 									if ( response && title ) {

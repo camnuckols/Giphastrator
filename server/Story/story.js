@@ -5,7 +5,8 @@ const Story = new mongoose.Schema({
   story: String,
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 	shortUrl: String,
-	statistics: Object
+	statistics: Object,
+	picture: String
 });
 
 module.exports = mongoose.model('Story', Story);

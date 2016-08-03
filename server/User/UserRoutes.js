@@ -14,5 +14,6 @@ app.get('/api/logout', userCtrl.logout );
 
 // Story Statistics
 app.get( '/api/userStory/:id', userCtrl.getStats );
+app.post( '/api/shortUrl', userCtrl.getShortUrl );
 
 };

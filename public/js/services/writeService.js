@@ -53,12 +53,12 @@ this.addStory = function( words, title, id ) {
 		}
 		if ( response ) {
 			let storyId = response.data._id;
-
 		return $http({
 			method: 'POST',
-			url: 'https://www.googleapis.com/urlshortener/v1/url?key=', 
+			url: '/api/shortUrl',
 			data: {
-				'longUrl': `http://localhost:8080/#/write/${ id }/story/${ storyId }`
+				id,
+				storyId
 			}
 		}).then( response => {
 			let shortUrl = response.data.id;
@@ -88,6 +88,15 @@ this.getAuthor = function( id ) {
 		method: 'GET',
 		url: `/api/user/${ id }`
 	} ).then( response => {
+		return response.data;
+	} );
+}
+
+this.deleteStory = function( storyId ) {
+	return $http({
+		method: 'DELETE',
+		url: `/api/story/${ storyId }`
+	}).then( response => {
 		return response.data;
 	} );
 }

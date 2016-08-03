@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.controller('dashboardController', function( $scope, registerService, $timeout ) {
+.controller('dashboardController', function( $scope, registerService, writeService, $timeout ) {
 
 	$( document ).ready( function() {
 		$('.menu .item').tab();
@@ -22,8 +22,23 @@ function setUser() {
 
 function getAnalytics() {
 	$scope.userDetails.stories.map ( story => {
-		registerService.getAnalytics( story._id, story.shortUrl );
+		registerService.getAnalytics( story._id, story.shortUrl ).then( response => {
+			console.log( response, 'line 26 dashboardController');
+		} );
 	} );
+}
+
+$scope.deleteStory = ( storyId, index ) => {
+	if ( storyId ) {
+	writeService.deleteStory( storyId ).then( response => {
+		if ( response ) {
+			Materialize.toast( 'Your story was successfully deleted.', 2000 );
+			$scope.userDetails.stories.splice( index, 1 );
+		}
+	} );
+} else {
+	Materialize.toast( 'Something went wrong. Please try again.', 2000 );
+}
 }
 
 $scope.facebook = 'OFF';

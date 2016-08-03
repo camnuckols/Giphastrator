@@ -15,6 +15,11 @@ a:hover {
 	margin-top: 5%;
 	margin-bottom: 2%;
 }
+.stat-picture {
+	/*border-radius: 50%;*/
+	height: 35px !important;
+	width: 35px !important;
+}
 #friends {
 	font-family: Vidaloka, serif;
 }
@@ -24,7 +29,6 @@ a:hover {
 }
 div.extra {
 	background-color: black !important;
-	color: white !important;
 }
 div.extra a {
 	color: white !important;

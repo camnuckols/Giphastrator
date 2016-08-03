@@ -31,15 +31,18 @@
   My Stories
 </h4><br>
 			<div class="ui four doubling cards" ng-show="userDetails">
-	<div class="card" ng-repeat="story in userDetails.stories">
+	<div class="card" ng-repeat="story in userDetails.stories track by $index">
 		<div class="image">
-			<img class = "story-image" src="{{ story.story.substring( story.story.lastIndexOf( '=' ) + 3, story.story.lastIndexOf( '>' ) - 1) }}" />
+			<img class = "story-image" src="{{ story.picture }}" />
 		</div>
-		<a class="ui left corner label black">
-			 <i class="external share icon"></i>
+		<a class="ui left corner label black" ng-click="deleteStory( story._id, $index )">
+			 <i class="trash icon"></i>
 		 </a>
+		 <a class="ui right corner label black">
+				<i class="edit icon"></i>
+			</a>
 		<div class="extra">
-		<a href="{{ story.shortUrl }}">{{ story.title }}</a>
+		<a href="{{ story.shortUrl }}">{{ story.title.slice( 0, 21 ) }}</a>
 	</div>
 	</div>
 </div>
@@ -54,18 +57,60 @@
 	Statistics
 </h4><br>
 
-<div ng-repeat="story in userDetails.stories">
 
-<h5>{{ story.title }}</h5>
-<div class="ui horizontal statistic">
-  <div class="value">
-    2,204
-  </div>
-  <div class="label">
-    Views
-  </div>
-</div>
-	</div>
+	<table class="ui very basic collapsing celled table">
+	  <thead>
+	    <tr><th>Story</th>
+	    <th>Visits Today</th>
+			<th>Visits This Week</th>
+			<th>Visits This Month</th>
+			<th>All-Time Visits</th>
+			<th>Countries</th>
+	  </tr></thead>
+	  <tbody ng-repeat="story in userDetails.stories">
+	    <tr>
+	      <td>
+	        <h4 class="ui image header">
+	          <img src="{{ story.picture }}" class="ui mini rounded image stat-picture">
+	          <div class="content">
+	            <a href="{{ story.shortUrl }}">{{ story.title }}</a>
+	            <div class="sub header">
+	          </div>
+	        </div>
+	      </h4></td>
+
+
+	      <td><div class="center">
+	        {{ story.statistics.day.shortUrlClicks }}
+				</div>
+	      </td>
+				<td><div class="center">
+	        {{ story.statistics.week.shortUrlClicks }}
+				</div>
+	      </td>
+				<td><div class="center">
+	        {{ story.statistics.month.shortUrlClicks }}
+				</div>
+			</td>
+				<td><div class="center">
+					{{ story.statistics.allTime.shortUrlClicks }}
+				</div>
+				</td>
+				<td ng-repeat="id in story.statistics.allTime.countries"><div class="center">
+					{{ id.id }}
+					</div>
+				</td>
+
+	    </tr>
+	  </tbody>
+		<tfoot>
+    <tr><th>{{ userDetails.stories.length }} Stories</th>
+    <th>2 Approved</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr></tfoot>
+	</table>
 	</div>
 
 	<div class="ui bottom attached tab segment" data-tab="third">

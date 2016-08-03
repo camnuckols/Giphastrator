@@ -90,7 +90,6 @@ angular.module( 'giphastrator' )
 										$timeout( () => {
 											$scope.background = response.data.data.images.downsized_large.url;
 										} );
-
 });
 				if ( response ) {
 					getAuthor();
