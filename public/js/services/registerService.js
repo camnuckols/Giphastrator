@@ -14,12 +14,14 @@ angular.module( 'giphastrator' )
 
 			registerService.getAnalytics = ( storyId, shortUrl ) => {
 				return $http( {
-					method: 'GET',
+					method: 'POST',
 					url: `/api/userStory/${ storyId }`,
 					data: {
-						shortUrl
+						shortUrl: shortUrl
 					}
 				} ).then( response => {
+					response.data = JSON.parse( response.data );
+
 					return $http( {
 						method: 'PUT',
 						url: `/api/story/${ storyId }`,

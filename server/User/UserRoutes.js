@@ -13,7 +13,7 @@ app.get( '/callback', passport.authenticate( 'auth0', { failureRedirect: '/' } )
 app.get('/api/logout', userCtrl.logout );
 
 // Story Statistics
-app.get( '/api/userStory/:id', userCtrl.getStats );
+app.post( '/api/userStory/:id', userCtrl.getStats );
 app.post( '/api/shortUrl', userCtrl.getShortUrl );
 
 };

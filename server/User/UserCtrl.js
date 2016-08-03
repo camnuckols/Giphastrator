@@ -88,12 +88,18 @@ logout( req, res ) {
 },
 
 getStats( req, res ) {
+	console.log( req.body, googleKey);
 	https.get( `https://www.googleapis.com/urlshortener/v1/url?shortUrl=${ req.body.shortUrl }&projection=FULL&key=${ googleKey }`, function( response ) {
+		let str = '';
 			response.on( 'data', function( data ) {
-				return res.status( 200 ).json( data );
+				str += data;
 			} );
-	} ).on( 'error', function( err ) {
-		return res.status( 400 ).json( err );
+			response.on( 'end', function() {
+				return res.status( 200 ).json( str )
+			} );
+			response.on( 'error', function( err ) {
+				return res.status( 400 ).json( err );
+			} );
 	} );
 },
 
