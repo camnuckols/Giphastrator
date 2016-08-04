@@ -90,7 +90,7 @@ angular.module( 'giphastrator' )
 										$timeout( () => {
 											$scope.background = response.data.data.images.downsized_large.url;
 										} );
-});
+									});
 				if ( response ) {
 					getAuthor();
 				}
@@ -101,11 +101,13 @@ angular.module( 'giphastrator' )
 	getStory();
 
 	getAuthor = () => {
-		writeService.getAuthor( $scope.story.author ).then( response => {
-			$timeout(() => {
-				$scope.author = response;
-			} );
-		} );
+		$scope.author = $scope.story.author;
+		// writeService.getAuthor( $scope.story.author ).then( response => {
+		// 	console.log( response, 'line 105 storyCtrl' );
+		// 	$timeout(() => {
+		// 		$scope.author = response;
+		// 	} );
+		// } );
 	};
 
 } );

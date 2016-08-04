@@ -319,8 +319,8 @@ to the page when the user is writing. -->
           'pink lighten-2 white-text': $index === 12,
           'red lighten-1 white-text': $index === 13
         }">
-            {{tags}}
-            <i class="material-icons" ng-click="deleteGif(tags)">close</i>
+            {{ tags }}
+            <i class="material-icons" ng-click="deleteGif( tags, $index )">close</i>
         </div>
     </div>
 </div>

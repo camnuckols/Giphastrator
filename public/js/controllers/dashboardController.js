@@ -23,7 +23,6 @@ function setUser() {
 function getAnalytics() {
 	$scope.userDetails.stories.map ( story => {
 		registerService.getAnalytics( story._id, story.shortUrl ).then( response => {
-			console.log( response, 'line 26 dashboardController');
 		} );
 	} );
 }

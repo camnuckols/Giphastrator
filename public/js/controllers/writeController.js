@@ -1,9 +1,16 @@
 angular.module(`giphastrator`)
-    .controller(`writeController`, function( $scope, writeService, $interval, registerService, $http ) {
+    .controller(`writeController`, function( $scope, writeService, $interval, registerService, $http, $timeout ) {
+
+				// $scope.materialbox = () => {
+				// 	$timeout(() => {
+				// 		$('.materialboxed').materialbox();
+				// 	} );
+				// }
 
             new Clipboard('.clipboard-button');
             let wordsLength = 2;
             $scope.tag = [];
+						$scope.num = 0;
 
             $scope.getCurrentUser = () => {
 							registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
@@ -22,7 +29,7 @@ angular.module(`giphastrator`)
 								Materialize.toast( `You must write a story before one can be created.`, 2000 );
 							} else {
 								$scope.userDetails = JSON.parse( localStorage.getItem( 'user' ) );
-								
+
 								registerService.findUserByEmail( $scope.userDetails.email ).then( response => {
 									$scope.userDetails = response;
 									if ( response && title ) {
@@ -102,7 +109,7 @@ angular.module(`giphastrator`)
                                             words = words.slice( words.length - 3, words.length - 1 );
 
 
-                                            $scope.words += ` ${ words.join( ` ` ) } <img class = "gif" src = "${ response.data.data.images.downsized.url }">`;
+                                            $scope.words += ` ${ words.join( ` ` ) } <div id="${ $scope.num }" class="giphastrator-magic"><img class = "gif" align="middle" src = "${ response.data.data.images.downsized.url }"></div>`;
 
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing
@@ -119,6 +126,9 @@ angular.module(`giphastrator`)
 							let newWords = [];
 							newWords.push( $scope.words );
 							$scope.words = newWords;
+							console.log( $scope.num );
+							$scope.num++;
+							// $scope.materialbox();
 
             });
           wordsLength += 2;
@@ -127,15 +137,17 @@ angular.module(`giphastrator`)
   })
 
 
-$scope.deleteGif = ( gifName ) => {
+$scope.deleteGif = ( gifName, index ) => {
   try {
   let gif;
-//gif = $scope.words.split(/(gifName)/);
-
-    gif = $scope.words.replace(/<img[^>]*>/,``);
-  //  gif = $scope.words.split(`<`);
-   $scope.words = gif;
- } catch (err) {
+	gif = $scope.words[ 0 ].replace(/<div[^>]*>/,``);
+	$scope.words = gif;
+// 	$timeout(() => {
+// 	$( `#${ index }` ).addClass( 'ng-hide' );
+// });
+ } catch ( err ) {
+	 console.log( err );
+	 console.log( $scope.words );
    if (Error.name === `TypeError` || Error.name === `ReferenceError` || Error.name === `Error`) {
      // Materialize.toast(message, displayLength, className, completeCallback);
      Materialize.toast(`You can't delete a GIF unless you have more than one GIF`, 3000); //3000 is the duration of the toast

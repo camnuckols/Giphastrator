@@ -1,18 +1,19 @@
 <div class="row hide-on-small-only userStory">
 
 		<div class="userStory-space-row"></div>
-			<div class="col s6 offset-s6">
+			<div class="userStory-positioning">
 		<h4 id="userStory-story-title">{{ story.title | uppercase }}
-			<div class="author" style="font-size: 14px" ng-if="author.given_name">BY {{ author.given_name | uppercase }} {{ author.family_name | uppercase }}</div>
-			<div class="author" style="font-size: 14px" ng-if="!author.given_name">BY {{ author.email | uppercase }}</div>
+			<div class="author" style="font-size: 14px" ng-show="author.given_name">BY {{ author.given_name | uppercase }} {{ author.family_name | uppercase }}</div>
+			<div class="author" style="font-size: 14px" ng-show="!author.given_name">BY {{ author.email | uppercase }}</div>
 		</h4>
 
 
-		<div class="words" id="userStory" ng-bind-html="story.story">{{ story.story }}</div>
+		<div class="words" id="userStory" ng-bind-html="story.story">{{ story.story.firstIndexOf('<') }}</div>
 
 
-
-		<div class="storylinks" ng-if="story">
+<div class = "row">
+	<div class = "col s6">
+		<div class="storylinks" ng-show="story">
 				<div class="ui action input">
 			  <input type="text" id="shortUrl" value="{{ story.shortUrl }}">
 			  <button class="ui blue right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#shortUrl" ng-click="copied()">
@@ -21,7 +22,10 @@
 			  </button>
 			</div>
 		</div>
-		<div class="storylinks" id="embediframe" ng-if="story">
+		</div>
+
+	<div class = "col s6">
+		<div class="storylinks" id="embediframe" ng-show="story">
 				<div class="ui action input">
 			  <input type="text" id="iframe" value="<iframe width='1280' height='720' frameborder='0' src='{{ story.shortUrl }}' allowfullscreen></iframe>">
 			  <button class="ui purple right labeled icon button shortUrlBtn" alt="Copy to Clipboard" data-clipboard-target="#iframe" ng-click="copied()">
@@ -31,6 +35,8 @@
 			</div>
 		</div>
 
+</div>
+		</div>
 
 		</div>
 

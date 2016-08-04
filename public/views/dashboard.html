@@ -35,19 +35,16 @@
 		<div class="image">
 			<img class = "story-image" src="{{ story.picture }}" />
 		</div>
-		<a class="ui left corner label black" ng-click="deleteStory( story._id, $index )">
+		<a class="ui right corner label black" ng-click="deleteStory( story._id, $index )">
 			 <i class="trash icon"></i>
 		 </a>
-		 <a class="ui right corner label black">
-				<i class="edit icon"></i>
-			</a>
 		<div class="extra">
-		<a href="{{ story.shortUrl }}">{{ story.title.slice( 0, 21 ) }}</a>
+		<a class="truncate" href="{{ story.shortUrl }}">{{ story.title }}</a>
 	</div>
 	</div>
 </div>
 <div class="center">
-	<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length > 0"><i class="write icon"></i> Create Story</button>
+	<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length > 0"><i class="write icon"></i> New Story</button>
 </div>
 <button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length < 0"><i class="write icon"></i> Create your first Story</button>
 </div>
@@ -73,7 +70,7 @@
 	        <h4 class="ui image header">
 	          <img src="{{ story.picture }}" class="ui mini rounded image stat-picture">
 	          <div class="content">
-	            <a href="{{ story.shortUrl }}">{{ story.title }}</a>
+	            <a href="{{ story.shortUrl }}">{{ story.title.slice( 0, 28 ) }}</a>
 	            <div class="sub header">
 	          </div>
 	        </div>
@@ -81,19 +78,19 @@
 
 
 	      <td><div class="center">
-	        {{ story.statistics.day.shortUrlClicks }}
+	        {{ story.statistics.day.shortUrlClicks ? story.statistics.day.shortUrlClicks : 0 }}
 				</div>
 	      </td>
 				<td><div class="center">
-	        {{ story.statistics.week.shortUrlClicks }}
+	        {{ story.statistics.week.shortUrlClicks ? story.statistics.week.shortUrlClicks : 0 }}
 				</div>
 	      </td>
 				<td><div class="center">
-	        {{ story.statistics.month.shortUrlClicks }}
+	        {{ story.statistics.month.shortUrlClicks ? story.statistics.month.shortUrlClicks : 0 }}
 				</div>
 			</td>
 				<td><div class="center">
-					{{ story.statistics.allTime.shortUrlClicks }}
+					{{ story.statistics.allTime.shortUrlClicks ? story.statistics.allTime.shortUrlClicks : 0 }}
 				</div>
 				</td>
 				<td ng-repeat="id in story.statistics.allTime.countries"><div class="center">
@@ -105,7 +102,7 @@
 	  </tbody>
 		<tfoot>
     <tr><th>{{ userDetails.stories.length }} Stories</th>
-    <th>2 Approved</th>
+    <th>something</th>
     <th></th>
     <th></th>
     <th></th>
@@ -125,7 +122,15 @@
 <i class="settings icon"></i>
 	Settings
 </h4><br>
+<div class="ui form">
+<div class="inline field">
+    <div class="ui toggle checkbox">
+      <input type="checkbox" tabindex="0" class="hidden">
+      <label>Toggle</label>
+    </div>
+  </div>
 	</div>
+</div>
 </div>
 
 
