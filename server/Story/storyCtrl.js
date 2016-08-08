@@ -1,15 +1,32 @@
 const Story = require( './Story' );
 const User = require( '../User/User' );
+const { giphyKey } = require( '../config/config' );
+const http = require( 'http' );
 
 module.exports = {
+
+	getGif( req, res ) {
+		http.get( `http://api.giphy.com/v1/gifs/translate?s=${ req.body.searchTerm }&api_key=${ giphyKey }&rating=${ req.body.userRating }`, function( response ) {
+			let str = '';
+				response.on( 'data', function( data ) {
+					str += data;
+				} );
+				response.on( 'end', function() {
+					return res.status( 200 ).json( str )
+				} );
+				response.on( 'error', function( err ) {
+					return res.status( 400 ).json( err );
+				} );
+		} );
+	},
 
   postStory( req, res ) {
 		let pictureUrl;
 
 		if ( req.body.words[ 0 ] ) {
-			pictureUrl = req.body.words[ 0 ].substring( req.body.words[ 0 ].lastIndexOf( '=' ) + 3, req.body.words[ 0 ].lastIndexOf( '>' ) - 1);
+			pictureUrl = req.body.words[ 0 ].substring( req.body.words[ 0 ].lastIndexOf( '=' ) + 3, req.body.words[ 0 ].lastIndexOf( '/>' ) - 2);
 		} else {
-			pictureUrl = req.body.words[ 0 ][ 0 ].substring( req.body.words[ 0 ][ 0 ].lastIndexOf( '=' ) + 3, req.body.words[ 0 ][ 0 ].lastIndexOf( '>' ) - 1);
+			pictureUrl = req.body.words[ 0 ][ 0 ].substring( req.body.words[ 0 ][ 0 ].lastIndexOf( '=' ) + 3, req.body.words[ 0 ][ 0 ].lastIndexOf( '/>' ) - 2);
 		}
 
 		console.log( req.body.words[ 0 ].substring( req.body.words[ 0 ].lastIndexOf( '=' ) + 3, req.body.words[ 0 ].lastIndexOf( '>' ) - 1), 'this the first');

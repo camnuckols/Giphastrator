@@ -1,14 +1,20 @@
 angular.module('giphastrator')
 .service('writeService', function( $http, registerService, $state, $stateParams ) {
-const baseUrl = "http://api.giphy.com/v1/gifs/translate?s=";
+
 const stories = [];
 
 this.getGif = function( searchTerm, userRating ) {
 	searchTerm = searchTerm.split( ' ' ).join( '+' );
   return $http({
-    method: 'GET',
-    url: baseUrl + searchTerm + "&api_key=dc6zaTOxFJmzC&rating=" + userRating
-  });
+    method: 'POST',
+    url: '/api/giphy',
+		data: {
+			searchTerm,
+			userRating
+		}
+  } ).then( response => {
+		return response.data;
+	} );
 }
 
 

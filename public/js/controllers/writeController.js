@@ -102,14 +102,14 @@ angular.module(`giphastrator`)
                                 $scope.tag.push( input );
 
                                 writeService.getGif( input, rating ).then( ( response ) => {
-
+																						response = JSON.parse( response );
                                             //This grabs the Gif from the Giffy API
-                                            $scope.gif = response.data.data.images.downsized.url;
+                                            $scope.gif = response.data.images.downsized.url;
 
                                             words = words.slice( words.length - 3, words.length - 1 );
 
 
-                                            $scope.words += ` ${ words.join( ` ` ) } <div id="${ $scope.num }" class="giphastrator-magic"><img class = "gif" align="middle" src = "${ response.data.data.images.downsized.url }"></div>`;
+                                            $scope.words += ` ${ words.join( ` ` ) } <div id="${ $scope.num }" class="giphastrator-magic"><img class = "gif" align="middle" src = "${ response.data.images.downsized.url }" /></div>`;
 
               //This check solves the problem that I was having with the undefined value.
               //It clears it from the front of the array. I`m not 100% sure what is causing

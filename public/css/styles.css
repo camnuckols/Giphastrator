@@ -16,6 +16,10 @@ a:hover {
 	margin-top: 5%;
 	margin-bottom: 2%;
 }
+.auth0-lock.auth0-lock .auth0-lock-name, .auth0-lock.auth0-lock .auth0-lock-badge-bottom .auth0-lock-badge svg {
+	visibility: hidden;
+	height: 0px;
+}
 .stat-picture {
 	border-radius: 50% !important;
 	height: 35px !important;
@@ -97,7 +101,7 @@ footer {
   z-index: 51;
 }
 footer > img {
-  height: 25%;
+  height: 35%;
 }
 #nucks-logo {
   height: 30px;
@@ -211,6 +215,7 @@ body {
   margin-top: -325px;
 	margin-left: 4%;
 	overflow: hidden;
+	line-height: 30px;
 }
  .verticalMenu {
 	margin-bottom: 5%;

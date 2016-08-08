@@ -2,3 +2,7 @@ angular-socialshare
 .DS_Store
 node_modules
 config
+build.js
+npm-debug.log
+semantic
+semantic.json

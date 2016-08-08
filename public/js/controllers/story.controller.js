@@ -66,10 +66,11 @@ angular.module( 'giphastrator' )
 		let backGif = $scope.story.title;
 
 		writeService.getGif( backGif, 'g' ).then((response) => {
+			response = JSON.parse( response );
 								$timeout( () => {
 
-									if ( $scope.background !== response.data.data.images.downsized_large.url ) {
-										$scope.background = response.data.data.images.downsized_large.url;
+									if ( $scope.background !== response.data.images.downsized_large.url ) {
+										$scope.background = response.data.images.downsized_large.url;
 									} else {
 										$scope.getGif();
 									}
@@ -86,9 +87,9 @@ angular.module( 'giphastrator' )
 				let backGif = response.title;
 
 				writeService.getGif( backGif, 'g' ).then((response) => {
-
+										response = JSON.parse( response );
 										$timeout( () => {
-											$scope.background = response.data.data.images.downsized_large.url;
+											$scope.background = response.data.images.downsized_large.url;
 										} );
 									});
 				if ( response ) {

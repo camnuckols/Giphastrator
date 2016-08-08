@@ -101,6 +101,18 @@ angular.module( 'giphastrator' )
         });
       }
 
+			// -------------------------------------------------- //
+      // --------------------OPEN OAUTH-------------------- //
+      // -------------------------------------------------- //
+			registerService.openLock = () => {
+				return $http({
+					method: 'GET',
+					url: '/api/lock'
+				}).then( response => {
+					console.log( response, 'this is response' );
+				})
+			}
+
 
   return registerService;
 

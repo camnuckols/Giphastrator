@@ -14,6 +14,11 @@ angular.module('giphastrator')
 				}
 
 			} );
+			$scope.showLock = () => {
+				registerService.openLock();
+			};
+
+
 
 
 

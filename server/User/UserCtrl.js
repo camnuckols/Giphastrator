@@ -1,7 +1,8 @@
 const User = require('./User');
-const { googleKey } = require ( '../config/config' );
+const { googleKey, domain, clientID } = require ( '../config/config' );
 const https = require( 'https' );
 const request = require( 'request' );
+// const Auth0Lock = require( 'auth0-lock' );
 
 module.exports = {
 
@@ -120,6 +121,26 @@ getShortUrl( req, res ) {
 
 
  });
+},
+
+openLock( req, res ) {
+	console.log( req.body, 'this is req.body' );
+	let lock = new Auth0Lock( clientID, domain, {
+		auth: {
+			redirectUrl: 'http://localhost:8080/callback',
+			responseType: 'code',
+			params: {
+				scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+			}
+		},
+		theme: {
+			logo: './img/giphastrator-logo.png',
+			primaryColor: 'black'
+		},
+		socialButtonStyle: 'small'
+	});
+
+		lock.show();
 
 }
 

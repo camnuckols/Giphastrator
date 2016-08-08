@@ -12,62 +12,67 @@
 				<!-- <img ng-src="{{userData[0].password.profileImageURL}}" /> -->
 
 
-					</div>
+			</div>
+		</div>
+
+
+		<div class="ui grid">
+			<div class="four wide column">
+				<div class="ui top attached tabular menu">
+					<a class="item active" data-tab="first">My Stories</a>
+					<a class="item" data-tab="second">Statistics</a>
+					<a class="item" data-tab="third">Account</a>
+					<a class="item" data-tab="fourth">Settings</a>
 				</div>
-
-
-						<div class="ui grid">
-  <div class="four wide column">
-    <div class="ui top attached tabular menu">
-      <a class="item active" data-tab="first">My Stories</a>
-      <a class="item" data-tab="second">Statistics</a>
-      <a class="item" data-tab="third">Account</a>
-      <a class="item" data-tab="fourth">Settings</a>
-    </div>
-  </div>
-	<div class="ui bottom attached tab segment active" data-tab="first">
-			<h4 class="ui horizontal divider header white">
+			</div>
+			<div class="ui bottom attached tab segment active" data-tab="first">
+				<h4 class="ui horizontal divider header white">
   <i class="write icon"></i>
   My Stories
-</h4><br>
-			<div class="ui four doubling cards" ng-show="userDetails">
-	<div class="card" ng-repeat="story in userDetails.stories track by $index">
-		<div class="image">
-			<img class = "story-image" src="{{ story.picture }}" />
-		</div>
-		<a class="ui right corner label black" ng-click="deleteStory( story._id, $index )">
-			 <i class="trash icon"></i>
-		 </a>
-		<div class="extra">
-		<a class="truncate" href="{{ story.shortUrl }}">{{ story.title }}</a>
-	</div>
-	</div>
-</div>
-<div class="center">
-	<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length > 0"><i class="write icon"></i> New Story</button>
-</div>
-<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length < 0"><i class="write icon"></i> Create your first Story</button>
-</div>
-	<div class="ui bottom attached tab segment" data-tab="second">
-		<h4 class="ui horizontal divider header white">
+</h4>
+				<br>
+				<div class="ui four doubling cards" ng-show="userDetails">
+					<div class="card" ng-repeat="story in userDetails.stories track by $index">
+						<div class="image" ng-show="story.picture">
+							<img class="story-image" src="{{ story.picture }}" />
+						</div>
+						<a class="ui right corner label black" ng-click="deleteStory( story._id, $index )">
+							<i class="trash icon"></i>
+						</a>
+						<div class="extra" ng-show="story.shortUrl">
+							<a class="truncate" href="{{ story.shortUrl }}">{{ story.title }}</a>
+						</div>
+					</div>
+				</div>
+				<div class="center">
+					<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length > 0"><i class="write icon"></i> New Story</button>
+
+					<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length <= 0"><i class="write icon"></i> Create your first Story</button>
+				</div>
+			</div>
+			<div class="ui bottom attached tab segment" data-tab="second">
+				<h4 class="ui horizontal divider header white">
 <i class="percent icon"></i>
 	Statistics
-</h4><br>
+</h4>
+				<br>
 
 
-	<table class="ui very basic collapsing celled table">
-	  <thead>
-	    <tr><th>Story</th>
-	    <th>Visits Today</th>
-			<th>Visits This Week</th>
-			<th>Visits This Month</th>
-			<th>All-Time Visits</th>
-			<th>Countries</th>
-	  </tr></thead>
-	  <tbody ng-repeat="story in userDetails.stories">
-	    <tr>
-	      <td>
-	        <h4 class="ui image header">
+				<table class="ui very basic collapsing celled table">
+					<thead>
+						<tr>
+							<th>Story</th>
+							<th>Visits Today</th>
+							<th>Visits This Week</th>
+							<th>Visits This Month</th>
+							<th>All-Time Visits</th>
+							<th>Countries</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="story in userDetails.stories">
+						<tr>
+							<td>
+								<h4 class="ui image header">
 	          <img src="{{ story.picture }}" class="ui mini rounded image stat-picture">
 	          <div class="content">
 	            <a href="{{ story.shortUrl }}">{{ story.title.slice( 0, 28 ) }}</a>
@@ -77,137 +82,148 @@
 	      </h4></td>
 
 
-	      <td><div class="center">
-	        {{ story.statistics.day.shortUrlClicks ? story.statistics.day.shortUrlClicks : 0 }}
-				</div>
-	      </td>
-				<td><div class="center">
-	        {{ story.statistics.week.shortUrlClicks ? story.statistics.week.shortUrlClicks : 0 }}
-				</div>
-	      </td>
-				<td><div class="center">
-	        {{ story.statistics.month.shortUrlClicks ? story.statistics.month.shortUrlClicks : 0 }}
-				</div>
-			</td>
-				<td><div class="center">
-					{{ story.statistics.allTime.shortUrlClicks ? story.statistics.allTime.shortUrlClicks : 0 }}
-				</div>
-				</td>
-				<td ng-repeat="id in story.statistics.allTime.countries"><div class="center">
-					{{ id.id }}
-					</div>
-				</td>
+							<td>
+								<div class="center">
+									{{ story.statistics.day.shortUrlClicks ? story.statistics.day.shortUrlClicks : 0 }}
+								</div>
+							</td>
+							<td>
+								<div class="center">
+									{{ story.statistics.week.shortUrlClicks ? story.statistics.week.shortUrlClicks : 0 }}
+								</div>
+							</td>
+							<td>
+								<div class="center">
+									{{ story.statistics.month.shortUrlClicks ? story.statistics.month.shortUrlClicks : 0 }}
+								</div>
+							</td>
+							<td>
+								<div class="center">
+									{{ story.statistics.allTime.shortUrlClicks ? story.statistics.allTime.shortUrlClicks : 0 }}
+								</div>
+							</td>
+							<td ng-repeat="id in story.statistics.allTime.countries">
+								<div class="center">
+									{{ id.id }}
+								</div>
+							</td>
 
-	    </tr>
-	  </tbody>
-		<tfoot>
-    <tr><th>{{ userDetails.stories.length }} Stories</th>
-    <th>something</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr></tfoot>
-	</table>
-	</div>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th ng-show="userDetails.stories.length > 2">{{ userDetails.stories.length }} Stories</th>
+							<th ng-show="userDetails.stories.length === 1">{{ userDetails.stories.length }} Story</th>
+							<th>something</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 
-	<div class="ui bottom attached tab segment" data-tab="third">
-		<h4 class="ui horizontal divider header white">
+			<div class="ui bottom attached tab segment" data-tab="third">
+				<h4 class="ui horizontal divider header white">
 <i class="user icon"></i>
 	Account
-</h4><br>
-	</div>
+</h4>
+				<br>
+			</div>
 
-	<div class="ui bottom attached tab segment" data-tab="fourth">
-		<h4 class="ui horizontal divider header white">
+			<div class="ui bottom attached tab segment" data-tab="fourth">
+				<h4 class="ui horizontal divider header white">
 <i class="settings icon"></i>
 	Settings
-</h4><br>
-<div class="ui form">
-<div class="inline field">
-    <div class="ui toggle checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>Toggle</label>
-    </div>
-  </div>
-	</div>
-</div>
-</div>
-
-
-			<!-- <div class="space-row hide-on-small-only"></div> -->
-			<div class="space-row hide-on-small-only"></div>
-
-			<div class="center">
-				<h5 class="col s8 offset-s2 hide-on-small-only" id="friends">All your friends want to be invited to the party too.</h5>
+</h4>
+				<br>
+				<div class="ui form">
+					<div class="inline field">
+						<div class="ui toggle checkbox">
+							<input type="checkbox" tabindex="0" class="hidden">
+							<label>Toggle</label>
+						</div>
+					</div>
+				</div>
 			</div>
-			<h5 class="col 11 hide-on-med-and-up" id="friends">Invite your friends to the party.</h5>
+		</div>
 
-			<div class="row">
+
+		<!-- <div class="space-row hide-on-small-only"></div> -->
+		<div class="space-row hide-on-small-only"></div>
+
+		<div class="center">
+			<h5 class="col s8 offset-s2 hide-on-small-only" id="friends">All your friends want to be invited to the party too.</h5>
+		</div>
+		<h5 class="col 11 hide-on-med-and-up" id="friends">Invite your friends to the party.</h5>
+
+		<div class="row">
+			<div class="col s8 offset-s2 social-box">
+				<img class="social-banner hide-on-small-only" src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+			</div>
+			<div class="col s12 social-box">
+				<img class="social-banner hide-on-med-and-up" src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
+			</div>
+
+			<div class="row social-share-box">
 				<div class="col s8 offset-s2 social-box">
-					<img class="social-banner hide-on-small-only" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
-				</div>
-				<div class="col s12 social-box">
-					<img class="social-banner hide-on-med-and-up" ng-src="./img/custom-img/social-media-share-banner/Large-Banner-Top.png" />
-				</div>
 
-				<div class="row social-share-box">
-					<div class="col s8 offset-s2 social-box">
 
-						<!--PINTEREST SHARE ICON-->
-						<a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--PINTEREST SHARE ICON-->
+					<a socialshare socialshare-provider="pinterest" socialshare-text="I want to change my last name to Giphastrator because it is so cool." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="pinterest" ng-mouseleave="changePinterestColor()">
+						<span ng-switch on="pinterest" ng-mouseover="pinterest = 'ON'" ng-mouseleave="pinterest = 'OFF'">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Pinterest-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Pinterest-Button-for-Banner-Black.png'>
 </span></a>
 
-						<!--REDDIT SHARE ICON-->
-						<a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--REDDIT SHARE ICON-->
+					<a socialshare socialshare-provider="reddit" socialshare-text="Would I rather have $1,000,000 or spend an afternoon on Giphastrator.com? That's an easy question: both." socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="reddit" ng-mouseleave="changeRedditColor()">
+						<span ng-switch on="reddit" ng-mouseover="reddit = 'ON'" ng-mouseleave="reddit = 'OFF'">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Reddit-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Reddit-Button-for-Banner-Black.png'>
 </span></a>
 
-						<!--DIGG SHARE ICON-->
-						<a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--DIGG SHARE ICON-->
+					<a socialshare socialshare-provider="digg" socialshare-text="If I were about to die, I'd hurry and log on to Giphastrator to share my story!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="digg" ng-mouseleave="changeDiggColor()">
+						<span ng-switch on="digg" ng-mouseover="digg = 'ON'" ng-mouseleave="digg = 'OFF'">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Digg-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Digg-Button-for-Banner-Black.png'>
 </span></a>
 
-						<!--TUMBLR SHARE ICON-->
-						<a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--TUMBLR SHARE ICON-->
+					<a socialshare socialshare-provider="tumblr" socialshare-text="Watch out world. I just joined Giphastrator!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="tumblr" ng-mouseleave="changeTumblrColor()">
+						<span ng-switch on="tumblr" ng-mouseover="tumblr = 'ON'" ng-mouseleave="tumblr = 'OFF'">
    <img ng-switch-when="ON" class = "social hide-on-small-only" src='./img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social hide-on-small-only" src='./img/custom-img/social-media-share-banner/Tumblr-Button-for-Banner-Black.png'>
 </span></a>
 
-						<!--TWITTER SHARE ICON-->
-						<a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--TWITTER SHARE ICON-->
+					<a socialshare socialshare-provider="twitter" socialshare-text="I would marry Giphastrator if I could!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="twitter" ng-mouseleave="changeTwitterColor()">
+						<span ng-switch on="twitter" ng-mouseover="twitter = 'ON'" ng-mouseleave="twitter = 'OFF'">
    <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Twitter-Button-for-Banner.png'>
    <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Twitter-Button-for-Banner-Black.png'>
 </span></a>
 
-						<!--FACEBOOK SHARE ICON-->
-						<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check it out!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
+					<!--FACEBOOK SHARE ICON-->
+					<a socialshare socialshare-provider="facebook" socialshare-text="I just found a new website called Giphastrator that I love. Check it out!" socialshare-hashtags="giphastrator, ilovegifs" socialshare-url="http://www.giphastrator.com">
 
-							<span ng-switch on="facebook" ng-mouseleave="changeFacebookColor()">
+						<span ng-switch on="facebook" ng-mouseover="facebook = 'ON'" ng-mouseleave="facebook = 'OFF'">
 <img ng-switch-when="ON" class = "social" src='./img/custom-img/social-media-share-banner/Facebook-Button-for-Banner.png'>
 <img ng-switch-when="OFF" class="social" src='./img/custom-img/social-media-share-banner/Facebook-Button-for-Banner-Black.png'>
 </span></a>
-					</div>
-
-
 				</div>
-				<!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
 
 
-				<!-- <div class = "col s6 offset-s6">
+			</div>
+			<!-- <h5><a class="red waves-effect waves-light btn">Delete Account<i class="material-icons right">create</i> </a></h5> -->
+
+
+			<!-- <div class = "col s6 offset-s6">
 <h5>Change Profile Info <i class="material-icons">people outline</i></h5>
     <div class="input-field">
       <input id="email" type="email" class="validate" ng-model="email">
@@ -224,4 +240,4 @@
 </div>
   </div>
 </div> -->
-			</div>
+		</div>
