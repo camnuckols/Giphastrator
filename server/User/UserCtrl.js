@@ -130,7 +130,7 @@ openLock( req, res ) {
 			redirectUrl: 'http://localhost:8080/callback',
 			responseType: 'code',
 			params: {
-				scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+				scope: 'openid email'
 			}
 		},
 		theme: {
