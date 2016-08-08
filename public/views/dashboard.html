@@ -56,9 +56,10 @@
 	Statistics
 </h4>
 				<br>
-
-
-				<table class="ui very basic collapsing celled table">
+				<div class="center">
+					<button id="createStoryBtn" type="button" name="button" ui-sref="write" class="btn black" ng-show="userDetails.stories.length <= 0"><i class="write icon"></i> Create your first Story</button>
+				</div>
+				<table class="ui very basic collapsing celled table" ng-show="userDetails.stories.length >= 1">
 					<thead>
 						<tr>
 							<th>Story</th>
