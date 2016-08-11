@@ -81,6 +81,22 @@ module.exports = {
 			    return res.status( 500 ).json( err );
 			} return res.status( 200 ).json( deletedStory );
 		} );
+	},
+
+	addToFavorites( req, res ) {
+		Story.findById( req.body.storyId, ( err, story ) => {
+			if ( err ) {
+			    return res.status( 500 ).json( err );
+			}
+			console.log( story, 'STORY' );
+			console.log( req.user, 'USER' );
+			User.findByIdAndUpdate( req.user._id, { $push : { favoriteStories: story._id } },
+				( err, updatedUser ) => {
+				if ( err ) {
+				    return res.status( 500 ).json( err );
+				} return res.status( 200 ).json( updatedUser );
+			} );
+		} )
 	}
 
 }

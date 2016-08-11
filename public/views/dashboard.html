@@ -20,9 +20,10 @@
 			<div class="four wide column">
 				<div class="ui top attached tabular menu">
 					<a class="item active" data-tab="first">My Stories</a>
+					<!-- <a class="item" data-tab="fifth">Favorites</a> -->
 					<a class="item" data-tab="second">Statistics</a>
-					<a class="item" data-tab="third">Account</a>
-					<a class="item" data-tab="fourth">Settings</a>
+					<!-- <a class="item" data-tab="third" ng-show="yes">Account</a> -->
+					<!-- <a class="item" data-tab="fourth">Settings</a> -->
 				</div>
 			</div>
 			<div class="ui bottom attached tab segment active" data-tab="first">
@@ -105,20 +106,21 @@
 							</td>
 							<td ng-repeat="id in story.statistics.allTime.countries">
 								<div class="center">
-									{{ id.id }}
+									{{ id.id ? id.id : 'None' }}
 								</div>
 							</td>
 
 						</tr>
 					</tbody>
 					<tfoot>
-						<tr>
-							<th ng-show="userDetails.stories.length > 2">{{ userDetails.stories.length }} Stories</th>
+						<tr class='center'>
+							<th ng-show="userDetails.stories.length > 1">{{ userDetails.stories.length }} Stories</th>
 							<th ng-show="userDetails.stories.length === 1">{{ userDetails.stories.length }} Story</th>
-							<th>something</th>
-							<th></th>
-							<th></th>
-							<th></th>
+							<th ng-show="visitsToday >= 0">{{ visitsToday ? visitsToday : 0 }}</th>
+							<th ng-show="visitsWeek >= 0">{{ visitsWeek ? visitsWeek : 0 }}</th>
+							<th ng-show="visitsMonth >= 0">{{ visitsMonth ? visitsMonth : 0 }}</th>
+							<th ng-show="allTime >= 0">{{ allTime ? allTime : 0}}</th>
+							<th ng-show="countries.length >= 0">{{ countries ? 'US' : 'None' }}</th>
 						</tr>
 					</tfoot>
 				</table>
@@ -138,15 +140,38 @@
 	Settings
 </h4>
 				<br>
-				<div class="ui form">
-					<div class="inline field">
-						<div class="ui toggle checkbox">
-							<input type="checkbox" tabindex="0" class="hidden">
-							<label>Toggle</label>
+				<div class="switch">
+    <label>
+      Off
+      <input type="checkbox">
+      <span class="lever"></span>
+      On
+    </label>
+  </div>
+			</div>
+
+			<div class="ui bottom attached tab segment" data-tab="fifth">
+				<h4 class="ui horizontal divider header white">
+<i class="star icon"></i>
+	Favorites
+</h4>
+				<br>
+				<div class="ui four doubling cards" ng-show="userDetails">
+					<div class="card" ng-repeat="story in userDetails.stories track by $index">
+						<div class="image" ng-show="story.picture">
+							<img class="story-image" src="{{ story.picture }}" />
+						</div>
+						<a class="ui right corner label black" ng-click="deleteStory( story._id, $index )">
+							<i class="trash icon"></i>
+						</a>
+						<div class="extra" ng-show="story.shortUrl">
+							<a class="truncate" href="{{ story.shortUrl }}">{{ story.title }}</a>
 						</div>
 					</div>
 				</div>
+
 			</div>
+
 		</div>
 
 

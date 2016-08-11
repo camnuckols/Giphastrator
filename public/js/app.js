@@ -34,9 +34,10 @@ angular.module('giphastrator', [ 'ui.router', 'ngSanitize', '720kb.socialshare' 
     controller: 'dashboardController',
     data: { requiresLogin: true }
   })
-  .state('learnMore', {
-    url: '/learnMore',
-    templateUrl: './views/learnMore.html'
+  .state('storyBoard', {
+    url: '/storyBoard',
+    templateUrl: './views/storyBoard.html',
+		controller: 'storyBoardCtrl'
   })
 
 })

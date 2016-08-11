@@ -5,7 +5,8 @@ const User = new mongoose.Schema({
   family_name: { type: String },
   email: { type: String },
   stories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Story' }],
-  id: { type: String }
+  id: { type: String },
+	favoriteStories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Story' }]
 });
 
 module.exports = mongoose.model( 'User', User );

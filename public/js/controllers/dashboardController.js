@@ -1,5 +1,5 @@
 angular.module('giphastrator')
-.controller('dashboardController', function( $scope, registerService, writeService, $timeout ) {
+.controller('dashboardController', function( $scope, registerService, writeService, $timeout, $state ) {
 
 	$( document ).ready( function() {
 		$('.menu .item').tab();
@@ -20,9 +20,22 @@ function setUser() {
 	} );
 }
 
+$scope.visitsToday = null;
+$scope.visitsWeek = null;
+$scope.visitsMonth = null;
+$scope.allTime = null;
+$scope.countries = [];
 function getAnalytics() {
+
 	$scope.userDetails.stories.map ( story => {
 		registerService.getAnalytics( story._id, story.shortUrl ).then( response => {
+			$scope.visitsToday += parseInt( response.statistics.day.shortUrlClicks );
+			$scope.visitsWeek += parseInt( response.statistics.week.shortUrlClicks );
+			$scope.visitsMonth += parseInt( response.statistics.month.shortUrlClicks );
+			$scope.allTime += parseInt( response.statistics.allTime.shortUrlClicks );
+			if ( response.statistics.allTime.countries[ 0 ].id ) {
+				$scope.countries.push( response.statistics.allTime.countries[ 0 ].id );
+			}
 		} );
 	} );
 }
@@ -39,6 +52,11 @@ $scope.deleteStory = ( storyId, index ) => {
 	Materialize.toast( 'Something went wrong. Please try again.', 2000 );
 }
 }
+
+	$scope.editStory = ( storyId, index ) => {
+		$state.go( 'write' );
+
+	}
 
 $scope.facebook = 'OFF';
 $scope.twitter = 'OFF';

@@ -9,7 +9,20 @@ angular.module('giphastrator')
 				if ( $state.current.name === 'dashboard' ) {
 					$scope.loggedIn = true;
 					$( document ).ready( function() {
-						// $( '#dashboard' ).css( 'cssText', 'background-color: #00CCD2 !important; opacity: .4; font-weight: bold;' );
+						$( '#dashboard' ).css( 'cssText', 'font-weight: bold;' );
+						$( '#writeAStory' ).on( 'click', function() {
+							$( this ).css( 'cssText', 'font-weight: bold;' );
+							$( '#dashboard, #storyBoard' ).css( 'cssText', 'font-weight: normal;');
+						} );
+						$( '#dashboard' ).on( 'click', function() {
+							$( this ).css( 'cssText', 'font-weight: bold;' );
+							$( '#writeAStory, #storyBoard' ).css( 'cssText', 'font-weight: normal;');
+						} );
+						$( '#storyBoard' ).on( 'click', function() {
+							$( this ).css( 'cssText', 'font-weight: bold;' );
+							$( '#writeAStory, #dashboard' ).css( 'cssText', 'font-weight: normal;');
+						} );
+
 					} );
 				}
 

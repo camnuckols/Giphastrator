@@ -1,0 +1,20 @@
+<div class="userStory-space-row"></div>
+<div class="container headline">
+	<h4 class="ui horizontal divider header white">
+	<i class="book icon"></i>
+	Top Stories
+	</h4>
+	<div class="ui four doubling cards">
+		<div class="card" ng-repeat="story in stories track by $index">
+			<div class="image" ng-show="story.picture">
+				<img class="story-image" src="{{ story.picture }}" />
+			</div>
+			<!-- <a class="ui right corner label black" ng-click="addToFavorites( story._id, $index )">
+				<i class="star icon"></i>
+			</a> -->
+			<div class="extra" ng-show="story.shortUrl">
+				<a class="truncate" href="{{ story.shortUrl }}">{{ story.title }}</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -142,6 +142,15 @@ openLock( req, res ) {
 
 		lock.show();
 
+},
+
+isLoggedIn( req, res, next ) {
+	console.log( req.isAuthenticated() );
+	if ( req.isAuthenticated() ) {
+		next();
+	} else {
+		return res.json({ loggedIn: false });
+	}
 }
 
 }

@@ -40,6 +40,26 @@ this.getStory = function() {
 	// 	deferred.resolve( stories );
 	// 	return deferred.promise;
 
+this.getStories = function() {
+	return $http({
+		method: 'GET',
+		url: '/api/story'
+	} ).then( response => {
+		return response.data;
+	} );
+}
+
+this.addToFavorites = function( storyId ) {
+	return $http({
+		method: 'POST',
+		url: '/api/story/favorites',
+		data: {
+			storyId
+		}
+	}).then( response => {
+		return response.data;
+	} );
+}
 
 this.addStory = function( words, title, id ) {
 

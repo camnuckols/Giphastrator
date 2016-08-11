@@ -28,6 +28,9 @@ a:hover {
 #friends {
 	font-family: Vidaloka, serif;
 }
+.headline {
+	margin-top: 8%;
+}
 .navbar {
   display: flex;
   justify-content: space-around;
